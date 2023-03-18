@@ -25,4 +25,5 @@ Toisena hankalien asioiden listalla on testien kirjoittaminen.
 ### Mitä teen seuraavaksi?
 
 Ensi viikon työlista:
-- Algoritmien
+- Algoritmien lopullinen valinta ja kirjoittaminen koodiksi
+- Käyttöliittymän suunnittelua ja eka versio HTML-sivupohjasta
