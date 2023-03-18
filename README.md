@@ -4,7 +4,7 @@ _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 
 ### Viikkoraportit
 
-![Viikko 1](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_1.md)
+![Viikkoraportti 1](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_1.md)
 
 
 ### Dokumentaatio
