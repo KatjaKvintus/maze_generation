@@ -9,4 +9,4 @@ Viikko 1
 
 ### Dokumentaatio
 
-Määrittelydokumentti
+![Määrittelydokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/M%C3%A4%C3%A4rittelydokumentti.md)
