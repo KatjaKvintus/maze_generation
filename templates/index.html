@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<title>Maze algorithm comparison</title>
+<h1>Maze algorithms app</h1>
+<p>
+
+<p>
+<img src="../images/simplemaze.png" alt="maze">
+<p>
+
+[Add intro text here]<BR><BR>
+
+<hr>
+
+<form action="/choose_algorithms" method="GET" onsubmit="return check(this)">
+Maze size: <BR><input type="text" name="maze_size" minlength="3"> <BR>
+<i>Please choose a size between 5 and 200.</i>
+<BR><BR><BR>
+
+<b>Choose maze algorithm types for comparison:</b><BR><BR>
+Algorithm 1:<BR>
+<input type="radio" name="algorithm_1" value="prim"> Prim's algorithm<BR>
+<input type="radio" name="algorithm_1" value="kruskal"> Kruskal's algorithm<BR>
+<input type="radio" name="algorithm_1" value="recursive_backtracker"> Recursive backtarcker<BR>
+<input type="radio" name="algorithm_1" value="binary_tree"> Binary tree<BR><BR>
+
+Algorithm 2:<BR>
+<input type="radio" name="algorithm_2" value="prim"> Prim's algorithm<BR>
+<input type="radio" name="algorithm_2" value="kruskal"> Kruskal's algorithm<BR>
+<input type="radio" name="algorithm_2" value="recursive_backtracker"> Recursive backtarcker<BR>
+<input type="radio" name="algorithm_2" value="binary_tree"> Binary tree<BR><BR>
+
+<input type="submit" value="Compare">
+</form>
+
+<script>
+function check(form) {
+    if (form.maze_size.value < 5) {
+        alert("Please choose size bigger than 4.");
+        return false;
+    }
+    if (form.maze_size.value > 200) {
+        alert("Please choose size smaller than 200.");
+        return false;
+    }
+    if (form.algorithm_1.value == "") {
+        alert("Please choose algorithm 1.");
+        return false;
+    }
+    if (form.algorithm_2.value == "") {
+        alert("Please choose algorithm 2.");
+        return false;
+    }
+    
+    return true;
+}
+</script>
+
+
