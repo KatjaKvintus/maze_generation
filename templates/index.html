@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <title>Maze algorithm comparison</title>
 <h1>Maze algorithms app</h1>
-<p>
+<body>
 
 <p>
-<img src="../images/simplemaze.png" alt="maze">
-<p>
+[Add intro text here] Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+<BR><BR>
 
-[Add intro text here]<BR><BR>
-
-<hr>
+<hr><BR>
 
 <form action="/choose_algorithms" method="GET" onsubmit="return check(this)">
-Maze size: <BR><input type="text" name="maze_size" minlength="3"> <BR>
-<i>Please choose a size between 5 and 200.</i>
+<b>Choose maze size:</b> <BR><input type="text" name="maze_size" minlength="3"><BR><BR>
+<i>(Please choose a size between 5 and 200.)</i>
 <BR><BR><BR>
 
 <b>Choose maze algorithm types for comparison:</b><BR><BR>
@@ -29,7 +32,7 @@ Algorithm 2:<BR>
 <input type="radio" name="algorithm_2" value="recursive_backtracker"> Recursive backtarcker<BR>
 <input type="radio" name="algorithm_2" value="binary_tree"> Binary tree<BR><BR>
 
-<input type="submit" value="Compare">
+<input type="submit" value="Compare"><BR><BR>
 </form>
 
 <script>
@@ -55,4 +58,5 @@ function check(form) {
 }
 </script>
 
-
+[PLACEHOLDER: results]
+</body>

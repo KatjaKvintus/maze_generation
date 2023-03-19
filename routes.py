@@ -29,9 +29,7 @@ def generate_maze():
 
     # Sokkeloita luovien ja visualisoivien funktioiden kutsuminen tänne
 
-    if algorithm_1 OR algorithm_2 == "prim":
-        maze.generate_prim_maze(maze_size)
-    elif 
+    return render_template("/results")
 
 
 @app.route("/results")
