@@ -7,23 +7,24 @@ Tällä viikolla oli kurssin aloitusluento, jossa alustava suunnitelmani aiheest
 
 ### Miten ohjelma on edistynyt?
 
-Olen perustanut GitHub-projektin ja rekisteröin sen Labtooliin. Varsinaista ohjelmakoodia en ole kirjoittanut sanaakaan, vaan olen keskittynyt tiedon keräämiseen, suunnitteluun ja sovelluksen toimintojen miettimiseen. Alustava suunnitelmani on, että teen sovelluksesta pienen web-apin.
+Olen perustanut GitHub-projektin ja rekisteröin sen Labtooliin. Tein alustavan algoritmivalinnan ja loin sovellukselle pohjan (index.html käyttöliittymää varten + kaksi luokkaa: routes.py ja maze.py). Hahmottelin sovelluksen runkoa.
 
 
 ### Mitä opin tällä viikolla / tänään?
 
-Opin, kuinka erilaisten sokkeloiden luomisesta on kirjoitettu paljon tieteellisiä artikkeleita ja kuinka paljon niillä on konkreettisia käyttömahdollisuuksia. 
+Opin, kuinka erilaisten sokkeloiden luomisesta on kirjoitettu paljon tieteellisiä artikkeleita ja kuinka paljon niillä on konkreettisia käyttömahdollisuuksia. Ja mitä enemmän luin, sitä selvempää on, että tarvitsisin 'for dummies' -version näin alkuun. 
 
 
-### Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella. 
+### Mikä jäi epäselväksi tai tuottanut vaikeuksia? 
 
-Tällä hetkellä eniten arveluttaa luodun sokkelon visualisoinnin luominen. Riittääkö kuva valmiista sokkelosta, vai tarvitaanko animaatio? 
+Tällä hetkellä eniten arveluttaa sokkelon visualisoinnin luominen. Riittääkö kuva valmiista sokkelosta, vai tarvitaanko animaatio? 
 
-Toisena hankalien asioiden listalla on testien kirjoittaminen. 
+Toisena hankalien asioiden listalla on testien kirjoittaminen. Olen aiemmilla kursseilla kirjoittanut hyvin minimaalisen määrän testejä enkä ollenkaan sellaisia, joissa annetaan moc-syötteitä. On hyvä, että tällä kurssilla on tarjolla oma luento testaamisesta.
 
 
 ### Mitä teen seuraavaksi?
 
 Ensi viikon työlista:
-- Algoritmien lopullinen valinta ja kirjoittaminen koodiksi
-- Käyttöliittymän suunnittelua ja eka versio HTML-sivupohjasta
+- Algoritmien lopullinen valinta ja niiden kirjoittaminen koodiksi
+- Käyttöliittymän säätäminen
+- Sovelluksen toimintojen päättäminen: onko tarvetta käyttäjätilin luomiselle, sokkelotestien tulosten tallentamiselle tai tarkemmalle analyysille kahden sokkelon eroista? 
