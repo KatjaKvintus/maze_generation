@@ -2,7 +2,7 @@
 
 ### Mitä olen tehnyt tällä viikolla?
 
-Tällä viikolla työt ja toisen kurssin deadline veivät suurimman osan vapaa-ajastani, joten minulla on hyvin vähän näytettävää. Työaikaa kertyi vain kuusi tuntia [(ks.tuntikirjanpito)](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/tuntikirjanpito.md).
+Tällä viikolla työt ja toisen kurssin deadline veivät suurimman osan vapaa-ajastani, joten minulla on hyvin vähän näytettävää. Työaikaa kertyi vain kuusi tuntia [(ks. tuntikirjanpito)](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/tuntikirjanpito.md).
 
 Olen lukenut lisää valitsemistani algoritmeista sekä kahlannut Youtubesta videoita eri tavoista visualisoida sokkelo. Näyttää siltä, että alkuperäinen ajatukseni keskittää kaikki sokkeloalgoritmit yhteen luokkaan ei toimikaan, vaan on kannattavampaa luoda jokaiselle oma luokka ja koota niihin kuhunkin algoritmiin liittyvät tarkistukset (ja visualisoinnit?). 
 
