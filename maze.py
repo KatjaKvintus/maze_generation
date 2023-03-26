@@ -1,4 +1,10 @@
 '''Module for handling maze related functions'''
+import random
+from enum import Enum
+import numpy as np
+import cv2
+import syss
+
 
 def __init__(self, size : int, type: str):
     '''Constructor for maze objects. Maze has a size (matrix side lenght)
@@ -13,11 +19,13 @@ def generate_prim_maze(size : int):
     # Koodia tänne
 
 
-def generate_recursive_backtracker_maze(size : int):
+def generate_recursive_backtracker_maze(self, size : int):
     '''Generates a maze using recursive backtracker algorithm 
     and returns a maze object'''
 
     # Koodia tänne
+
+
 
 
 def generate_kruskal_maze(size : int):
@@ -38,3 +46,9 @@ def check_maze_validity(maze):
 
     # Koodia tänne
 
+
+if __name__ == "__main__":
+    testimatriisi = generate_recursive_backtracker_maze(10)
+
+    for rivi in testimatriisi:
+        print (rivi)
