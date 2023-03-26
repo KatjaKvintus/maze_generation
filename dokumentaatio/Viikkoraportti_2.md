@@ -1,30 +1,34 @@
-# Viikkoraportti 1
+# Viikkoraportti 2
 
 ### Mitä olen tehnyt tällä viikolla?
 
-Tällä viikolla oli kurssin aloitusluento, jossa alustava suunnitelmani aiheesta sai vahvistuksen. Valitsin aiheeksi  sokkeloiden luovien algoritmien käsittelyn. Aloitusluennolla mainitut algoritmit (Prim, Kruskal,  algoritmin ovat tuttuja Tietorakenteet ja algoritmit -kursseilta, mutta koska kävin ko. kurssit vuonna 2021, ne eivät ole ihan tuoreessa muistissa. Aloitin siis kaivamalla vanhat kurssimateriaalit ja -muistiinpanot esille, ja kävin ne läpi. Luin myös muuta materiaalia, aloittaen tämän kurssin aihelistan yhteydessä olleesta [Wikipedia-linkistä](https://en.wikipedia.org/wiki/Maze_generation_algorithm). Aiheesta löytyy netistä paljon tietoa ja listasin muutaman lähteen talteen [määrittelydokumenttiin](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/M%C3%A4%C3%A4rittelydokumentti.md). 
+Tällä viikolla työt ja toisen kurssin deadline veivät suurimman osan ajastani, joten minulla on hyvin vähän näytettävää.
+
+Olen lukenut lisää valitsemistani algoritmeista sekä kahlannut Youtubesta videoita eri tavoista visualisoida sokkelo. Näyttää siltä, että alkuperäinen ajatukseni keskittää kaikki sokkeloalgoritmit yhteen luokkaan ei toimikaan, vaan on kannattavampaa luoda jokaiselle oma luokka. Ensimmäinen kokeiluni on backtracker.py -luokka.
+
+Rockets and Robotics -kanavalta löytyi [video](https://www.youtube.com/watch?v=jZQ31-4_8KM&t=216s), jossa esitettiin sokkelon luominen Pythonin [turtle-kirjastolla](https://docs.python.org/3/library/turtle.html). Turle oli minulle ennalta tuntematon ja sehän oli varsin näppärä! Testasin videossa esiteltyä syvyyshakuun pohjautuvaa koodia ja se toimii, mutta en vielä saa sokkelonluomisanimaatiota talteen - Googlen mukaan senkin pitäisi onnistua. 
+
+En ole ihan varma, että kuinka pitkälti tällä kurssilla saa käyttää valmista koodia - kyseessä ovat kuitenkin tunnetut algoritmit - vai onko luvallista vain ottaa ideoita ja kirjoittaa koodi alusta lähtien itse. Tällä hetkellä koodissa on suoraan kopioitu kaksi funktiota: syvyyhakualgoritmi, joka muodostaa sokkelon, ja toinen joka visualisoi sen turtlella. Omaan makuuni sokkeloalgoritmi on aika pitkä, ja pilkkoisin sen mielelläni testausta varten 2-4 osaan. 
 
 
 ### Miten ohjelma on edistynyt?
 
-Olen perustanut GitHub-projektin ja rekisteröin sen Labtooliin. Tein alustavan algoritmivalinnan ja loin sovellukselle pohjan (index.html käyttöliittymää varten + kaksi luokkaa: routes.py ja maze.py). Hahmottelin sovelluksen runkoa.
+Olen löytänyt hyvän tavan visualisoida sokkelo satunnaisessa syvyyshaussa. Pitää selvittää, miten se toimisi muiden valitsemieni algoritmien kanssa. Minulla ei ole vielä mitään valmista, joten en ole kirjoittanut vielä testejäkään. 
 
 
-### Mitä opin tällä viikolla / tänään?
+### Mitä opin tällä viikolla?
 
-Opin, kuinka erilaisten sokkeloiden luomisesta on kirjoitettu paljon tieteellisiä artikkeleita ja kuinka paljon niillä on konkreettisia käyttömahdollisuuksia. Ja mitä enemmän luin, sitä selvempää on, että tarvitsisin 'for dummies' -version näin alkuun. 
+Tutustuin Pythonin turtle-kirjastoon.
 
 
 ### Mikä jäi epäselväksi tai tuottanut vaikeuksia? 
 
-Tällä hetkellä eniten arveluttaa sokkelon visualisoinnin luominen. Riittääkö kuva valmiista sokkelosta, vai tarvitaanko animaatio? 
 
-Toisena hankalien asioiden listalla on testien kirjoittaminen. Olen aiemmilla kursseilla kirjoittanut hyvin minimaalisen määrän testejä enkä ollenkaan sellaisia, joissa annetaan moc-syötteitä. On hyvä, että tällä kurssilla on tarjolla oma luento testaamisesta.
 
 
 ### Mitä teen seuraavaksi?
 
 Ensi viikon työlista:
-- Algoritmien lopullinen valinta ja niiden kirjoittaminen koodiksi
-- Käyttöliittymän säätäminen
-- Sovelluksen toimintojen päättäminen: onko tarvetta käyttäjätilin luomiselle, sokkelotestien tulosten tallentamiselle tai tarkemmalle analyysille kahden sokkelon eroista? 
+- Algoritmien kirjoittaminen koodiksi
+- Käyttöliittymän säätäminen niin, että sokkeloalgoritmi näyttää myös animaation sen rakentumisesta
+- Sovelluksen toimintojen miettiminen: onko tarvetta käyttäjätilin luomiselle, sokkelotestien tulosten tallentamiselle tai tarkemmalle analyysille kahden sokkelon eroista? 
