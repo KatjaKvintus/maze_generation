@@ -1,6 +1,6 @@
-from flask import render_template, request
+'''Routes for webapp pages and functionalities'''
 from app import app
-import maze
+from flask import render_template, request
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -18,14 +18,15 @@ def choose_algorithms():
         algorithm_2 = request.form["algorithm_2"]
         maze_size = request.form["maze_size"]
 
-    return render_template("/generate_maze", 
-                           algorithm_1=algorithm_1, 
-                           algorithm_2=algorithm_2, 
-                           maze_size=maze_size)
+    return render_template("/generate_maze",
+                            algorithm_1=algorithm_1,
+                            algorithm_2=algorithm_2,
+                            maze_size=maze_size)
 
 
 @app.route("/generate_maze")
 def generate_maze():
+    '''For maze calls'''
 
     # Sokkeloita luovien ja visualisoivien funktioiden kutsuminen tänne
 
@@ -34,6 +35,7 @@ def generate_maze():
 
 @app.route("/results")
 def results():
+    '''For results'''
 
     # Tulosten muotoilu tänne
 

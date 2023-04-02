@@ -1,5 +1,4 @@
 '''Module app'''
-from os import getenv
 import os
 from flask import Flask
 

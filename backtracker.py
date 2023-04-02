@@ -1,147 +1,198 @@
+'''Model fo bactracking algorthm maze generation and visualization'''
+
 import random
 import turtle
 
 
+def create_bactracker_maze(size):
+    '''Create a maze of required size. In the beginning every cell has walls around it.
+    The string in each cell tells its wall situation.  A wall is marked by '1', a lack of wall
+    is marked by '0'. At the beginning all walls are up so every cell contains a string '1111'.
+    The cell keeps track of its walls in this order: left, top, right, bottom. '''
 
-def listsum(input):
-    my_sum = 0
-    for row in input:
-        my_sum += sum(row)
-    return my_sum
+    '''A 2D list to keep track of matrix walls'''
+    matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]
 
+    '''Another 2D list that keeps track of which cells has been visited. Same size as the matrix.
+    0 = not visited, 1 = has been visited. All cells are 0 at the beginning.'''
+    visit_status = [[0 for i in range(size)] for j in range(size)]
 
-def mazegenerate(size_x, size_y):
-
-    Walls = [[[1,1,1,1] for a in range(size_x)] for b in range(size_y)]
+    '''Starting point is (0, 0): top left corner'''
     x = 0
     y = 0
-    visitsum = 0
-    currentnode = [x, y]
-    visited = [[0 for a in range(size_x)] for b in range(size_y)]
-    visited[x][y] = 1
-    visitn = [[x, y]]
-    n = 0
+    current_cell = [x, y]
 
-    while visitsum != (size_x * size_y):	#check to see if finished
-        options=[0,0,0,0]
+    visited_cells_sum = 1
+    max_visited_cells_sum = size * size
 
-        if x != 0:
-            if visited[y][x-1] == 0:
-                options[0] = 1
-                #wall can be removed on the left
+    '''Cells in visit order. Needed for backing up from an impasse.'''
+    cell_stack = []
+    cell_stack.append([x, y])     # adding the starting point
 
-        if y != size_y-1:
-            if visited[y+1][x] == 0:
-                options[1] = 1
-                #wall can be removed above
+    visit_status[x][y] = 1      # marking the starting point as a visited one
 
-        if x != size_x-1:
-            if visited[y][x+1] == 0:
-                options[2] = 1
-                #wall can be removed on the right
+    while visited_cells_sum != max_visited_cells_sum:
+
+        '''0 = not possible move, 1 = possible move'''
+        move_availability = [0, 0, 0, 0]         # in oder = left, up, right, below
 
         if y != 0:
-            if visited[y-1][x] == 0:
-                options[3] = 1
-                #wall can be removed below
+            '''If it is possible to move left'''
+            if visit_status[x][y-1] == 0:
+                move_availability[0] = 1
 
-        if options==[0,0,0,0]:
-            currentnode=visitn[n-1]
-            x=currentnode[0]
-            y=currentnode[1]
-            n=n-1
-            #moves back to previous square/node
+        if x != 0:
+            '''If it is possible to  move up'''
+            if visit_status[x-1][y] == 0:
+                move_availability[1] = 1
+
+        if y != (size - 1):
+            '''If it is possible to  move right'''
+            if visit_status[x][y+1] == 0:
+
+                move_availability[2] = 1
+
+        if x != size - 1:
+            '''If it is possible to move below'''
+            if visit_status[x+1][y] == 0:
+
+                move_availability[3] = 1
+
+        if move_availability == [0, 0, 0, 0]:
+            '''If no moves available', return to the latest cell in the stack'''
+
+            if visit_status[current_cell[0]][current_cell[1]] == 0:
+                visited_cells_sum += 1
+
+            visit_status[current_cell[0]][current_cell[1]] = 1
+
+            if current_cell == cell_stack[len(cell_stack) - 1]:
+                cell_stack.pop()    # Remove current cell from the stack
+
+            top_of_cell_stack = cell_stack.pop()
+            x = top_of_cell_stack[0]
+            y = top_of_cell_stack[1]
+            current_cell = [x, y]
 
         else:
-            nodefound=False
-            
-            while nodefound==False:
-                randomint=random.randint(0,3)
+            move_handled = False
 
-                if options[randomint]==1:
+            while move_handled is False:
 
-                    if randomint==0:
-                        oppisitenode=[currentnode[0]-1,currentnode[1]]#moves into cell on the left
-                        Walls[currentnode[1]][currentnode[0]][0]=0#removing wall left
-                        Walls[oppisitenode[1]][oppisitenode[0]][2]=0
+                drawn_direction = random.randint(0, 3)
 
-                    elif randomint==1:
-                        oppisitenode=[currentnode[0],currentnode[1]+1]#moves into cell above
-                        Walls[currentnode[1]][currentnode[0]][1]=0#removing wall above
-                        Walls[oppisitenode[1]][oppisitenode[0]][3]=0
+                if move_availability[drawn_direction] == 1:
 
-                    elif randomint==2:
-                        oppisitenode=[currentnode[0]+1,currentnode[1]]#moves into cell on the right
-                        Walls[currentnode[1]][currentnode[0]][2]=0#removing wall right
-                        Walls[oppisitenode[1]][oppisitenode[0]][0]=0
+                    if drawn_direction == 0:
+                        '''moves into cell on the left, removes left wall from current cell,
+                        removes right wall from the next cell'''
+                        next_cell = [current_cell[0], current_cell[1] - 1]
+                        matrix[current_cell[0]][current_cell[1]][0] = 0
+                        matrix[next_cell[0]][next_cell[1]][2] = 0
+
+                    elif drawn_direction == 1:
+                        '''moves into cell above, removes wall above from current cell,
+                        removes wall below from the next cell'''
+                        next_cell = [current_cell[0] - 1, current_cell[1]]
+                        matrix[current_cell[0]][current_cell[1]][1] = 0
+                        matrix[next_cell[0]][next_cell[1]][3] = 0
+
+                    elif drawn_direction == 2:
+                        '''moves into cell on the right, removes right wall from current cell,
+                        removes left wall from the next cell'''
+                        next_cell = [current_cell[0], current_cell[1] + 1]
+                        matrix[current_cell[0]][current_cell[1]][2] = 0
+                        matrix[next_cell[0]][next_cell[1]][0] = 0
 
                     else:
-                        oppisitenode=[currentnode[0],currentnode[1]-1]#moves into cell below
-                        Walls[currentnode[1]][currentnode[0]][3]=0#removing wall below
-                        Walls[oppisitenode[1]][oppisitenode[0]][1]=0
-                    n=n+1
+                        '''moves into cell below, removes wall below from current cell,
+                        removes wall top from the next cell'''
+                        next_cell = [current_cell[0] + 1, current_cell[1]]
+                        matrix[current_cell[0]][current_cell[1]][3] = 0
+                        matrix[next_cell[0]][next_cell[1]][1] = 0
 
-                    visitn.insert(n,oppisitenode)
-                    currentnode = oppisitenode
-                    visited[currentnode[1]][currentnode[0]]=1
-                    x = currentnode[0]
-                    y = currentnode[1]
-                    nodefound = True
+                    if visit_status[current_cell[0]][current_cell[1]] == 0:
+                        '''If this was 1st time in this cell, mark as visited'''
+                        visited_cells_sum += 1
 
-        visitsum = listsum(visited)
+                    visit_status[current_cell[0]][current_cell[1]] = 1
+                    cell_stack.append(next_cell)
+                    current_cell = next_cell
 
-    return(Walls)
+                    x = current_cell[0]
+                    y = current_cell[1]
+                    move_handled = True
+
+    return matrix
 
 
+def maze_impasse_amount(maze):
+    '''Returns the amount of maze impasses e.g. how many cells include only one "1".
+    Helps to analyze maze complexity.'''
 
-def printmaze(size_x, size_y, Walls):
-    
+    impasses = 0
+
+    for row in maze:
+        for cell in row:
+            text = str(cell)
+            if text.count("1") == 1:
+                impasses += 1
+
+    return impasses
+
+
+def draw_maze_image(size, matrix):
+    '''Draws maze image'''
+    drawer = turtle.Turtle()
+
     start_x = -380
     start_y = -start_x
-    grid_size = (2*(-start_x))/size_x
-    turtle.clear()
-    turtle.speed(0)
-    turtle.penup()
-    turtle.goto(start_x, start_y)
-    turtle.pendown()
-    turtle.goto(-start_x, start_y)
-    turtle.goto(-start_x, -start_y)
-    turtle.setheading(0)
+    maze_size = (2 * (-start_x))/size
+    drawer.clear()
+    drawer.speed(3)
+    drawer.penup()
 
-    for y in range(size_x):
-        turtle.penup()
-        turtle.goto(start_x, -start_y + grid_size * (y))
-        
-        for x in range(size_y):
-            if Walls[y][x][3] == 1:
-                turtle.pendown()
+    # Draw part of the frame: top and right
+    drawer.goto(start_x, start_y)
+    drawer.pendown()
+    drawer.goto(-start_x, start_y)
+    drawer.goto(-start_x, -start_y)
+    drawer.setheading(0)
+
+    # Drawing horizontal lines
+    for y in range(size):
+
+        drawer.penup()
+        drawer.goto(start_x, start_y + -maze_size * (y) - maze_size)
+
+        for x in range(size):
+
+            if matrix[y][x][3] == 1:
+                drawer.pendown()
+            elif matrix[y][x][3] == 0:
+                drawer.penup()
             else:
-                turtle.penup()
-                
-            turtle.forward(grid_size)
-    
-    turtle.left(90)
+                print("error")
 
-    for x in range(size_x):
-        
-        turtle.penup()
-        turtle.goto(start_x + grid_size * (x), -start_y)
-        
-        for y in range(size_y):
-            if Walls[y][x][0] == 1:
-                turtle.pendown()
+            drawer.forward(maze_size)
+
+    #Drawing vertical lines
+    drawer.left(90)
+
+    for x in range(size):
+
+        drawer.penup()
+        drawer.goto(start_x + maze_size * (x), -start_y)
+
+        for y in range(size):
+            if matrix[size - y - 1][x][0] == 1:
+                drawer.pendown()
             else:
-                turtle.penup()
-            turtle.forward(grid_size)
+                drawer.penup()
 
-    
+            drawer.forward(maze_size)
 
-# Testikoodia
-if __name__ == "__main__":
+    maze_image = drawer.getscreen()
 
-	sizex = 20
-	sizey = 20
-	Walls = mazegenerate(sizex,sizey)
-	print(Walls)
-	printmaze(sizex, sizey, Walls)
-
+    # To be fixe: save file into folder "images"
+    return maze_image.getcanvas().postscript(file="backtracker_maze.eps")
