@@ -10,7 +10,7 @@ Kirjoitin myös funktion, jolla tarkistetaan kuinka monta umpikujaa sokkelossa o
 
 
 
-## Miten ohjelma on edistynyt?
+### Miten ohjelma on edistynyt?
 
 Syvyyshakualgoritmi valmis. Syvyyshakualgoritmin visuaalinen esitys melko valmis. Tallennus oikeaan kansioon pitää vielä saada toimimaan.
 
