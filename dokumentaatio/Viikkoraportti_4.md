@@ -2,18 +2,22 @@
 
 ### Mitä olen tehnyt tällä viikolla?
 
-Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin, joka on visualisointia vaille valmis. Kirjoitin myös testit syvyyshakualgoiymille.
+Olen kirjoittantu Kruskalin algoritmia ja debugannut sitä, sekä kirjoittanut testejä sysyyshakualgoritmille.
 
 
 ## Miten ohjelma on edistynyt?
 
-Kruskalin algoritmi valmis.
-Pylint-tarkistus antaa arvosanan 5.57/10 (huomattava parannus viime viikon 0.00:sta!) ja testien puuttuessa myös testien kattavuus on 0 %.
+
+Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin, joka on visualisointia vaille valmis. Kirjoitin myös testit syvyyshakualgoritmille.
+
+Pylint-tarkistus antaa arvosanan XXXX/10 ja testikattavuus on seuraava:
+
+LISÄÄ TÄHÄN KUVA!
 
 
 ### Mitä opin tällä viikolla?
 
-Opin käyttämään Turtle-kirjastoa.
+
 
 
 ### Mikä jäi epäselväksi tai tuottanut vaikeuksia? 
