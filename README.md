@@ -12,6 +12,8 @@ Sovelluksessa käyttäjä voi vertailla kahden sokkeloita luovan algoritmin tulo
 
 ![Viikkoraportti 3](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_3.md)
 
+![Viikkoraportti 4](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_4.md)
+
 
 ### Dokumentaatio
 
