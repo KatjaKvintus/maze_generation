@@ -11,15 +11,15 @@
 | 29.3.2023 | 2,5 | Satunnainen syvyyshaku -dokumentaation lukemista ja koodikokeiluja |
 | 30.3.2023 | 2 | Syvyyshakualgoritmin debuggausta |
 | 1.4.2023 | 5 | Syvyyshakualgoritmin kirjoittaminen loppuun + Turtle-dokumentaation lukemista ja kokeilua |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| 2.4.2023 | 4 | Syvyyshaulla tuotetun sokkelon visualisoinnin kirjoittaminen loppuun |
+| 6.2.2023 | 1 | Poetryn asennusongelmia |
+| 7.4.2023 | 4 | Poetryn asennus loppuun, ongelmien selvitystä testien ajamisen kanssa, Kruskal-algoritmin osuuden aloitus |
+| 8.4.2023 | 2 | Syyshaun testien kirjoittamista, Kruskalin algoritmin kirjoitusta |
+| 9.4.2023 | 3 | Kruskalin algoritmin viimeistely |
+| 10.4.2023 |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 
-| yht. 26 tuntia |  
+| yht. 36 tuntia |  
