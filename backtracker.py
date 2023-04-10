@@ -1,4 +1,4 @@
-'''Model fo bactracking algorthm maze generation and visualization'''
+'''Module fo bactracking algorthm maze generation and visualization'''
 
 import random
 import turtle
@@ -6,9 +6,10 @@ import turtle
 
 def create_bactracker_maze(size):
     '''Create a maze of required size. In the beginning every cell has walls around it.
-    The string in each cell tells its wall situation.  A wall is marked by '1', a lack of wall
-    is marked by '0'. At the beginning all walls are up so every cell contains a string '1111'.
-    The cell keeps track of its walls in this order: left, top, right, bottom. '''
+    The list of 4 characters in each cell tells its wall situation.  A wall is marked
+    by '1', a lack of wall is marked by '0'. At the beginning all walls are up so every 
+    cell contains a list of [1, 1, 1, 1]. The cell keeps track of its walls in this order: 
+    left, top, right, bottom. '''
 
     '''A 2D list to keep track of matrix walls'''
     matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]

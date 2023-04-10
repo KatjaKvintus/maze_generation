@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "maze-generation"
+version = "0.1.0"
+description = ""
+authors = ["Katja Kvintus <katja.kvintus@helsinki.fi>"]
+readme = "README.md"
+packages = [{include = "maze_generation"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+invoke = "^2.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+coverage = "^7.2.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
