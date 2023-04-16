@@ -1,1 +1,2 @@
 [run]
+omit = backtracker_test.py, kruskal_test.py
