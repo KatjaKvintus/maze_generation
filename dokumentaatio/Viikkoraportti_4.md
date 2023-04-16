@@ -2,31 +2,34 @@
 
 ### Mitä olen tehnyt tällä viikolla?
 
-Olen kirjoittantu Kruskalin algoritmia ja debugannut sitä, sekä kirjoittanut testejä sysyyshakualgoritmille.
+Aikaa on mennyt ihan hirveästi oman koodin debuggaamiseen. Tällä hetkellä valmiina on kaksi sokkeloalgoritmia ja niiden piirtäminen kuviksi. Nettiapista on valmiina runko, joka näyttää aika karulta, mutta perustoiminnallisuudet löytyvät. Sain viimein testit toiminaan ja syvyyshakualgoritmille on nyt kohtuullisen kattavat testit.
 
 
 ## Miten ohjelma on edistynyt?
 
-
-Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin, joka on visualisointia vaille valmis. Kirjoitin myös testit syvyyshakualgoritmille.
+Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin ja visualisoinnin sille. Kirjoitin myös testit syvyyshakualgoritmille.
 
 Pylint-tarkistus antaa arvosanan XXXX/10 ja testikattavuus on seuraava:
 
-LISÄÄ TÄHÄN KUVA!
+------LISÄÄ TÄHÄN KUVA!-----
 
 
 ### Mitä opin tällä viikolla?
 
-
+Opin enemmän Turtle-moduulin käyttöä.
 
 
 ### Mikä jäi epäselväksi tai tuottanut vaikeuksia? 
 
+Turtle piirtää pienet sokkelot nopeasti, mutta esim. 100x100 -sokkelon piirtämiseen menee ihan liikaa aikaa. Jos löytyy vähällä vaivalla parempi piirtosysteemi, vaihdan siihen.
 
 
 ### Mitä teen seuraavaksi?
 
+Kirjoitan kolmannen algoritmin (Prim) ja sille visualisoinnin + testit. Sen jälkeen mietin webapin ulkoasua vähän fiksummaksi ja teen dokumentaatiota.
 
 
-###Ensi viikon työlista:
--
+### Ensi viikon työlista:
+- Primin algoritmin kirjoitus
+- Webapin ulkoasun säätöä
+- Dokumentaation kirjoitusta
