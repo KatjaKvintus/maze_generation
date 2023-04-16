@@ -4,40 +4,26 @@
 <body>
 
 <p>
-[Add intro text here] Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+There are many ways to generate mazes. This app will demonstrate 3 of those:
+<ul>
+    <li>Prim's algorithm</li>
+    <li>Kruskal's algorithm</li>
+    <li>Recursive backtracker</li>
+  </ul> 
 <BR><BR>
 
 <hr><BR>
 
-<form action="/choose_algorithms" method="GET" onsubmit="return check(this)">
-<b>Choose maze size:</b> <BR><input type="text" name="maze_size" minlength="3"><BR><BR>
+<form action="/generate_mazes" method="POST" onsubmit="return check(this)">
+<b>Choose maze size:</b> <BR><input type="text" name="maze_size"><BR><BR>
 <i>(Please choose a size between 5 and 200.)</i>
-<BR><BR><BR>
-
-<b>Choose maze algorithm types for comparison:</b><BR><BR>
-Algorithm 1:<BR>
-<input type="radio" name="algorithm_1" value="prim"> Prim's algorithm<BR>
-<input type="radio" name="algorithm_1" value="kruskal"> Kruskal's algorithm<BR>
-<input type="radio" name="algorithm_1" value="recursive_backtracker"> Recursive backtarcker<BR>
-<input type="radio" name="algorithm_1" value="binary_tree"> Binary tree<BR><BR>
-
-Algorithm 2:<BR>
-<input type="radio" name="algorithm_2" value="prim"> Prim's algorithm<BR>
-<input type="radio" name="algorithm_2" value="kruskal"> Kruskal's algorithm<BR>
-<input type="radio" name="algorithm_2" value="recursive_backtracker"> Recursive backtarcker<BR>
-<input type="radio" name="algorithm_2" value="binary_tree"> Binary tree<BR><BR>
-
-<input type="submit" value="Compare"><BR><BR>
+<BR><BR>
+<input type="submit" value="Generate mazes"><BR><BR>
 </form>
 
 <script>
 function check(form) {
-    if (form.maze_size.value < 5) {
+    if (form.maze_size.value < 4) {
         alert("Please choose size bigger than 4.");
         return false;
     }
@@ -45,18 +31,8 @@ function check(form) {
         alert("Please choose size smaller than 200.");
         return false;
     }
-    if (form.algorithm_1.value == "") {
-        alert("Please choose algorithm 1.");
-        return false;
-    }
-    if (form.algorithm_2.value == "") {
-        alert("Please choose algorithm 2.");
-        return false;
-    }
-    
     return true;
 }
 </script>
 
-[PLACEHOLDER: results]
 </body>

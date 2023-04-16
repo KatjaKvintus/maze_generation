@@ -1,5 +1,5 @@
 '''Module fo bactracking algorthm maze generation and visualization'''
-
+from PIL import Image
 import random
 import turtle
 
@@ -7,27 +7,28 @@ import turtle
 def create_bactracker_maze(size):
     '''Create a maze of required size. In the beginning every cell has walls around it.
     The list of 4 characters in each cell tells its wall situation.  A wall is marked
-    by '1', a lack of wall is marked by '0'. At the beginning all walls are up so every 
-    cell contains a list of [1, 1, 1, 1]. The cell keeps track of its walls in this order: 
+    by '1', a lack of wall is marked by '0'. At the beginning all walls are up so every
+    cell contains a list of [1, 1, 1, 1]. The cell keeps track of its walls in this order:
     left, top, right, bottom. '''
 
-    '''A 2D list to keep track of matrix walls'''
     matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]
+    '''A 2D list to keep track of matrix walls'''
 
+    visit_status = [[0 for i in range(size)] for j in range(size)]
     '''Another 2D list that keeps track of which cells has been visited. Same size as the matrix.
     0 = not visited, 1 = has been visited. All cells are 0 at the beginning.'''
-    visit_status = [[0 for i in range(size)] for j in range(size)]
 
-    '''Starting point is (0, 0): top left corner'''
     x = 0
     y = 0
     current_cell = [x, y]
+    '''Starting point is (0, 0): top left corner'''
 
     visited_cells_sum = 1
     max_visited_cells_sum = size * size
 
-    '''Cells in visit order. Needed for backing up from an impasse.'''
     cell_stack = []
+    '''Cells in visit order. Needed for backing up from an impasse.'''
+
     cell_stack.append([x, y])     # adding the starting point
 
     visit_status[x][y] = 1      # marking the starting point as a visited one
@@ -127,7 +128,7 @@ def create_bactracker_maze(size):
     return matrix
 
 
-def maze_impasse_amount(maze):
+def bactracker_maze_impasse_amount(maze):
     '''Returns the amount of maze impasses e.g. how many cells include only one "1".
     Helps to analyze maze complexity.'''
 
@@ -146,11 +147,14 @@ def draw_maze_image(size, matrix):
     '''Draws maze image'''
     drawer = turtle.Turtle()
 
+    canvas = turtle.Screen()
+    canvas.setup(width=900, height=900)
+
     start_x = -380
     start_y = -start_x
     maze_size = (2 * (-start_x))/size
     drawer.clear()
-    drawer.speed(3)
+    drawer.speed(0)
     drawer.penup()
 
     # Draw part of the frame: top and right
@@ -193,7 +197,10 @@ def draw_maze_image(size, matrix):
 
             drawer.forward(maze_size)
 
-    maze_image = drawer.getscreen()
+    image = drawer.getscreen()
+    image.getcanvas().postscript(file="backtracker_maze.eps")
+    maze_image = Image.open("backtracker_maze.eps")
+    maze_image.save("static/backtracker_maze_image.jpg", "jpeg")
+    drawer.clear()
 
-    # To be fixe: save file into folder "images"
-    return maze_image.getcanvas().postscript(file="backtracker_maze.eps")
+    return maze_image

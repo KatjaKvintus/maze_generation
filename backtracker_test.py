@@ -1,9 +1,11 @@
+'''For testing the backtracker.py file'''
 import unittest
 import random
 from . import backtracker
 
 
 class Test_backtracker(unittest.TestCase):
+    '''Bactracker realtes tests'''
 
 
     def test_maze_is_correct_size(self):
@@ -25,7 +27,7 @@ class Test_backtracker(unittest.TestCase):
                 maze_size += len(row)
 
             self.assertEqual(maze_size, size*size)
-    
+
 
     def test_maze_is_not_entirely_made_of_walls(self):
         '''Tests that that maze does contain open entryways too.
@@ -130,6 +132,5 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
             self.maze = backtracker.create_bactracker_maze(size)
-            result = backtracker.maze_impasse_amount(self.maze)
+            result = backtracker.bactracker_maze_impasse_amount(self.maze)
             self.assertTrue(3 <= result <= size*size)
-
