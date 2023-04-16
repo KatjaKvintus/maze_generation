@@ -4,8 +4,10 @@
 
 Aikaa on mennyt ihan hirveästi oman koodin debuggaamiseen. Tällä hetkellä valmiina on kaksi sokkeloalgoritmia ja niiden piirtäminen kuviksi. Nettiapista on valmiina runko, joka näyttää aika karulta, mutta perustoiminnallisuudet löytyvät. Sain viimein testit toiminaan ja syvyyshakualgoritmille on nyt kohtuullisen kattavat testit.
 
+Kirjoitin vertaisarviointia varten [lyhyen ohjeen](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
 
-## Miten ohjelma on edistynyt?
+
+### Miten ohjelma on edistynyt?
 
 Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin ja visualisoinnin sille. Kirjoitin myös testit syvyyshakualgoritmille ja kruskalin algoritmille..
 
