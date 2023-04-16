@@ -11,6 +11,16 @@ Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin ja visualisoinnin s
 
 Pylint-tarkistus antaa arvosanan 8.77/10 ja testikattavuus on seuraava:
 
+Name                  Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------
+__init__.py               0      0      0      0   100%
+backtracker.py          114     39     60      0    70%   150-208
+backtracker_test.py      79      5     58      5    91%   101->105, 103, 106-107, 111, 115
+kruskal.py              132     64     66      1    48%   24, 53->exit, 132-221, 228-235
+kruskal_test.py          44      2     26      2    94%   53, 79
+-----------------------------------------------------------------
+TOTAL                   369    110    210      8    70%
+
 
 
 
