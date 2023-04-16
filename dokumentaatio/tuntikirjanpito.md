@@ -18,7 +18,7 @@
 | 9.4.2023 | 3 | Kruskalin algoritmin viimeistely |
 | 10.4.2023 | 2 | Kruskal-algoritmin korjaamista, koska löytyi uusia ongelmia |
 | 15.4.2023 | 4 | Kruskal-sokkelon piirtofunktion aloitus |
-| 16.4.2023 | 6 | Kruskal-sokkelon piirtofunktio, debuggausta, html-pohjien säätöä |
+| 16.4.2023 | 6 | Kruskal-sokkelon piirtofunktio, debuggausta, pylint-tyylikorjauksia, html-pohjien säätöä, testausohje vertaisarviointia varten |
 |  |  |  |
 |  |  |  |
 |  |  |  |
