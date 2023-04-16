@@ -3,6 +3,8 @@ _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 
 Sovelluksessa käyttäjä voi vertailla kahden (tavoitteena kolme!) sokkeloita luovan algoritmin tuloksia.
 
+Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
+
 
 ### Viikkoraportit
 
