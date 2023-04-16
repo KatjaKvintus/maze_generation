@@ -21,6 +21,8 @@ Sovellus on vasta alustava runko. Pääset sisään ilman kirjautumista tai käy
 
 Varoitus: isot sokkelot ovat hitaita piirtää, joten kannattaa kokeilla aluksi maltillisen kokoisella (esim. 5 - 20).
 
-En ole ehtinyt testata sovellusta ollenkaan toisella koneella, joten voi olla, että mikään ei toimi. [requirements.txt](https://github.com/KatjaKvintus/maze_generation/blob/main/requirements.txt) -tiedostosta näkyy vaaditut riippuvuudet (mm. Flask ja Pillow) 
+En ole ehtinyt testata sovellusta ollenkaan toisella koneella, joten voi olla, että mikään ei toimi. 
+
+[requirements.txt](https://github.com/KatjaKvintus/maze_generation/blob/main/requirements.txt) -tiedostosta näkyy vaaditut riippuvuudet (mm. Flask ja Pillow).
 
 
