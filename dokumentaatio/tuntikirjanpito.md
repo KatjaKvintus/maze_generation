@@ -16,10 +16,13 @@
 | 7.4.2023 | 4 | Poetryn asennus loppuun, ongelmien selvitystä testien ajamisen kanssa, Kruskal-algoritmin osuuden aloitus |
 | 8.4.2023 | 2 | Syyshaun testien kirjoittamista, Kruskalin algoritmin kirjoitusta |
 | 9.4.2023 | 3 | Kruskalin algoritmin viimeistely |
-| 10.4.2023 |  |  |
+| 10.4.2023 | 2 | Kruskal-algoritmin korjaamista, koska löytyi uusia ongelmia |
+| 15.4.2023 | 4 | Kruskal-sokkelon piirtofunktion aloitus |
+| 16.4.2023 | 5 | Kruskal-sokkelon piirtofunktio, debuggausta, html-pohjien säätöä |
+|  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 
-| yht. 36 tuntia |  
+| yht. 51 tuntia |  
