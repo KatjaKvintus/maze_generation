@@ -7,33 +7,26 @@ Aikaa on mennyt ihan hirveästi oman koodin debuggaamiseen. Tällä hetkellä va
 
 ## Miten ohjelma on edistynyt?
 
-Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin ja visualisoinnin sille. Kirjoitin myös testit syvyyshakualgoritmille.
+Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin ja visualisoinnin sille. Kirjoitin myös testit syvyyshakualgoritmille ja kruskalin algoritmille..
 
 Pylint-tarkistus antaa arvosanan 8.77/10 ja testikattavuus on seuraava:
 
-Name                  Stmts   Miss Branch BrPart  Cover   Missing
------------------------------------------------------------------
-__init__.py               0      0      0      0   100%
-backtracker.py          114     39     60      0    70%   150-208
-backtracker_test.py      79      5     58      5    91%   101->105, 103, 106-107, 111, 115
-kruskal.py              132     64     66      1    48%   24, 53->exit, 132-221, 228-235
-kruskal_test.py          44      2     26      2    94%   53, 79
------------------------------------------------------------------
-TOTAL                   369    110    210      8    70%
+![](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/Testikattavuus%202023-04-6.png)
 
-
+Tiedosto kruskal.py sisältää kruskalin algoritmin metodien lisäksi myös luokat Cell ja Edge, mutta en keksi, miten niille pitäisi kirjoittaa testit. Siksi kruskal.py:n testikattavuus on niin alhainen.
 
 
 ### Mitä opin tällä viikolla?
 
-Opin enemmän Turtle-moduulin käyttöä.
+Opin enemmän Turtle-moduulin käyttöstä ja testien kirjoittamisesta.
 
 
 ### Mikä jäi epäselväksi tai tuottanut vaikeuksia? 
 
 Turtle piirtää pienet sokkelot nopeasti, mutta esim. 100x100 -sokkelon piirtämiseen menee ihan liikaa aikaa. Jos löytyy vähällä vaivalla parempi piirtosysteemi, vaihdan siihen.
 
-Toinen ongelma on tiedosto kruskal.py, joka sisältää kruskalin algoritmin metodien lisäksi myös luokat Cell ja Edge. En keksi, miten niille pitäisi kirjoittaa testit.
+Testit ajetaan tällä hetkellä sotunnaisilla sokkeloilla, joiden sivu on 5-50. Kokeilen ensin niin, että max on 200, mutta testit kestivät tosi kauan, erityisesti kruskal.py:n osalta. Todennäköisesti siinä luokassa on turhaa hitautta, joka pitäisi pystyä siistimään pois. Max 50x50 sokkeloilla testiajo kestää yleensä 8-24 s.
+
 
 ### Mitä teen seuraavaksi?
 
@@ -44,3 +37,4 @@ Kirjoitan kolmannen algoritmin (Prim) ja sille visualisoinnin + testit. Sen jäl
 - Primin algoritmin kirjoitus
 - Webapin ulkoasun säätöä
 - Dokumentaation kirjoitusta
+- Sokkeloiden luontimisen keston seuraaminen ja kruskal.py:n nopeuttaminen
