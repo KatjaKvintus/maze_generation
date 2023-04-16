@@ -1,7 +1,7 @@
 # Sokkeloja luovien algoritmien tutkiminen
 _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 
-Sovelluksessa käyttäjä voi vertailla kahden sokkeloita luovan algoritmin tuloksia.
+Sovelluksessa käyttäjä voi vertailla kahden (tavoitteena kolme!) sokkeloita luovan algoritmin tuloksia.
 
 
 ### Viikkoraportit

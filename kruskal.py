@@ -1,7 +1,7 @@
 '''Module for randomized Kruskal's algorithm maze generation'''
-from PIL import Image
 import random
 import turtle
+from PIL import Image
 
 
 edges = []
@@ -33,13 +33,13 @@ class Edge:
         every edge is closed.'''
         self.start_cell = start_cell
         self.end_cell = end_cell
-        self.is_open = False                # Tarpeeton?
+        self.is_open = False
 
 
 def open_edge(edge):
     '''Marks and edge open and adds it to both start and end cells
     open edges list'''
-    
+
     reversed_edge = Edge(edge.end_cell, edge.start_cell)
 
     (edge.start_cell).open_edges.append(edge)
@@ -62,7 +62,7 @@ def create_kruskal_maze(size):
     cell contains a list [1, 1, 1, 1]. The cell keeps track of its walls in this order:
     left, top, right, bottom. '''
 
-    '''A 2D list to keep track of matrix cells and walls.'''
+    # A 2D list to keep track of matrix cells and walls.
     matrix = []
 
     for x in range(size):
@@ -96,13 +96,13 @@ def create_kruskal_maze(size):
 
     random.shuffle(edges)
 
-    '''Creating sets - at the begingnning every cell is in their own set'''
+    # Creating sets - at the begingnning every cell is in their own set
     for x in range(size):
         for y in range(size):
             matrix[x][y].set = set([(x, y)])
 
-    '''Merging sets by removing walls one by one until there is only one set
-    containing all cells = labyrinth'''
+    # Merging sets by removing walls one by one until there is only one set
+    # containing all cells = labyrinth
     i = 0
 
     while i < len(edges):
@@ -111,11 +111,11 @@ def create_kruskal_maze(size):
 
         if cell_1.set != cell_2.set:
 
-            '''Open the edge both ways'''
+            # Open the edge both ways
             open_edge(edges[i])
             edges[i].is_open = True
 
-            '''Transfer cell_2 set cells to cell_1 set'''
+            # Transfer cell_2 set cells to cell_1 set
             cell_1.set |= cell_2.set
 
             for item in cell_2.set:
@@ -233,10 +233,3 @@ def kruskal_maze_impasse_amount(maze):
                 impasses += 1
 
     return impasses
-
-
-# TESTIKODIA - POISTA
-
-sokkelo = create_kruskal_maze(5)
-umpikujat = kruskal_maze_impasse_amount(sokkelo)
-print(f"Umpikujia: {umpikujat}")

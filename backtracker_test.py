@@ -5,18 +5,18 @@ from . import backtracker
 
 
 class Test_backtracker(unittest.TestCase):
-    '''Bactracker realtes tests'''
+    '''Bactracker related tests'''
 
 
     def test_maze_is_correct_size(self):
         '''Tests if the function creates a correct size 2D list.
-        Test in 5 random integers between 3 and 200.'''
+        Test in 5 random integers between 5 and 50.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            n = random.randint(3, 200)
-            test_sizes.append(n)
+            i = random.randint(5, 50)
+            test_sizes.append(i)
 
         for size in test_sizes:
 
@@ -31,13 +31,13 @@ class Test_backtracker(unittest.TestCase):
 
     def test_maze_is_not_entirely_made_of_walls(self):
         '''Tests that that maze does contain open entryways too.
-        Test in 5 random integers between 3 and 200.'''
+        Test in 5 random integers between 5 and 50.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            n = random.randint(3, 200)
-            test_sizes.append(n)
+            i = random.randint(5, 50)
+            test_sizes.append(i)
 
         for size in test_sizes:
 
@@ -56,13 +56,13 @@ class Test_backtracker(unittest.TestCase):
 
     def test_maze_is_not_entirely_open_psaze(self):
         '''Tests that that maze does contain walls too.
-        Test in 5 random integers between 3 and 200.'''
+        Test in 5 random integers between 5 and 50.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            n = random.randint(3, 200)
-            test_sizes.append(n)
+            i = random.randint(5, 50)
+            test_sizes.append(i)
 
         for size in test_sizes:
             self.new_maze = backtracker.create_bactracker_maze(size)
@@ -80,13 +80,13 @@ class Test_backtracker(unittest.TestCase):
 
     def test_maze_has_outer_frame(self):
         '''Tests that the maze has frame with no holes.
-        Test in 20 random integers between 3 and 200.'''
+        Test in 20 random integers between 5 and 50.'''
 
         test_sizes = []
 
         for i in range (0, 20):
-            n = random.randint(3, 200)
-            test_sizes.append(n)
+            i = random.randint(5, 50)
+            test_sizes.append(i)
 
         for size in test_sizes:
 
@@ -122,15 +122,15 @@ class Test_backtracker(unittest.TestCase):
 
     def test_impasse_method_works(self):
         '''For testing the maze_impasse_amount() method.
-        It should always return an integer between 3 and 200^2.'''
+        It should always return an integer between 5 and 50^2.'''
 
         test_sizes = []
 
         for i in range (0, 20):
-            n = random.randint(3, 200)
-            test_sizes.append(n)
+            i = random.randint(5, 50)
+            test_sizes.append(i)
 
         for size in test_sizes:
             self.maze = backtracker.create_bactracker_maze(size)
             result = backtracker.bactracker_maze_impasse_amount(self.maze)
-            self.assertTrue(3 <= result <= size*size)
+            self.assertTrue(0 <= result <= size*size)

@@ -9,9 +9,9 @@ Aikaa on mennyt ihan hirveästi oman koodin debuggaamiseen. Tällä hetkellä va
 
 Olen kirjoittanut Kruskalin algoritmilla luotavan labyrintin ja visualisoinnin sille. Kirjoitin myös testit syvyyshakualgoritmille.
 
-Pylint-tarkistus antaa arvosanan XXXX/10 ja testikattavuus on seuraava:
+Pylint-tarkistus antaa arvosanan 8.77/10 ja testikattavuus on seuraava:
 
-------LISÄÄ TÄHÄN KUVA!-----
+
 
 
 ### Mitä opin tällä viikolla?
@@ -23,6 +23,7 @@ Opin enemmän Turtle-moduulin käyttöä.
 
 Turtle piirtää pienet sokkelot nopeasti, mutta esim. 100x100 -sokkelon piirtämiseen menee ihan liikaa aikaa. Jos löytyy vähällä vaivalla parempi piirtosysteemi, vaihdan siihen.
 
+Toinen ongelma on tiedosto kruskal.py, joka sisältää kruskalin algoritmin metodien lisäksi myös luokat Cell ja Edge. En keksi, miten niille pitäisi kirjoittaa testit.
 
 ### Mitä teen seuraavaksi?
 

@@ -1,6 +1,4 @@
 '''Module app'''
-from os import getenv
-import os
 from flask import Flask
 from flask import render_template, request
 from . import backtracker
@@ -34,7 +32,7 @@ def generate_mazes():
     # DEBUG ##############################
     print("Testi 1")
 
-    return render_template("/results.html", 
+    return render_template("/results.html",
                            backtracker_maze=backtracker_maze,
                            backtracker_image=backtracker_image,
                            backtracker_impasses=backtracker_impasses,
