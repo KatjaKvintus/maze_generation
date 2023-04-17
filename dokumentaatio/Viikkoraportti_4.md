@@ -8,9 +8,9 @@ Kirjoitin vertaisarviointia varten [lyhyen ohjeen](https://github.com/KatjaKvint
 
 Aloitin testaus- ja toteutusdokumentaation kirjoittamisen:
 
-![Testausdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausdokumentti.md) - kesken
+![Testausdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausdokumentti.md) (kesken)
 
-![Toteutusdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/toteutusdokumentti.md) - kesken
+![Toteutusdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/toteutusdokumentti.md) (kesken)
 
 
 ### Miten ohjelma on edistynyt?
