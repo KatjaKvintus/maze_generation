@@ -22,3 +22,5 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 ![Määrittelydokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/M%C3%A4%C3%A4rittelydokumentti.md)
 
 ![Tuntikirjanpito](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/tuntikirjanpito.md)
+
+![Testausdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausdokumentti.md) - kesken
