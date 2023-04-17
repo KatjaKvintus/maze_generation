@@ -3,5 +3,7 @@
 __pycache__
 .coverage
 venv
-backtracker_maze.eps
+static/backtracker_maze_image.jpg
+static/kruskal_maze_image.jpg
 kruskal_maze.eps
+backtracker_maze.eps

@@ -29,9 +29,6 @@ def generate_mazes():
     kruskal_image = kruskal.print_kruskal_maze(size, kruskal_maze)
     kruskal_impasses = kruskal.kruskal_maze_impasse_amount(kruskal_maze)
 
-    # DEBUG ##############################
-    print("Testi 1")
-
     return render_template("/results.html",
                            backtracker_maze=backtracker_maze,
                            backtracker_image=backtracker_image,
@@ -44,7 +41,5 @@ def generate_mazes():
 @app.route("/results")
 def results():
     '''For results'''
-    # DEBUG ##############################
-    print("Testi 2")
 
     return render_template("/results.html")

@@ -217,6 +217,7 @@ def print_kruskal_maze(side_lenght, maze):
     maze_image.save("static/kruskal_maze_image.jpg", "jpeg")
 
     drawer.clear()
+    canvas.bye()
 
     return maze_image
 
