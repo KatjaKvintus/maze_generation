@@ -6,6 +6,12 @@ Aikaa on mennyt ihan hirveästi oman koodin debuggaamiseen. Tällä hetkellä va
 
 Kirjoitin vertaisarviointia varten [lyhyen ohjeen](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
 
+Aloitin testaus- ja toteutusdokumentaation kirjoittamisen:
+
+![Testausdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausdokumentti.md) - kesken
+
+![Toteutusdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/toteutusdokumentti.md) - kesken
+
 
 ### Miten ohjelma on edistynyt?
 
