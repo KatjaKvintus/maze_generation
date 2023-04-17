@@ -7,17 +7,18 @@ Sovellus on yksinkertainen webbisovellus. Käyttäjä antaa syötteenä haluaman
 
 ### Saavutetut aika- ja tilavaativuudet (m.m. O-analyysit pseudokoodista)
 
-puuttuu
+(lisätään myöhemmin)
 
 
 ### Suorituskyky- ja O-analyysivertailu (mikäli työ vertailupainotteinen)
 
-puuttuu
+(lisätään myöhemmin)
 
 
 ### Työn mahdolliset puutteet ja parannusehdotukset
 
-puuttuu
+(lisätään myöhemmin)
+
 
 ### Lähteet
 
