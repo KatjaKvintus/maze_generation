@@ -7,10 +7,24 @@ Sovellus on yksinkertainen webbisovellus. Käyttäjä antaa syötteenä haluaman
 
 ### Saavutetut aika- ja tilavaativuudet (m.m. O-analyysit pseudokoodista)
 
+puuttuu
+
+
 ### Suorituskyky- ja O-analyysivertailu (mikäli työ vertailupainotteinen)
+
+puuttuu
 
 
 ### Työn mahdolliset puutteet ja parannusehdotukset
 
+puuttuu
 
 ### Lähteet
+
+![Wikipedia: Maze generation algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
+
+![John Stilley: Maze-generating algorithms](https://github.com/john-science/mazelib/blob/main/docs/MAZE_GEN_ALGOS.md)
+
+![Survey Paper on Maze Generation Algorithms for Puzzle Solving Games](https://anoopmusale.github.io/resume/paper.pdf)
+
+![Analysis of Maze Generating Algorithms](http://ipsitransactions.org/journals/papers/tir/2019jan/p5.pdf)
