@@ -1,7 +1,12 @@
 # Sokkeloja luovien algoritmien tutkiminen
 _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 
-Sovelluksessa käyttäjä voi vertailla sokkeloita luovin algoritmin tuloksia. Tällä hetkellä sovellus generoi ja visualisoi kahdentyyppisiä labyrinttejä. Apin ulkoasuun ei ole panostettu ja siinä on useita bugeja.
+Sovelluksessa käyttäjä voi vertailla sokkeloita luovien algoritmien tuloksia. 
+
+
+### Sovelluksen tilanne
+
+Tällä hetkellä sovellus generoi ja visualisoi kahdentyyppisiä labyrinttejä (satunnainen syvyyshaku ja Kruskalin algoritmi). Tavoitteena on kirjoittaa vielä kolmas (Primin algoritmi). Apin ulkoasuun ei ole panostettu ja siinä on useita bugeja. 
 
 Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
 
