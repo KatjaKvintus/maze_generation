@@ -22,7 +22,7 @@ def generate_mazes():
     size = request.form["maze_size"]
     size = int(size)
 
-    # Bactracker
+    # Bactracker algorithm
     start_time = time.time()
     backtracker_maze = backtracker.create_bactracker_maze(size)
     end_time = time.time()
@@ -30,7 +30,7 @@ def generate_mazes():
     backtracker_image = backtracker.draw_maze_image(size, backtracker_maze)
     backtracker_impasses = backtracker.bactracker_maze_impasse_amount(backtracker_maze)
 
-    # Kruskal
+    # Kruskal's algorithm
     start_time = time.time()
     kruskal_maze = kruskal.create_kruskal_maze(size)
     end_time = time.time()
@@ -47,10 +47,3 @@ def generate_mazes():
                            kruskal_image=kruskal_image,
                            kruskal_execution_time = kruskal_execution_time,
                            kruskal_impasses=kruskal_impasses)
-
-
-@app.route("/results")
-def results():
-    '''For results'''
-
-    return render_template("/results.html")
