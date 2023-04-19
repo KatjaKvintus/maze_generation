@@ -9,6 +9,12 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
+Asenna riippuvuudet käskyllä:
+
+```bash
+pip install -r requirements.txt
+```
+
 Käynnistä sovellus terminaalissa seuraavalla käskyllä:
 
 ```bash
