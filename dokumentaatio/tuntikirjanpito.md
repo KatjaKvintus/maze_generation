@@ -20,9 +20,9 @@
 | 15.4.2023 | 4 | Kruskal-sokkelon piirtofunktion aloitus |
 | 16.4.2023 | 6 | Kruskal-sokkelon piirtofunktio, debuggausta, pylint-tyylikorjauksia, html-pohjien säätöä, testausohje vertaisarviointia varten |
 | 17.4.2023 | 1 | Testaus- ja toteutusdokumenttien luonnostelua |
-|  |  |  |
+| 18.4.2023 | 1 | Aikaseurannan lisääminen (Kruskal & syvyyshaku) |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 
-| yht. 53 tuntia |  
+| yht. 54 tuntia |  
