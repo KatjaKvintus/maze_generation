@@ -15,7 +15,7 @@ There are many ways to generate mazes. This app will demonstrate 3 of those:
 <hr><BR>
 
 <form action="/generate_mazes" method="POST" onsubmit="return check(this)">
-<b>Choose maze size:</b> <BR><input type="text" name="maze_size"><BR><BR>
+<b>Choose maze size:</b> <BR><input type="text" name="maze_size" id="maze_size"><BR><BR>
 <i>(Please choose a size between 5 and 200.)</i>
 <BR><BR>
 <input type="submit" value="Generate mazes"><BR><BR>
@@ -23,6 +23,15 @@ There are many ways to generate mazes. This app will demonstrate 3 of those:
 
 <script>
 function check(form) {
+    if (form.maze_size.value == "") {
+        alert("Please enter numeric value.");
+        return false;
+    }
+    var input = document.getElementById("maze_size").value;
+    if (!Number.isInteger(Number(input))){
+        alert("Please choose integer value.");
+        return false;
+    }
     if (form.maze_size.value < 4) {
         alert("Please choose size bigger than 4.");
         return false;

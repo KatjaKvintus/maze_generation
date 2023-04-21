@@ -200,7 +200,7 @@ def draw_maze_image(size, matrix):
             drawer.forward(maze_size)
 
     image = drawer.getscreen()
-    image.getcanvas().postscript(file="backtracker_maze.eps")
+    image.getcanvas().postscript(file="static/backtracker_maze.eps")
     maze_image = Image.open("backtracker_maze.eps")
     maze_image.save("static/backtracker_maze_image.jpg", "jpeg")
     drawer.clear()
