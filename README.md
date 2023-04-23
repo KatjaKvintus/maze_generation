@@ -6,7 +6,7 @@ Sovelluksessa käyttäjä voi vertailla sokkeloita luovien algoritmien tuloksia.
 
 ### Sovelluksen tilanne 23.4.2023
 
-Tällä hetkellä sovellus generoi ja visualisoi kolmentyyppisiä labyrinttejä (satunnainen syvyyshaku, Kruskalin algoritmi ja rekursiivinen jakoalgoritmi). Apin ulkoasuun ei ole panostettu ja siinä on useita bugeja. 
+Tällä hetkellä sovellus generoi ja visualisoi kolmentyyppisiä labyrinttejä (satunnainen syvyyshaku, Kruskalin algoritmi ja rekursiivinen jakoalgoritmi). Apin ulkoasuun ei ole vielä panostettu ja siinä on useita bugeja. Kolmannelle algoritmille ei ole vielä kirjoitettu testejä ja sen visualisointi ei toimi.
 
 Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
 
