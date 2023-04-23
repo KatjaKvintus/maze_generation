@@ -4,9 +4,9 @@ _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 Sovelluksessa käyttäjä voi vertailla sokkeloita luovien algoritmien tuloksia. 
 
 
-### Sovelluksen tilanne
+### Sovelluksen tilanne 23.4.2023
 
-Tällä hetkellä sovellus generoi ja visualisoi kahdentyyppisiä labyrinttejä (satunnainen syvyyshaku ja Kruskalin algoritmi). Tavoitteena on kirjoittaa vielä kolmas (Primin algoritmi). Apin ulkoasuun ei ole panostettu ja siinä on useita bugeja. 
+Tällä hetkellä sovellus generoi ja visualisoi kolmentyyppisiä labyrinttejä (satunnainen syvyyshaku, Kruskalin algoritmi ja rekursiivinen jakoalgoritmi). Apin ulkoasuun ei ole panostettu ja siinä on useita bugeja. 
 
 Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
 
@@ -20,6 +20,8 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 ![Viikkoraportti 3](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_3.md)
 
 ![Viikkoraportti 4](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_4.md)
+
+![Viikkoraportti 5](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_5.md)
 
 
 ### Dokumentaatio
