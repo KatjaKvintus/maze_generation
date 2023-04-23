@@ -22,7 +22,7 @@
 | 17.4.2023 | 1 | Testaus- ja toteutusdokumenttien luonnostelua |
 | 18.4.2023 | 1 | Aikaseurannan lisääminen (Kruskal & syvyyshaku) |
 | 19.4.2023 | 2 | Vertaisarvion kirjoitusta + oman apin testausta |
-| 20.4.2023 | 3 | Bugien korjausta, kolmannen algoritmin valinta ja siihen liittyvän dokumentaation lukeminen |
+| 20.4.2023 | 5 | Bugien korjausta, kolmannen algoritmin valinta ja siihen liittyvän dokumentaation lukeminen |
 |  |  |  |
 
-| yht. 59 tuntia |  
+| yht. 61 tuntia |  

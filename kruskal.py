@@ -17,7 +17,7 @@ class Cell:
         self.pos_x = pos_x
         self.pos_y = pos_y
         self.open_edges = []
-        self.set = set[(pos_y, pos_y)]
+        self.set = set((pos_y, pos_y))
 
     def get_open_edges(self):
         '''Returns a list of all open edges from this cell'''
@@ -212,7 +212,7 @@ def print_kruskal_maze(side_lenght, maze):
             drawer.forward(maze_size)
 
     maze_image = drawer.getscreen()
-    maze_image.getcanvas().postscript(file="kruskal_maze.eps")
+    maze_image.getcanvas().postscript(file="static/kruskal_maze.eps")
     maze_image = Image.open("static/kruskal_maze.eps")
     maze_image.save("static/kruskal_maze_image.jpg", "jpeg")
 
