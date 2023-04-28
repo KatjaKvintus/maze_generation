@@ -1,4 +1,4 @@
-# Viikkoraportti 6
+# Viikkoraportti 6 [kesken]
 
 ### Mitä olen tehnyt tällä viikolla?
 
