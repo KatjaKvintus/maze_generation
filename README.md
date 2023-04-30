@@ -23,6 +23,8 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 
 ![Viikkoraportti 5](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_5.md)
 
+![Viikkoraportti 6](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_6.md)
+
 
 ### Dokumentaatio
 
