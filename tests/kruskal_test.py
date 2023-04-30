@@ -1,7 +1,7 @@
 '''For testing the kruskal.py file'''
 import unittest
 import random
-from . import kruskal
+from maze_generation import kruskal
 
 
 class Test_kruskal(unittest.TestCase):

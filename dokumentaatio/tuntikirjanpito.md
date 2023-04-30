@@ -26,7 +26,7 @@
 | 21.4.2023 | 2 | Rekursiivisen jakoalgoritmin kirjoitusta |
 | 22.4.2023 | 4 | Rekursiivisen jakoalgoritmin kirjoitusta, bugien korjausta, Pylint-korjauksia |
 | 23.4.2023 | 2 | Rekursiivisen jakoalgoritmin ja sen visualisoinnin kirjoitusta |
-|  |  |  |
-|  |  |  |
+| 28.4.2023 | 2 |  |
+|29.4.2023  | 5 |  |
 
-| yht. 69 tuntia |  
+| yht. 76 tuntia |  

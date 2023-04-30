@@ -1,7 +1,7 @@
 '''For testing the backtracker.py file'''
 import unittest
 import random
-from . import backtracker
+from maze_generation import backtracker
 
 
 class Test_backtracker(unittest.TestCase):

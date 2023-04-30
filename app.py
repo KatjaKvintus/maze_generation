@@ -1,6 +1,6 @@
 '''Module app'''
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from . import backtracker
 from . import kruskal
 from . import recursive_division
@@ -68,3 +68,43 @@ def generate_mazes():
                            rec_division_execution_time=rec_division_execution_time,
                            #rec_division_image=rec_division_image,
                            rec_division_impasses=rec_division_impasses)
+
+''' 
+
+
+'''
+@app.route("/generate_one_maze", methods=["GET", "POST"])
+def generate_one_maze():
+    #Handles users choices of algorithms for comparison
+
+    # Bactracker algorithm
+    if request.form["maze_type"] == "backtracker":
+
+        size = request.form["maze_size"]
+        size = int(size)
+
+        start_time = time.time()
+        backtracker_maze = backtracker.create_bactracker_maze(size)
+        end_time = time.time()
+        backtracker_execution_time = round((end_time - start_time) * 1000, 4)
+        backtracker_image = backtracker.draw_maze_image(size, backtracker_maze)
+        backtracker_impasses = backtracker.bactracker_maze_impasse_amount(backtracker_maze)
+
+        return render_template("/index.html",
+                        backtracker_maze=backtracker_maze,
+                        backtracker_image=backtracker_image,
+                        backtracker_execution_time=backtracker_execution_time,
+                        backtracker_impasses=backtracker_impasses)
+'''
+
+
+@app.route("/save_size", methods=["GET", "POST"])
+def save_size():
+    print("Testipiste 1")           # DEBUGGING
+    maze_size = request.form["maze_size"]
+    print("Testipiste 2")           # DEBUGGING
+    print("Sokkelon koko on ", maze_size)
+    print("Testipiste 3")           # DEBUGGING
+
+    return redirect(url_for('def generate_one_maze', maze_size=maze_size))
+'''
