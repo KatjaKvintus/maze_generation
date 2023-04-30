@@ -13,6 +13,8 @@ Kokeilin myös rukata apin käyttöliittymää niin, että se loisi yhden labyri
 
 Suurin edistys on testien siirtäminen omaan alakansioon.
 
+Pylint antaa arvosanan 8.06/10.
+
 
 ### Mitä opin tällä viikolla?
 
