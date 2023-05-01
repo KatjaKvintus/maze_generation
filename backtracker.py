@@ -206,3 +206,4 @@ def draw_maze_image(size, matrix):
     drawer.clear()
 
     return maze_image
+

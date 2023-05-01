@@ -62,6 +62,9 @@ def create_kruskal_maze(size):
     cell contains a list [1, 1, 1, 1]. The cell keeps track of its walls in this order:
     left, top, right, bottom. '''
 
+    # Clear egdes list (issue only when creating several mazes in a row)
+    edges.clear()
+
     # A 2D list to keep track of matrix cells and walls.
     matrix = []
 
@@ -72,7 +75,7 @@ def create_kruskal_maze(size):
         matrix.append(row)
 
 
-    '''Adding edges to list'''
+    #Adding edges to list
     for x in range(size):
         for y in range (size):
 
@@ -96,7 +99,8 @@ def create_kruskal_maze(size):
 
     random.shuffle(edges)
 
-    # Creating sets - at the begingnning every cell is in their own set
+    # Creating sets - at the begingnning every cell is in their own set.
+    # There is size^2 sets.
     for x in range(size):
         for y in range(size):
             matrix[x][y].set = set([(x, y)])
@@ -105,7 +109,13 @@ def create_kruskal_maze(size):
     # containing all cells = labyrinth
     i = 0
 
-    while i < len(edges):
+    while i < len(edges):       
+
+        # Chekc: f a cell set size is size^2, all cells are in the same set 
+        # and this loop can be stopped
+        if len(edges[i].start_cell.set) == size * size:
+            break
+
         cell_1 = edges[i].start_cell
         cell_2 = edges[i].end_cell
 
@@ -234,3 +244,5 @@ def kruskal_maze_impasse_amount(maze):
                 impasses += 1
 
     return impasses
+
+

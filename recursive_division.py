@@ -36,7 +36,7 @@ def create_recursive_division_maze(size):
         row += 1
     
     # Call for thr recursive function that keeps dividing the matrix
-    divide_area(matrix, 0, 0, size - 1, size - 1, choose_orientation(size - 1, size - 1))
+    divide_area(matrix, 0, 0, size -2, size - 2, choose_orientation(size - 1, size - 1))
     
     return matrix
 
@@ -47,6 +47,7 @@ def divide_area(matrix, start_x, start_y, end_x, end_y, orientation):
     '''Helper function for the create_recursive_division_maze.
     for dividing areas.'''
     
+    print(f"start: ({start_x},{start_y}), end: ({end_x},{end_y})")
     print(f"end_x - start_x = {end_x} - {start_x} = {end_x - start_x}") ################
     print(f"end_y - start_y = {end_y} - {start_y} = {end_y - start_y}") ################
 
@@ -196,10 +197,13 @@ def draw_recursive_division_maze(size, matrix):
 
     return maze_image
 
+''' 
 
 # TESTIKOODIA
 print()
-sokkelo = create_recursive_division_maze(4)
+sokkelo = create_recursive_division_maze(6)
 print()
 for rivi in sokkelo:
     print(rivi)
+
+'''
