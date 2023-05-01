@@ -29,11 +29,11 @@
 | 28.4.2023 | 2 | debuggausta + vaihtoehtoisen visualisoinnin kokeiluja |
 | 29.4.2023 | 5 | debuggausta |
 | 30.4.2023 | 6 | debuggausta |
-|  |  |  |
+| 1.5.2023 | 4 | Kahden toimivan algoritmien tehokkuuden testausta, Kruskalin tehokkuuden parantamista + pieniä korjauksia sinne tänne |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 
-| yht. 82 tuntia |  
+| yht. 86 tuntia |  
