@@ -4,7 +4,7 @@
 
 Olen enimmäkseen debugannut omaa koodiani.
 
-Loin myös kahdella jo tomivalla algoritmilla eri kokoisia labyrinttejä, 10 kutakin kokoa, ja otin ajat talteen tehokkuuskuvauksen tekoa varten. Kruskal on merkittävästi hitaampi kuin syvyyshaku, ja erot ovat niin isoja, että Kruskalissa on jotain vialla. Löysin jo yhden ongelman, jonka korjaaminen leikkasi suoritusajasta 2/3 pois: sen sijaan, että luuppi kävisi läpi kaikki verkon kaaret, se lopettaa läpikäynnin siinä vaiheessa kun käsiteltävän kaaren jomman kumman päässä olevan solmun setin koko on n^2 (nxn-kokoisen verkon solmujen määrä eli kaikki solmut kuuluvat samaan settiin). Silti 200x200-kokoisen labyrintin generointiin Kruskalin algortimillä menee keskimäärin 89 sekuntia, kun backtrackerilla vastaava syntyy 0,12 sekunnissa. Tätä pitää katsoa tarkemmin vielä ennen loppupalautusta ja tehostaa reippaasti.
+Loin myös kahdella jo toimivalla algoritmilla eri kokoisia labyrinttejä, 10 kutakin kokoa, ja otin ajat talteen tehokkuuskuvauksen tekoa varten. Kruskal on merkittävästi hitaampi kuin syvyyshaku, ja erot ovat niin isoja, että Kruskalissa on jotain vialla. Löysin jo yhden ongelman, jonka korjaaminen leikkasi suoritusajasta 2/3 pois: sen sijaan, että luuppi kävisi läpi kaikki verkon kaaret, se lopettaa läpikäynnin siinä vaiheessa kun käsiteltävän kaaren jomman kumman päässä olevan solmun setin koko on n^2 (nxn-kokoisen verkon solmujen määrä eli kaikki solmut kuuluvat samaan settiin). Silti 200x200-kokoisen labyrintin generointiin Kruskalin algortimillä menee keskimäärin 89 sekuntia, kun backtrackerilla vastaava syntyy 0,12 sekunnissa. Tätä pitää katsoa tarkemmin vielä ennen loppupalautusta ja tehostaa reippaasti.
 
 
 ### Miten ohjelma on edistynyt?
