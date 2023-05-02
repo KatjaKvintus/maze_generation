@@ -12,8 +12,8 @@ class Cell:
     '''Module for handling cell related functions'''
 
     def __init__(self, pos_x, pos_y):
-        '''x and y = coordinates in matrix
-        open_edges = list of open edges to and from the cell'''
+        # x and y = coordinates in matrix
+        # open_edges = list of open edges to and from the cell
         self.pos_x = pos_x
         self.pos_y = pos_y
         self.open_edges = []
@@ -28,9 +28,9 @@ class Edge:
     '''Module for handling edge related functions'''
 
     def __init__(self, start_cell, end_cell):
-        '''start_cell and end_cell define edge start and ending point
-        is_open is True, if edge is open, and False, if not. At start
-        every edge is closed.'''
+        # start_cell and end_cell define edge start and ending point
+        # is_open is True, if edge is open, and False, if not. At start
+        # every edge is closed.
         self.start_cell = start_cell
         self.end_cell = end_cell
         self.is_open = False
@@ -100,7 +100,7 @@ def create_kruskal_maze(size):
     random.shuffle(edges)
 
     # Creating sets - at the begingnning every cell is in their own set.
-    # There is size^2 sets.
+    # So there is size^2 sets.
     for x in range(size):
         for y in range(size):
             matrix[x][y].set = set([(x, y)])

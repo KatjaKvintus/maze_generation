@@ -77,15 +77,17 @@ def divide_area(matrix, start_x, start_y, end_x, end_y, orientation):
         print() ###############################
 
         # Divide the maze above and below the wall
+        print(f"Rekursiivinen kutsu 1: ({start_x},{start_y}) - ({wall_x - 1},{end_y})") ###############
         divide_area(matrix, start_x, start_y, wall_x - 1, end_y, 
                     choose_orientation(wall_x - start_x, end_y - start_y + 1))
         
+        print(f"Rekursiivinen kutsu 2: ({wall_x + 1},{start_y}) - ({end_x},{end_y})") ###############
         divide_area(matrix, wall_x + 1, start_y, end_x, end_y, 
                     choose_orientation(end_x - wall_x + 1, end_y - start_y + 1))
 
 
     # Creating a vertical wall (left side of the cell)
-    elif orientation == "vertical":                 # PYSTYSUORA VIIVA, eli y pysyy samana 
+    else:                 # PYSTYSUORA VIIVA, eli y pysyy samana 
 
         # Choose a random point to place a vertical wall
         wall_y = random.randint(start_y, end_y - 1)
@@ -197,13 +199,13 @@ def draw_recursive_division_maze(size, matrix):
 
     return maze_image
 
-''' 
 
+''' 
 # TESTIKOODIA
 print()
-sokkelo = create_recursive_division_maze(6)
+sokkelo = create_recursive_division_maze(8)
 print()
 for rivi in sokkelo:
     print(rivi)
-
 '''
+

@@ -1,44 +1,77 @@
 <!DOCTYPE html>
 <title>Maze algorithm comparison</title>
+
+<style>
+    .top-section {
+        background-color:white;
+        height: 100px;
+        text-align: left;
+        padding: 20px;
+    }
+    
+    .bottom-section {
+        display: flex;
+        height: 800px;
+    }
+    
+    .bottom-section div {
+        flex: 1;
+        background-color: white;
+        text-align: left;
+        padding: 20px;
+    }
+</style>
+
+
 <body>
 
-<button onclick="window.location.href='/'"> Return to the main page </button>
+    <div class="top-section">
+        <button onclick="window.location.href='/'"> Return to the main page </button><BR><BR>
 
-<hr>
-<h2>Recursive bakctracker algorithm maze</h2>
-<img src="../static/backtracker_maze_image.jpg">
+        <h1>Results:</h1>
 
-<ul>
-    <li><B>Maze type: </B> perfect maze<BR></li>
-    <li><B>Method: </B> passage carving, depth-first search <BR></li>
-    <li><B>Maze execution time: </B> {{ backtracker_execution_time }} ms<BR></li>
-    <li><B>Impasses: </B> {{backtracker_impasses}} pcs<BR></li>
-</ul>
-<BR>
+	</div>
 
-<hr>
-<h2>Kruskal's algorithm maze</h2>
-<img src="../static/kruskal_maze_image.jpg">
-<BR>
+    <div class="bottom-section">
+		<div>
+            <h2>Recursive bakctracker algorithm maze</h2>
+            <img src="../static/backtracker_maze_image.jpg">
 
-<ul>
-    <li><B>Maze type: </B> perfect maze<BR></li>
-    <li><B>Method: </B> passage carving, a minimal spanning tree<BR></li>
-    <li><B>Maze execution time: </B> {{ kruskal_execution_time }} ms<BR></li>
-    <li><B>Impasses: </B> {{kruskal_impasses}} pcs<BR></li>
-</ul>
-<BR>
+            <ul>
+                <li><B>Maze type: </B> perfect maze<BR></li>
+                <li><B>Method: </B> passage carving, depth-first search <BR></li>
+                <li><B>Maze execution time: </B> {{ backtracker_execution_time }} ms<BR></li>
+                <li><B>Impasses: </B> {{backtracker_impasses}} pcs<BR></li>
+            </ul>
 
-<hr>
-<h2>Recursive division algorithm maze</h2>
-<img src="../static/rec_division_maze_image.jpg">
-<BR>
+        </div>
 
-<ul>
-    <li><B>Maze type: </B> perfect maze<BR></li>
-    <li><B>Method: </B> dividing empty space with walls with one opening<BR></li>    
-    <li><B>Maze execution time: </B> {{ rec_division_execution_time }} ms<BR></li>
-    <li><B>Impasses: </B> {{rec_division_impasses}} pcs<BR></li>
-</ul>
+
+
+
+        <div>
+            <h2>Kruskal's algorithm</h2>
+            <img src="../static/kruskal_maze_image.jpg">
+            <ul>
+                <li><B>Maze type: </B> perfect maze<BR></li>
+                <li><B>Method: </B> passage carving, a minimal spanning tree<BR></li>
+                <li><B>Maze execution time: </B> {{ kruskal_execution_time }} ms<BR></li>
+                <li><B>Impasses: </B> {{kruskal_impasses}} pcs<BR></li>
+            </ul>
+        </div>
+
+
+
+        <div>
+            <h2>Recursive division algorithm</h3>
+            <ul>
+                <li><B>Maze type: </B> perfect maze<BR></li>
+                <li><B>Method: </B> dividing empty space with walls with one opening<BR></li>    
+                <li><B>Maze execution time: </B> {{ rec_division_execution_time }} ms<BR></li>
+                <li><B>Impasses: </B> {{rec_division_impasses}} pcs<BR></li>
+            </ul>
+
+        </div>
+    </div>
 
 </body>
