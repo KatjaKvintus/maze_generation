@@ -7,7 +7,7 @@ Tietojenkäsittelytieteen kandidaatti (TKT), Helsingin yliopisto
 
 ### Ohjelmointikieli
 
-Käytän työssä pääohjelmointikielenä pythonia. Vertaisarvioita varten myös Java on tuttu.
+Tässä työssä pääohjelmointikielenä on python ja sovelluksen ulkoasussa html. Vertaisarvioita varten myös Java on tuttu.
 
 Kirjoitan dokumentaation suomeksi ja koodin (sis. docstringit) englanniksi.
 
@@ -36,6 +36,36 @@ Aikavaativuudet:
 - satunnainen syvyyshaku (recursive backtracker): O(n)
 - Kruskalin algoritmi: O(E log V)
 - Rekursiivinen jakoalgoritmi (recursive division algorithm): O(n)
+
+
+## Pseudokoodi
+
+### Recursive backtracker -algoritmi:
+
+1. Given a current cell as a parameter
+2. Mark the current cell as visited
+3. While the current cell has any unvisited neighbour cells
+   - Choose one of the unvisited neighbours
+   - Remove the wall between the current cell and the chosen cell
+   - Invoke the routine recursively for the chosen cell
+
+
+### Kruskalin algoritmi
+
+1. Create a list of all walls, and create a set for each cell, each containing just that one cell.
+2. For each wall, in some random order:
+    - If the cells divided by this wall belong to distinct sets:
+        - Remove the current wall.
+        - Join the sets of the formerly divided cells.
+
+
+### Recursive division -algoritmi:
+
+1. Begin with the maze's space with no walls. Call this a chamber. 
+2. Divide the chamber with a randomly positioned wall where each wall contains a randomly positioned passage opening within it. 
+3. Recursively repeat the process on the subchambers until all chambers are minimum sized.
+
+Pseudokoodien lähde: [Wikipedia](https://en.wikipedia.org/wiki/Maze-solving_algorithm)
 
 
 ### Lähteet
