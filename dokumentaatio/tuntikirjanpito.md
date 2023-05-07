@@ -35,7 +35,7 @@
 | 4.5.2023 | 1 | debuggausta |
 | 5.5.2023 | 3 | Testien kirjoitusta ja debuggausta |
 | 6.5.2023 | 3 | Aldous-Broderin algoritmin kirjoitusta ja testausta |
-|  |  |  |
+| 7.5.2023 | 5 | Testien kirjoitusta, debuggausta, dokumentointia |
 |  |  |  |
 |  |  |  |
 |  |  |  |
@@ -46,4 +46,4 @@
 
 
 
-| yht. 97 tuntia |  
+| yht. 102 tuntia |  
