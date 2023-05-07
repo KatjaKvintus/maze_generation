@@ -43,3 +43,11 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 
 - Testi test_drawing_function_returns_file_that_is_not_empty() antaa satunnaisesti hämärän virheilmoituksen Aldous-Broderin algoritmin tuottamasta labyrinttikuvasta
 - Sovellus pitää buutata jokaisen ajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä
+- Kruskalin algoritmilla varsinkin isommat labyrintit ovat hitaita generoida ja algoritmi kaipaisi tehostamista.
+
+
+### Jatkokehitysideoita
+
+- Sovellusta voisi laajentaa niin, että siinä olisi tarjolla useampia eri algoritmeja, ja käyttäjä voisi valita, minkä/mitkä hän haluaa testata
+- Visualisoinnille jotain nopeampaa kuin turtle-moduuli
+- Valmiin kuvan tuottamisen sijaan visualisoinnin voisi toteuttaa animaatiolla, joka olisi käyttäjälle informatiivisempi ja mielenkiintoisempi
