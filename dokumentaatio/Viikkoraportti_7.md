@@ -12,7 +12,7 @@ Olen myös koettanut tehostaa Kruskalin algoritmia, joka tuottaa labyrinttejä v
 
 Sain kolmannen algoritmin kirjoitettua valmiiksi ja tein siihen samaan syssyyn testitkin. Se tuottaa samalla tavalla ilmaistun labyrintin kuin recursive backtracker, joten testit ovat hyvin samanlaisia. Loin myös tiedostot maze_tools.py ja maze_paths.py auttamaan labyrinttien analysoinnin ja testauksen kanssa, sekä vähentämään koodin toisteisuutta, sillä backtrackerin ja Aldous-Broderin samankaltaisuuden vuoksi ne voivat osin käyttää samoja apufunktioita.
 
-Pylint antaa arvosanan /10.
+Pylint antaa arvosanan 8.91/10.
 
 
 ### Mitä opin tällä viikolla?
@@ -22,7 +22,7 @@ Turtle on ongelmallinen testauksen kannalta.
 
 ### Mikä jäi epäselväksi tai tuottanut vaikeuksia? 
 
-Tällä hetkellä ei oikein mikään.
+Tällä hetkellä ei oikein mikään. Kaikkea pientä hiottavaa riittää, esim. testeissä Aldous-Broderin labyrintin kuvatiedostoa tutkiva testi antaa 1/10 tapauksessa errorin, mutta en ole saanut sen juurisyytä selville.
 
 
 ### Ensi viikon työlista:
