@@ -15,9 +15,9 @@ def create_bactracker_maze(size: int):
     # size: 4 <= n <= 200
     if not isinstance(size, int):
         return "Incorrect parameter type"
-    elif int(size) < 4:
+    if int(size) < 4:
         return "Too small parameter"
-    elif size > 200:
+    if size > 200:
         return "Too big parameter"
 
 
@@ -28,11 +28,11 @@ def create_bactracker_maze(size: int):
     # 0 = not visited, 1 = has been visited. All cells are 0 at the beginning.
     visit_status = [[0 for i in range(size)] for j in range(size)]
 
-    x = 0
-    y = 0
+    pos_x = 0
+    pos_y = 0
 
     # Starting point is (0, 0): top left corner
-    current_cell = [x, y]
+    current_cell = [pos_x, pos_y]
 
     visited_cells_sum = 1
     max_visited_cells_sum = size * size
@@ -40,33 +40,33 @@ def create_bactracker_maze(size: int):
     #Cells in visit order. Needed for backing up from an impasse.
     cell_stack = []
 
-    cell_stack.append([x, y])     # adding the starting point
+    cell_stack.append([pos_x, pos_y])     # adding the starting point
 
-    visit_status[x][y] = 1      # marking the starting point as a visited one
+    visit_status[pos_x][pos_y] = 1      # marking the starting point as a visited one
 
     while visited_cells_sum != max_visited_cells_sum:
 
         # 0 = not possible move, 1 = possible move
         move_availability = [0, 0, 0, 0]         # in oder = left, up, right, below
 
-        if y != 0:
+        if pos_y != 0:
             # If it is possible to move left
-            if visit_status[x][y-1] == 0:
+            if visit_status[pos_x][pos_y-1] == 0:
                 move_availability[0] = 1
 
-        if x != 0:
+        if pos_x != 0:
             # If it is possible to  move up
-            if visit_status[x-1][y] == 0:
+            if visit_status[pos_x-1][pos_y] == 0:
                 move_availability[1] = 1
 
-        if y != (size - 1):
+        if pos_y != (size - 1):
             # If it is possible to  move right
-            if visit_status[x][y+1] == 0:
+            if visit_status[pos_x][pos_y+1] == 0:
                 move_availability[2] = 1
 
-        if x != size - 1:
+        if pos_x != size - 1:
             # If it is possible to move below
-            if visit_status[x+1][y] == 0:
+            if visit_status[pos_x+1][pos_y] == 0:
                 move_availability[3] = 1
 
         if move_availability == [0, 0, 0, 0]:
@@ -81,9 +81,9 @@ def create_bactracker_maze(size: int):
                 cell_stack.pop()    # Remove current cell from the stack
 
             top_of_cell_stack = cell_stack.pop()
-            x = top_of_cell_stack[0]
-            y = top_of_cell_stack[1]
-            current_cell = [x, y]
+            pos_x = top_of_cell_stack[0]
+            pos_y = top_of_cell_stack[1]
+            current_cell = [pos_x, pos_y]
 
         else:
             move_handled = False
@@ -130,8 +130,8 @@ def create_bactracker_maze(size: int):
                     cell_stack.append(next_cell)
                     current_cell = next_cell
 
-                    x = current_cell[0]
-                    y = current_cell[1]
+                    pos_x = current_cell[0]
+                    pos_y = current_cell[1]
                     move_handled = True
 
     return matrix

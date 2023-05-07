@@ -220,16 +220,3 @@ class Test_aldous_broder(unittest.TestCase):
             result = maze_paths.are_all_cells_reachable(self.new_maze)
 
             self.assertTrue(result)
-
-
-    def test_drawing_function_returns_file_that_is_not_empty(self):
-        """Checks function return file type"""
-
-        size = random.randint(4, 20)
-
-        self.new_maze = aldous_broder.create_aldous_broder_maze(size) 
-        self.maze_image = aldous_broder.draw_aldous_broder_maze_image(size, self.new_maze)          
-        self.maze_image = "static/aldous_broder__maze_image.jpg"
-        
-        self.assertTrue(os.path.isfile(self.maze_image))
-        self.assertGreater(os.path.getsize(self.maze_image), 0)

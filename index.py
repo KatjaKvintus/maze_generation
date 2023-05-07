@@ -1,8 +1,8 @@
 '''Module index'''
 
+import time
 from flask import Flask
 from flask import render_template, request
-import time
 from . import backtracker, kruskal, aldous_broder, maze_tools
 
 app = Flask(__name__)
@@ -26,7 +26,7 @@ def generate_mazes():
     backtracker_maze = backtracker.create_bactracker_maze(size)
     end_time = time.time()
     backtracker_execution_time = round((end_time - start_time) * 1000, 4)
-    backtracker_image = backtracker.draw_maze_image(size, backtracker_maze)
+    backtracker.draw_maze_image(size, backtracker_maze)
     backtracker_impasses = maze_tools.count_maze_impasses(backtracker_maze)
 
     # Kruskal's algorithm
@@ -34,7 +34,7 @@ def generate_mazes():
     kruskal_maze = kruskal.create_kruskal_maze(size)
     end_time = time.time()
     kruskal_execution_time = round((end_time - start_time) * 1000, 4)
-    kruskal_image = kruskal.print_kruskal_maze(size, kruskal_maze)
+    kruskal.print_kruskal_maze(size, kruskal_maze)
     kruskal_impasses = maze_tools.kruskal_maze_impasse_amount(kruskal_maze)
 
     # Aldous-Broder algorithm
@@ -42,14 +42,15 @@ def generate_mazes():
     aldous_broder_maze = aldous_broder.create_aldous_broder_maze(size)
     end_time = time.time()
     aldous_broder_execution_time = round((end_time - start_time) * 1000, 4)
-    aldous_broder_image = aldous_broder.draw_aldous_broder_maze_image(size, aldous_broder_maze)
+    aldous_broder.draw_aldous_broder_maze_image(size, aldous_broder_maze)
     aldous_broder_impasses = maze_tools.count_maze_impasses(aldous_broder_maze)
 
 
     # For resuls summary
-    fastest = maze_tools.fastest_maze_generation_algorithm(backtracker_execution_time, 
-                                                      kruskal_execution_time, aldous_broder_execution_time)
-    least_impasses = maze_tools.least_impasses(backtracker_impasses, 
+    fastest = maze_tools.fastest_maze_generation_algorithm(backtracker_execution_time,
+                                                      kruskal_execution_time,
+                                                      aldous_broder_execution_time)
+    least_impasses = maze_tools.least_impasses(backtracker_impasses,
                                                   kruskal_impasses, aldous_broder_impasses)
 
 
@@ -62,4 +63,3 @@ def generate_mazes():
                            aldous_broder_impasses=aldous_broder_impasses,
                            fastest=fastest,
                            least_impasses=least_impasses)
-

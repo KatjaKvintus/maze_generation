@@ -1,6 +1,6 @@
 '''A Module for analyzing maze paths'''
-from maze_generation import backtracker
-    
+
+
 
 def are_all_cells_reachable(matrix):
     '''Returns True if BFS can visits every cell in the maze
@@ -29,18 +29,18 @@ def breadth_first_search(visited_cells, matrix, x, y, queue):
     # Continue as long as queue has cells to visit
     while len(queue) > 0:
 
-        next_cell = queue.pop(0) 
+        next_cell = queue.pop(0)
 
         neighbors = find_available_neighbour(next_cell[0], next_cell[1], matrix)
 
         for cell in neighbors:
             x1 = cell[0]
             y1 = cell[1]
-            
+
             if visited_cells[x1][y1] == [False]:
                 visited_cells[x1][y1] = [True]
                 queue.append([x1, y1])
-    
+
     for row in visited_cells:
         for cell in row:
             if cell == [False]:
@@ -56,7 +56,7 @@ def find_available_neighbour(x, y, matrix):
     cell.'''
 
     neighbors = []
-    size = len(matrix)    
+    size = len(matrix)
 
     if y != 0:
         # Left neighbor
@@ -77,24 +77,5 @@ def find_available_neighbour(x, y, matrix):
         # Below neighbor
         if matrix[x][y][3] == 0:
             neighbors.append([x+1, y])
-    
+
     return neighbors
-
-
-''' 
-# Testikoodia
-
-print("testi alkaa")
-sokkelo = backtracker.create_bactracker_maze(4)
-print("sokkelo luotu")
-
-print("sokkelon tulostus alkaa")
-for rivi in sokkelo:
-    print(rivi)
-print()
-print("sokkelon tulostus loppu")
-
-tulos = are_all_cells_reachable(sokkelo)
-print("Tulos on luotu")
-print(tulos)
-'''

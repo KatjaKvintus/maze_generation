@@ -31,50 +31,60 @@ def kruskal_maze_impasse_amount(maze):
     return impasses
 
 
-def fastest_maze_generation_algorithm(backtracker_time, kruskal_time, aldous_broder_execution_time):
+def fastest_maze_generation_algorithm(backtracker_time, kruskal_time, a_b_execution_time):
     '''Returns the name of the fastest algorithm and the generation time'''
 
-    if backtracker_time < kruskal_time and backtracker_time < aldous_broder_execution_time:
-        algorithm ="Recursive backtracker algorithm" 
+    if backtracker_time < kruskal_time and backtracker_time < a_b_execution_time:
+        algorithm ="Recursive backtracker algorithm"
         time = backtracker_time
 
-    elif kruskal_time < backtracker_time and kruskal_time < aldous_broder_execution_time:
+    elif kruskal_time < backtracker_time and kruskal_time < a_b_execution_time:
         algorithm = "Kruskal's algorithm"
         time = kruskal_time
 
-    else: 
+    else:
         algorithm = "Aldous-Broder algorithm"
-        time = aldous_broder_execution_time
+        time = a_b_execution_time
 
     result = algorithm + " in " + str(time) + " ms"
 
     return result
 
 
-def least_impasses(backtracker_impasses, kruskal_impasses, aldous_broder_impasses):
+def least_impasses(bt_impasses, kruskal_impasses, a_b_impasses):
     '''Returns the description of the algorithm that generated a maze with most impasses'''
 
-    if backtracker_impasses <= kruskal_impasses and backtracker_impasses <= aldous_broder_impasses:
+    if bt_impasses <= kruskal_impasses and bt_impasses <= a_b_impasses:
 
-        if backtracker_impasses == kruskal_impasses and backtracker_impasses == aldous_broder_impasses:
-            return "All algorithms has the same amount of impasses: " + str(kruskal_impasses) + " pcs"
-        
-        elif backtracker_impasses == kruskal_impasses:
-            return "Recursive backtracker algorithm and Kruskal's algorithm had the same amount of impasses: " + str(kruskal_impasses) + " pcs"
-        
-        elif backtracker_impasses == aldous_broder_impasses:
-            return "Recursive backtracker algorithm and Aldous-Broder algorithm had the same amount of impasses: " + str(backtracker_impasses) + " pcs"
+        if bt_impasses == kruskal_impasses and bt_impasses == a_b_impasses:
+            result = "All algorithms has the same amount of impasses: "
+            return result + str(kruskal_impasses) + " pcs"
+
+        if bt_impasses == kruskal_impasses:
+            phrase_1 = "Recursive backtracker algorithm and Kruskal's algorithm"
+            phrase_2 = " had the same amount of impasses: "
+            result = phrase_1 + phrase_2
+            return result + str(kruskal_impasses) + " pcs"
+
+        if bt_impasses == a_b_impasses:
+            phrase_1 = "Recursive backtracker algorithm and Aldous-Broder algorithm"
+            phrase_2 = " had the same amount of impasses: "
+            result = phrase_1 + phrase_2
+            return result + str(bt_impasses) + " pcs"
 
         else:
-            return "Recursive backtracker algorithm with " + str(backtracker_impasses) + " impasses"
+            return "Recursive backtracker algorithm with " + str(bt_impasses) + " impasses"
 
-    elif kruskal_impasses <= backtracker_impasses and kruskal_impasses <= aldous_broder_impasses:
+    if kruskal_impasses <= bt_impasses and kruskal_impasses <= a_b_impasses:
 
-        if kruskal_impasses == aldous_broder_impasses:
-            return "Kruskal's algorithm and Aldous-Broder algorithm had the same amount of impasses: " + str(kruskal_impasses) + " pcs"
-        
+        if kruskal_impasses == a_b_impasses:
+            phrase_1 = "Kruskal's algorithm and Aldous-Broder algorithm "
+            phrase_2 = "had the same amount of impasses: "
+            result = phrase_1 + phrase_2
+            return result + str(kruskal_impasses) + " pcs"
+
         else:
             return "Kruskal's algorithm with " + str(kruskal_impasses) + " impasses"
 
     else:
-        return "Aldous-Broder algorithm with " + str(aldous_broder_impasses) + " impasses"
+        return "Aldous-Broder algorithm with " + str(a_b_impasses) + " impasses"

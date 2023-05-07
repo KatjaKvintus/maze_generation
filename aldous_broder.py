@@ -15,9 +15,9 @@ def create_aldous_broder_maze(size):
     # size: 4 <= n <= 200
     if not isinstance(size, int):
         return "Incorrect parameter type"
-    elif int(size) < 4:
+    if int(size) < 4:
         return "Too small parameter"
-    elif size > 200:
+    if size > 200:
         return "Too big parameter"
 
 
@@ -29,10 +29,10 @@ def create_aldous_broder_maze(size):
     visit_status = [[False for i in range(size)] for j in range(size)]
 
     # Start cell (random)
-    x = random.randint(0, size-1)
-    y = random.randint(0, size-1)
-    current_cell = [x, y]
-    visit_status[x][y] = True
+    current_x = random.randint(0, size-1)
+    current_y = random.randint(0, size-1)
+    current_cell = [current_x, current_y]
+    visit_status[current_x][current_y] = True
 
     visited_cells_sum = 1
     max_visited_cells_sum = size * size
@@ -43,19 +43,19 @@ def create_aldous_broder_maze(size):
         # 0 = not possible move, 1 = possible move
         move_availability = [0, 0, 0, 0]         # in oder = left, up, right, below
 
-        if y != 0:
+        if current_y != 0:
             # If there is a left neighbour
             move_availability[0] = 1
 
-        if x != 0:
+        if current_x != 0:
             # If there is a top neighbour
             move_availability[1] = 1
 
-        if y != (size - 1):
+        if current_y != (size - 1):
             # If there is a right neighbour
             move_availability[2] = 1
 
-        if x != size - 1:
+        if current_x != size - 1:
             # If there is a bottom neighbour
             move_availability[3] = 1
 
@@ -69,8 +69,8 @@ def create_aldous_broder_maze(size):
 
                 # If you go to the cell in your left
                 if drawn_direction == 0:
-                    
-                    if visit_status[x][y-1] == False:
+
+                    if visit_status[current_x][current_y-1] is False:
                         # If this cell has not been visited yet, remove the
                         # left wall from current cell and the right wall
                         # from the cell on your left
@@ -78,15 +78,15 @@ def create_aldous_broder_maze(size):
                         matrix[current_cell[0]][current_cell[1] - 1][2] = 0
 
                     next_cell = [current_cell[0], current_cell[1] - 1]
-                    
-                    
+
+
                 # If you go to the cell above you
                 elif drawn_direction == 1:
 
                     # If this cell has not been visited yet, remove the wall
                     # above from the current cell the wall below from the cell
                     # above you
-                    if visit_status[x-1][y] == False:
+                    if visit_status[current_x-1][current_y] is False:
                         matrix[current_cell[0]][current_cell[1]][1] = 0
                         matrix[current_cell[0] - 1][current_cell[1]][3] = 0
 
@@ -97,32 +97,32 @@ def create_aldous_broder_maze(size):
 
                     # If this cell has not been visited yet, remove right wall
                     # from current cell and left wall from the next cell
-                    if visit_status[x][y+1] == False:
+                    if visit_status[current_x][current_y+1] is False:
                         matrix[current_cell[0]][current_cell[1]][2] = 0
                         matrix[current_cell[0]][current_cell[1] + 1][0] = 0
-                
+
                     next_cell = [current_cell[0], current_cell[1] + 1]
 
                 # If you go to the cell below you
                 else:
                     # If this cell has not been visited yet, remove the wall below
                     # from current cell and remove the wall top from the next cell
-                    if visit_status[x+1][y] == False:
+                    if visit_status[current_x+1][current_y] is False:
                         matrix[current_cell[0]][current_cell[1]][3] = 0
                         matrix[current_cell[0] + 1][current_cell[1]][1] = 0
 
                     next_cell = [current_cell[0] + 1, current_cell[1]]
 
-                if visit_status[current_cell[0]][current_cell[1]] == False:
-                    
+                if visit_status[current_cell[0]][current_cell[1]] is False:
+
                     # If this was 1st time in this cell, mark it as visited
                     visit_status[current_cell[0]][current_cell[1]] = True
                     visited_cells_sum += 1
 
                 current_cell = next_cell
 
-                x = current_cell[0]
-                y = current_cell[1]
+                current_x = current_cell[0]
+                current_y = current_cell[1]
 
                 move_handled = True
 

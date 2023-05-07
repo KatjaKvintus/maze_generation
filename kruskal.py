@@ -66,9 +66,9 @@ def create_kruskal_maze(size):
     # size: 4 <= n <= 200
     if not isinstance(size, int):
         return "Incorrect parameter type"
-    elif int(size) < 4:
+    if int(size) < 4:
         return "Too small parameter"
-    elif size > 200:
+    if size > 200:
         return "Too big parameter"
 
     # Clear egdes list (issue only when creating several mazes in a row)
@@ -119,9 +119,9 @@ def create_kruskal_maze(size):
     # containing all cells = labyrinth
     i = 0
 
-    while i < len(edges):       
+    while i < len(edges):
 
-        # Check if a cell set size is size^2, all cells are in the same set 
+        # Check if a cell set size is size^2, all cells are in the same set
         # and this loop can be stopped
         if len(edges[i].start_cell.set) == size * size:
             break
@@ -141,7 +141,7 @@ def create_kruskal_maze(size):
 
                 for item in cell_1.set:
                     matrix[item[0]][item[1]].set = cell_2.set
-            
+
             else:
                 cell_1.set |= cell_2.set
 
@@ -244,7 +244,5 @@ def print_kruskal_maze(side_lenght, maze):
     maze_image.save("static/kruskal_maze_image.jpg", "jpeg")
 
     drawer.clear()
-    #canvas.bye()
 
     return maze_image
-
