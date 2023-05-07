@@ -1,8 +1,10 @@
-# Viikkoraportti 6
+# Viikkoraportti 7
 
 ### Mitä olen tehnyt tällä viikolla?
 
-Olen enimmäkseen debugannut omaa koodiani.
+Tältä viikolta ei vaadittu enää raporttia, mutta kirjoitanpahan sen silti. Haluan kirjata muistiin tällä viikolla tehtyjä asioita.
+
+Perjantain ohjausajan jälkeen totesin, että tämä vääntäminen recursive division -algorithmin kanssa loppuu nyt. Jos en saanut sitä kolmessa viikossa toimimaan, se ei hyvin todennäköisesti valmistu tämän kurssin deadlineen mennessä. Uusi ehdokas oli Aldous-Broderin algoritmi, joka ei ole nopein eikä tehokkain, mutta osoittautui helpommaksi ymmärtää kuin recursive division. Se on huoleton vaeltelija, joka hortoilee pitkin labyrinttiä ja aina kohdatessaan uuden solun rikkoo seinän sen ja saapumissolun väliltä.
 
 Loin myös kahdella jo toimivalla algoritmilla eri kokoisia labyrinttejä, 10 kutakin kokoa, ja otin ajat talteen tehokkuuskuvauksen tekoa varten. Kruskal on merkittävästi hitaampi kuin syvyyshaku, ja erot ovat niin isoja, että Kruskalissa on jotain vialla. Löysin jo yhden ongelman, jonka korjaaminen leikkasi suoritusajasta 2/3 pois: sen sijaan, että luuppi kävisi läpi kaikki verkon kaaret, se lopettaa läpikäynnin siinä vaiheessa kun käsiteltävän kaaren jomman kumman päässä olevan solmun setin koko on n^2 (nxn-kokoisen verkon solmujen määrä eli kaikki solmut kuuluvat samaan settiin). Silti 200x200-kokoisen labyrintin generointiin Kruskalin algortimillä menee keskimäärin 89 sekuntia, kun backtrackerilla vastaava syntyy 0,12 sekunnissa. Tätä pitää katsoa tarkemmin vielä ennen loppupalautusta ja tehostaa reippaasti.
 
