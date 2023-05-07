@@ -62,6 +62,15 @@ def create_kruskal_maze(size):
     cell contains a list [1, 1, 1, 1]. The cell keeps track of its walls in this order:
     left, top, right, bottom. '''
 
+    # Check that parameter is the rght type (integer) and right
+    # size: 4 <= n <= 200
+    if not isinstance(size, int):
+        return "Incorrect parameter type"
+    elif int(size) < 4:
+        return "Too small parameter"
+    elif size > 200:
+        return "Too big parameter"
+
     # Clear egdes list (issue only when creating several mazes in a row)
     edges.clear()
 
@@ -97,6 +106,7 @@ def create_kruskal_maze(size):
                 end_cell = matrix[x][y + 1]
                 add_edge(start_cell, end_cell)
 
+    # Shuffle edges in random order (because that's whats Kruskal's algorithm requires)
     random.shuffle(edges)
 
     # Creating sets - at the begingnning every cell is in their own set.
@@ -111,7 +121,7 @@ def create_kruskal_maze(size):
 
     while i < len(edges):       
 
-        # Chekc: f a cell set size is size^2, all cells are in the same set 
+        # Check if a cell set size is size^2, all cells are in the same set 
         # and this loop can be stopped
         if len(edges[i].start_cell.set) == size * size:
             break
@@ -125,11 +135,18 @@ def create_kruskal_maze(size):
             open_edge(edges[i])
             edges[i].is_open = True
 
-            # Transfer cell_2 set cells to cell_1 set
-            cell_1.set |= cell_2.set
+            # Transfer smaller set to the bigger set
+            if len(cell_1.set) < len(cell_2.set):
+                cell_2.set |= cell_1.set
 
-            for item in cell_2.set:
-                matrix[item[0]][item[1]].set = cell_1.set
+                for item in cell_1.set:
+                    matrix[item[0]][item[1]].set = cell_2.set
+            
+            else:
+                cell_1.set |= cell_2.set
+
+                for item in cell_2.set:
+                    matrix[item[0]][item[1]].set = cell_1.set
 
         i += 1
 
@@ -227,22 +244,7 @@ def print_kruskal_maze(side_lenght, maze):
     maze_image.save("static/kruskal_maze_image.jpg", "jpeg")
 
     drawer.clear()
-    canvas.bye()
+    #canvas.bye()
 
     return maze_image
-
-
-def kruskal_maze_impasse_amount(maze):
-    '''Returns the amount of maze impasses e.g. how many cells include only one "1".
-    Helps to analyze maze complexity.'''
-
-    impasses = 0
-
-    for row in maze:
-        for cell in row:
-            if len(cell.open_edges) == 2:
-                impasses += 1
-
-    return impasses
-
 

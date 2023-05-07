@@ -2,6 +2,7 @@
 import unittest
 import random
 from maze_generation import kruskal
+from PIL import Image
 
 
 class Test_kruskal(unittest.TestCase):
@@ -27,6 +28,49 @@ class Test_kruskal(unittest.TestCase):
                 maze_size += len(row)
 
             self.assertEqual(maze_size, size*size)
+
+
+    def test_too_small_parameter_gives_error(self):
+        '''Test that when trying to generate a maze any integer smaller
+        than 4 returns error'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(-10, 3)
+            test_sizes.append(i)
+
+        for size in test_sizes:
+            result = kruskal.create_kruskal_maze(size)
+            self.assertEqual(result, "Too small parameter")
+    
+ 
+    def test_too_big_parameter_gives_error(self):
+        '''Test that when trying to generate a maze any integer bigger
+        than 200 returns error'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(201, 1000)
+            test_sizes.append(i)
+
+        for size in test_sizes:
+            result = kruskal.create_kruskal_maze(size)
+            self.assertEqual(result, "Too big parameter")
+
+
+    def test_incorrect_parameter_type_gives_error(self):
+        ''' If create_bactracker_maze() has a wrong type of parameter,
+        there will be error'''
+
+        test_types = ["Harry Potter", "?", 12.3]
+
+        for item in test_types:
+
+            result = kruskal.create_kruskal_maze(item)
+            self.assertEqual(result, "Incorrect parameter type")
+
 
 
     def test_maze_has_open_edges(self):
@@ -80,8 +124,8 @@ class Test_kruskal(unittest.TestCase):
 
             self.assertEqual(number_of_odd_amount_of_edges, 0)
 
+''' 
 
-    '''
     def test_return_type_for_get_open_edges(self):
         '''
 

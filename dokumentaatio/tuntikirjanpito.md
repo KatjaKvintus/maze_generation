@@ -31,9 +31,19 @@
 | 30.4.2023 | 6 | debuggausta |
 | 1.5.2023 | 4 | Kahden toimivan algoritmien tehokkuuden testausta, Kruskalin tehokkuuden parantamista + pieniä korjauksia sinne tänne |
 | 2.5.2023 | 3 | Debuggausta, results-sivun ulkoasun muokkaus luettavammaksi |
+| 3.5.2023 | 1 | debuggausta |
+| 4.5.2023 | 1 | debuggausta |
+| 5.5.2023 | 3 | Testien kirjoitusta ja debuggausta |
+| 6.5.2023 | 3 | Aldous-Broderin algoritmin kirjoitusta ja testausta |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 
-| yht. 89 tuntia |  
+
+
+
+| yht. 97 tuntia |  

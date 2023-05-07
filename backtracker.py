@@ -1,15 +1,25 @@
-'''Module fo bactracking algorthm maze generation and visualization'''
+'''Module fo bactracking algorithm maze generation and visualization'''
 import random
 import turtle
 from PIL import Image
 
 
-def create_bactracker_maze(size):
+def create_bactracker_maze(size: int):
     '''Create a maze of required size. In the beginning every cell has walls around it.
     The list of 4 characters in each cell tells its wall situation.  A wall is marked
     by '1', a lack of wall is marked by '0'. At the beginning all walls are up so every
     cell contains a list of [1, 1, 1, 1]. The cell keeps track of its walls in this order:
     left, top, right, bottom. '''
+
+    # Check that parameter is the rght type (integer) and right
+    # size: 4 <= n <= 200
+    if not isinstance(size, int):
+        return "Incorrect parameter type"
+    elif int(size) < 4:
+        return "Too small parameter"
+    elif size > 200:
+        return "Too big parameter"
+
 
     # A 2D list to keep track of matrix walls
     matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]
@@ -23,7 +33,6 @@ def create_bactracker_maze(size):
 
     # Starting point is (0, 0): top left corner
     current_cell = [x, y]
-
 
     visited_cells_sum = 1
     max_visited_cells_sum = size * size
@@ -53,13 +62,11 @@ def create_bactracker_maze(size):
         if y != (size - 1):
             # If it is possible to  move right
             if visit_status[x][y+1] == 0:
-
                 move_availability[2] = 1
 
         if x != size - 1:
             # If it is possible to move below
             if visit_status[x+1][y] == 0:
-
                 move_availability[3] = 1
 
         if move_availability == [0, 0, 0, 0]:
@@ -130,25 +137,10 @@ def create_bactracker_maze(size):
     return matrix
 
 
-def bactracker_maze_impasse_amount(maze):
-    '''Returns the amount of maze impasses e.g. how many cells include only one "1".
-    Helps to analyze maze complexity.'''
-
-    impasses = 0
-
-    for row in maze:
-        for cell in row:
-            text = str(cell)
-            if text.count("1") == 1:
-                impasses += 1
-
-    return impasses
-
-
 def draw_maze_image(size, matrix):
     '''Draws maze image'''
-    drawer = turtle.Turtle()
 
+    drawer = turtle.Turtle()
     canvas = turtle.Screen()
     canvas.setup(width=900, height=900)
 
@@ -178,8 +170,6 @@ def draw_maze_image(size, matrix):
                 drawer.pendown()
             elif matrix[y][x][3] == 0:
                 drawer.penup()
-            else:
-                print("error")
 
             drawer.forward(maze_size)
 
@@ -204,6 +194,6 @@ def draw_maze_image(size, matrix):
     maze_image = Image.open("static/backtracker_maze.eps")
     maze_image.save("static/backtracker_maze_image.jpg", "jpeg")
     drawer.clear()
+    #canvas.bye()
 
     return maze_image
-

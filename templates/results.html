@@ -3,8 +3,8 @@
 
 <style>
     .top-section {
-        background-color:white;
-        height: 100px;
+        background-color:lightgreen;
+        height: 200px;
         text-align: left;
         padding: 20px;
     }
@@ -29,49 +29,46 @@
         <button onclick="window.location.href='/'"> Return to the main page </button><BR><BR>
 
         <h1>Results:</h1>
+        <li><B>Fastest: </B> {{ fastest }} <BR></li><BR>
+        <li><B>Least impasses: </B> {{ least_impasses }} <BR></li>
 
 	</div>
 
     <div class="bottom-section">
 		<div>
-            <h2>Recursive bakctracker algorithm maze</h2>
+            <h2>Recursive backtracker algorithm maze</h2>
             <img src="../static/backtracker_maze_image.jpg">
 
             <ul>
                 <li><B>Maze type: </B> perfect maze<BR></li>
-		<li><B>Charasteristics: </B> low branching factor, many long corridors<BR></li>
-                <li><B>Method: </B> passage carving, depth-first search <BR></li>
+		        <li><B>Charasteristics: </B> one of the slowest and least effective<BR></li>
+                <li><B>Method: </B> passage carving <BR></li>
                 <li><B>Maze execution time: </B> {{ backtracker_execution_time }} ms<BR></li>
                 <li><B>Impasses: </B> {{backtracker_impasses}} pcs<BR></li>
             </ul>
-
         </div>
-
-
-
 
         <div>
             <h2>Kruskal's algorithm</h2>
             <img src="../static/kruskal_maze_image.jpg">
             <ul>
                 <li><B>Maze type: </B> perfect maze<BR></li>
-		<li><B>Charasteristics: </B> regular patterns which are fairly easy to solve<BR></li>
+		        <li><B>Charasteristics: </B> regular patterns, lots of impasses, easy to solve<BR></li>
                 <li><B>Method: </B> passage carving, a minimal spanning tree<BR></li>
                 <li><B>Maze execution time: </B> {{ kruskal_execution_time }} ms<BR></li>
                 <li><B>Impasses: </B> {{kruskal_impasses}} pcs<BR></li>
             </ul>
         </div>
 
-
-
         <div>
-            <h2>Recursive division algorithm</h3>
+            <h2>Aldous-Broder algorithm</h3>
+            <img src="../static/aldous_broder_maze_image.jpg">
             <ul>
                 <li><B>Maze type: </B> perfect maze<BR></li>
-		<li><B>Charasteristics: </B> mazes have long straight walls crossing their space<BR></li>
-                <li><B>Method: </B> dividing empty space with walls with one opening<BR></li>    
-                <li><B>Maze execution time: </B> {{ rec_division_execution_time }} ms<BR></li>
-                <li><B>Impasses: </B> {{rec_division_impasses}} pcs<BR></li>
+		        <li><B>Charasteristics: </B>long, winding paths<BR></li>
+                <li><B>Method: </B> uniform spanning tree, passage carving<BR></li>    
+                <li><B>Maze execution time: </B> {{ aldous_broder_execution_time }} ms<BR></li>
+                <li><B>Impasses: </B> {{aldous_broder_impasses}} pcs<BR></li>
             </ul>
 
         </div>

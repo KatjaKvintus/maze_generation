@@ -1,13 +1,13 @@
-'''For testing the backtracker.py file'''
+'''For testing the aldous_broder.py file'''
 import unittest
 import random
-from maze_generation import backtracker, maze_tools, maze_paths
+from maze_generation import aldous_broder, maze_tools, maze_paths
 from PIL import Image
-import os.path
+import os
 
 
-class Test_backtracker(unittest.TestCase):
-    '''Bactracker related tests'''
+class Test_aldous_broder(unittest.TestCase):
+    '''Aldous_Broder algorithm related tests'''
 
 
     def test_maze_is_correct_size(self):
@@ -22,14 +22,14 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.new_maze = backtracker.create_bactracker_maze(size)
+            self.new_maze = aldous_broder.create_aldous_broder_maze(size)
             maze_size = 0
 
             for row in self.new_maze:
                 maze_size += len(row)
 
             self.assertEqual(maze_size, size*size)
-
+    
 
     def test_too_small_parameter_gives_error(self):
         '''Test that when trying to generate a maze any integer smaller
@@ -42,7 +42,7 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            result = backtracker.create_bactracker_maze(size)
+            result = aldous_broder.create_aldous_broder_maze(size)
             self.assertEqual(result, "Too small parameter")
 
 
@@ -57,7 +57,7 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            result = backtracker.create_bactracker_maze(size)
+            result = aldous_broder.create_aldous_broder_maze(size)
             self.assertEqual(result, "Too big parameter")
 
 
@@ -65,11 +65,11 @@ class Test_backtracker(unittest.TestCase):
         '''If create_bactracker_maze() has a wrong type of parameter,
         there will be error'''
 
-        test_types = ["kissa", "#", 4.44]
+        test_types = ["Matti", "@", 6.78]
 
         for item in test_types:
 
-            result = backtracker.create_bactracker_maze(item)
+            result = aldous_broder.create_aldous_broder_maze(item)
             self.assertEqual(result, "Incorrect parameter type")
 
 
@@ -85,7 +85,7 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.new_maze = backtracker.create_bactracker_maze(size)
+            self.new_maze = aldous_broder.create_aldous_broder_maze(size)
 
             number_of_zeros = 0
 
@@ -109,7 +109,7 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            self.new_maze = backtracker.create_bactracker_maze(size)
+            self.new_maze = aldous_broder.create_aldous_broder_maze(size)
 
             number_of_walls = 0
 
@@ -134,7 +134,7 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.maze = backtracker.create_bactracker_maze(size)
+            self.maze = aldous_broder.create_aldous_broder_maze(size)
             frame_is_unbroken = True
             i = 0
             j = 0
@@ -175,34 +175,34 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            self.maze = backtracker.create_bactracker_maze(size)
+            self.maze = aldous_broder.create_aldous_broder_maze(size)
             result = maze_tools.count_maze_impasses(self.maze)
             self.assertTrue(0 <= result <= size*size)
-    
+
+
     def test_impasses_are_counted_correctly_in_size_4_maze(self):
         '''For checking that impasses are count correctly'''
 
-        maze_4 = [[[1, 1, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1], [0, 1, 1, 0]],
-                  [[1, 0, 1, 0], [1, 0, 1, 1], [1, 1, 0, 0], [0, 0, 1, 0]],
-                  [[1, 0, 0, 1], [0, 1, 1, 0], [1, 0, 1, 0], [1, 0, 1, 0]],
-                  [[1, 1, 0, 1], [0, 0, 0, 1], [0, 0, 1, 1], [1, 0, 1, 1]]]
+        maze_4 = [[[1, 1, 0, 0], [0, 1, 1, 1], [1, 1, 1, 0],[1, 1, 1, 0]],
+                  [[1, 0, 0, 1], [0, 1, 0, 1], [0, 0, 0, 0], [0, 0, 1, 0]],
+                  [[1, 1, 1, 0], [1, 1, 1, 0], [1, 0, 1, 1], [1, 0, 1, 0]],
+                  [[1, 0, 0, 1], [0, 0, 0, 1], [0, 1, 0, 1], [0, 0, 1, 1]]]
         
         result = maze_tools.count_maze_impasses(maze_4)
-        self.assertEqual(result, 4)
-    
+        self.assertEqual(result, 6)
+
 
     def test_impasses_are_counted_correctly_in_size_5_maze(self):
         '''For checking that impasses are count correctly'''
 
-        maze_5 = [[[1, 1, 0, 1], [0, 1, 1, 0], [1, 1, 0, 1], [0, 1, 0, 1], [0, 1, 1, 0]],
-                  [[1, 1, 1, 0], [1, 0, 0, 1], [0, 1, 1, 0], [1, 1, 0, 0], [0, 0, 1, 0]],
-                  [[1, 0, 0, 0], [0, 1, 1, 1], [1, 0, 1, 0], [1, 0, 1, 0], [1, 0, 1, 1]],
-                  [[1, 0, 0, 0], [0, 1, 1, 0], [1, 0, 1, 0], [1, 0, 0, 1], [0, 1, 1, 0]],
-                  [[1, 0, 1, 1], [1, 0, 0, 1], [0, 0, 0, 1], [0, 1, 0, 1], [0, 0, 1, 1]]]
+        maze_5 = [[[1, 1, 0, 0], [0, 1, 0, 1], [0, 1, 0, 1], [0, 1, 0, 0], [0, 1, 1, 1]],
+                  [[1, 0, 1, 1], [1, 1, 0, 0], [0, 1, 0, 1], [0, 0, 1, 1], [1, 1, 1, 0]],
+                  [[1, 1, 1, 0], [1, 0, 0, 1], [0, 1, 0, 1], [0, 1, 0, 0], [0, 0, 1, 0]],
+                  [[1, 0, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1], [0, 0, 1, 0], [1, 0, 1, 1]],
+                  [[1, 0, 0, 1], [0, 0, 1, 1], [1, 1, 0, 1], [0, 0, 0, 1], [0, 1, 1, 1]]]
         
         result = maze_tools.count_maze_impasses(maze_5)
-        self.assertEqual(result, 6)
-
+        self.assertEqual(result, 7)
 
 
     def test_is_this_perfect_maxe(self):
@@ -216,7 +216,20 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.new_maze = backtracker.create_bactracker_maze(size)            
+            self.new_maze = aldous_broder.create_aldous_broder_maze(size)         
             result = maze_paths.are_all_cells_reachable(self.new_maze)
 
             self.assertTrue(result)
+
+
+    def test_drawing_function_returns_file_that_is_not_empty(self):
+        """Checks function return file type"""
+
+        size = random.randint(4, 20)
+
+        self.new_maze = aldous_broder.create_aldous_broder_maze(size) 
+        self.maze_image = aldous_broder.draw_aldous_broder_maze_image(size, self.new_maze)          
+        self.maze_image = "static/aldous_broder__maze_image.jpg"
+        
+        self.assertTrue(os.path.isfile(self.maze_image))
+        self.assertGreater(os.path.getsize(self.maze_image), 0)
