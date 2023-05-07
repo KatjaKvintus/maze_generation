@@ -1,12 +1,12 @@
 # Sokkeloja luovien algoritmien tutkiminen
 _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 
-Sovelluksessa käyttäjä voi vertailla sokkeloita luovien algoritmien tuloksia. 
+Sovellus generoi, visualisoi ja vertailee kolmen eri satunnaisia labyrinttejä generoivien algoritmin (satunnainen syvyyshaku, Kruskalin algoritmi ja Aldous-Broderin algoritmi) tuloksia. 
 
 
-### Sovelluksen tilanne 23.4.2023
+### Sovelluksen tilanne 7.5.2023
 
-Tällä hetkellä sovellus generoi ja visualisoi kolmentyyppisiä labyrinttejä (satunnainen syvyyshaku, Kruskalin algoritmi ja rekursiivinen jakoalgoritmi). Apin ulkoasuun ei ole vielä panostettu ja siinä on useita bugeja. Kolmannelle algoritmille ei ole vielä kirjoitettu testejä ja sen visualisointi ei toimi.
+Vaikka kaikenlaista pientä hiottavaa riittää, pylint ei ole täysin tyytyväinen ja dokumentaatiossakin on vielä kirjoitettavaa, sovellus alkaa olla melko valmis.
 
 Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
 
@@ -25,6 +25,8 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 
 ![Viikkoraportti 6](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_6.md)
 
+![Viikkoraportti 7](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Viikkoraportti_7.md)
+
 
 ### Dokumentaatio
 
@@ -35,3 +37,9 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 ![Testausdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausdokumentti.md) - kesken
 
 ![Toteutusdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/toteutusdokumentti.md) - kesken
+
+
+### Tiedossa olevat virheet ja ongelmat
+
+- Testi test_drawing_function_returns_file_that_is_not_empty() antaa satunnaisesti hämärän virheilmoituksen Aldous-Broderin algoritmin tuottamasta labyrinttikuvasta
+- Sovellus pitää buutata jokaisen ajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä
