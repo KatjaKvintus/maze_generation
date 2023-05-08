@@ -1,7 +1,7 @@
 # Sokkeloja luovien algoritmien tutkiminen
 _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 
-Sovellus generoi, visualisoi ja vertailee kolmen eri satunnaisia labyrinttejä generoivien algoritmin (satunnainen syvyyshaku, Kruskalin algoritmi ja Aldous-Broderin algoritmi) tuloksia. 
+Sovellus generoi, visualisoi ja vertailee kolmen eri satunnaisia labyrinttejä generoivien algoritmin (iteratiivinen syvyyshaku, Kruskalin algoritmi ja Aldous-Broderin algoritmi) tuloksia. 
 
 
 ### Sovelluksen tilanne 7.5.2023
@@ -43,7 +43,7 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 
 - Testi test_drawing_function_returns_file_that_is_not_empty() antaa satunnaisesti hämärän virheilmoituksen Aldous-Broderin algoritmin tuottamasta labyrinttikuvasta
 - Sovellus pitää buutata jokaisen ajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä
-- Kruskalin algoritmilla varsinkin isommat labyrintit ovat hitaita generoida ja algoritmi kaipaisi tehostamista.
+- Kruskalin algoritmilla varsinkin isommat labyrintit ovat hitaita generoida ja algoritmi kaipaisikin tehostamista.
 
 
 ### Jatkokehitysideoita
