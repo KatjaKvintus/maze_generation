@@ -1,12 +1,13 @@
-'''For testing the backtracker.py file'''
+'''For testing the dfs.py file'''
 import unittest
 import random
-from maze_generation import backtracker, maze_tools, maze_paths
+from Documents.Tiralabra.maze_generation import dfs
+from maze_generation import maze_tools, maze_paths
 from PIL import Image
 import os.path
 
 
-class Test_backtracker(unittest.TestCase):
+class Test_dfs(unittest.TestCase):
     '''Bactracker related tests'''
 
 
@@ -22,7 +23,7 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.new_maze = backtracker.create_bactracker_maze(size)
+            self.new_maze = dfs.create_dfs_maze(size)
             maze_size = 0
 
             for row in self.new_maze:
@@ -42,7 +43,7 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            result = backtracker.create_bactracker_maze(size)
+            result = dfs.create_dfs_maze(size)
             self.assertEqual(result, "Too small parameter")
 
 
@@ -57,7 +58,7 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            result = backtracker.create_bactracker_maze(size)
+            result = dfs.create_dfs_maze(size)
             self.assertEqual(result, "Too big parameter")
 
 
@@ -69,7 +70,7 @@ class Test_backtracker(unittest.TestCase):
 
         for item in test_types:
 
-            result = backtracker.create_bactracker_maze(item)
+            result = dfs.create_dfs_maze(item)
             self.assertEqual(result, "Incorrect parameter type")
 
 
@@ -85,7 +86,7 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.new_maze = backtracker.create_bactracker_maze(size)
+            self.new_maze = dfs.create_dfs_maze(size)
 
             number_of_zeros = 0
 
@@ -109,7 +110,7 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            self.new_maze = backtracker.create_bactracker_maze(size)
+            self.new_maze = dfs.create_dfs_maze(size)
 
             number_of_walls = 0
 
@@ -134,7 +135,7 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.maze = backtracker.create_bactracker_maze(size)
+            self.maze = dfs.create_dfs_maze(size)
             frame_is_unbroken = True
             i = 0
             j = 0
@@ -175,7 +176,7 @@ class Test_backtracker(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            self.maze = backtracker.create_bactracker_maze(size)
+            self.maze = dfs.create_dfs_maze(size)
             result = maze_tools.count_maze_impasses(self.maze)
             self.assertTrue(0 <= result <= size*size)
     
@@ -216,7 +217,7 @@ class Test_backtracker(unittest.TestCase):
 
         for size in test_sizes:
 
-            self.new_maze = backtracker.create_bactracker_maze(size)            
+            self.new_maze = dfs.create_dfs_maze(size)            
             result = maze_paths.are_all_cells_reachable(self.new_maze)
 
             self.assertTrue(result)

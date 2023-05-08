@@ -4,7 +4,7 @@
 
 def are_all_cells_reachable(matrix):
     '''Returns True if BFS can visits every cell in the maze
-    that is modeled as a 2D array (like backtracker)'''
+    that is modeled as a 2D array (like DFS and Aldous-Broder)'''
 
     size = len(matrix)
 

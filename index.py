@@ -3,7 +3,7 @@
 import time
 from flask import Flask
 from flask import render_template, request
-from . import backtracker, kruskal, aldous_broder, maze_tools
+from . import dfs, kruskal, aldous_broder, maze_tools
 
 app = Flask(__name__)
 
@@ -21,13 +21,13 @@ def generate_mazes():
     size = request.form["maze_size"]
     size = int(size)
 
-    # Bactracker algorithm
+    # DFS algorithm
     start_time = time.time()
-    backtracker_maze = backtracker.create_bactracker_maze(size)
+    dfs_maze = dfs.create_dfs_maze(size)
     end_time = time.time()
-    backtracker_execution_time = round((end_time - start_time) * 1000, 4)
-    backtracker.draw_maze_image(size, backtracker_maze)
-    backtracker_impasses = maze_tools.count_maze_impasses(backtracker_maze)
+    dfs_execution_time = round((end_time - start_time) * 1000, 4)
+    dfs.draw_maze_image(size, dfs_maze)
+    dfs_impasses = maze_tools.count_maze_impasses(dfs_maze)
 
     # Kruskal's algorithm
     start_time = time.time()
@@ -47,16 +47,16 @@ def generate_mazes():
 
 
     # For resuls summary
-    fastest = maze_tools.fastest_maze_generation_algorithm(backtracker_execution_time,
+    fastest = maze_tools.fastest_maze_generation_algorithm(dfs_execution_time,
                                                       kruskal_execution_time,
                                                       aldous_broder_execution_time)
-    least_impasses = maze_tools.least_impasses(backtracker_impasses,
+    least_impasses = maze_tools.least_impasses(dfs_impasses,
                                                   kruskal_impasses, aldous_broder_impasses)
 
 
     return render_template("/results.html",
-                           backtracker_execution_time=backtracker_execution_time,
-                           backtracker_impasses=backtracker_impasses,
+                           dfs_execution_time=dfs_execution_time,
+                           dfs_impasses=dfs_impasses,
                            kruskal_execution_time = kruskal_execution_time,
                            kruskal_impasses=kruskal_impasses,
                            aldous_broder_execution_time=aldous_broder_execution_time,

@@ -4,7 +4,7 @@
 def count_maze_impasses(maze):
     '''Returns the amount of maze impasses e.g. how many cells include
     only one "1". Helps to analyze maze complexity.
-    Can be used for recursive backtracker and aldous-broder algorithms.'''
+    Can be used for Iterative DFS and aldous-broder algorithms.'''
 
     impasses = 0
 
@@ -31,14 +31,14 @@ def kruskal_maze_impasse_amount(maze):
     return impasses
 
 
-def fastest_maze_generation_algorithm(backtracker_time, kruskal_time, a_b_execution_time):
+def fastest_maze_generation_algorithm(dfs_time, kruskal_time, a_b_execution_time):
     '''Returns the name of the fastest algorithm and the generation time'''
 
-    if backtracker_time < kruskal_time and backtracker_time < a_b_execution_time:
-        algorithm ="Recursive backtracker algorithm"
-        time = backtracker_time
+    if dfs_time < kruskal_time and dfs_time < a_b_execution_time:
+        algorithm ="Iterative DFS algorithm"
+        time = dfs_time
 
-    elif kruskal_time < backtracker_time and kruskal_time < a_b_execution_time:
+    elif kruskal_time < dfs_time and kruskal_time < a_b_execution_time:
         algorithm = "Kruskal's algorithm"
         time = kruskal_time
 
@@ -61,19 +61,19 @@ def least_impasses(bt_impasses, kruskal_impasses, a_b_impasses):
             return result + str(kruskal_impasses) + " pcs"
 
         if bt_impasses == kruskal_impasses:
-            phrase_1 = "Recursive backtracker algorithm and Kruskal's algorithm"
+            phrase_1 = "Iterative DFS algorithm and Kruskal's algorithm"
             phrase_2 = " had the same amount of impasses: "
             result = phrase_1 + phrase_2
             return result + str(kruskal_impasses) + " pcs"
 
         if bt_impasses == a_b_impasses:
-            phrase_1 = "Recursive backtracker algorithm and Aldous-Broder algorithm"
+            phrase_1 = "Iterative DFS algorithm and Aldous-Broder algorithm"
             phrase_2 = " had the same amount of impasses: "
             result = phrase_1 + phrase_2
             return result + str(bt_impasses) + " pcs"
 
         else:
-            return "Recursive backtracker algorithm with " + str(bt_impasses) + " impasses"
+            return "Iterative DFS algorithm with " + str(bt_impasses) + " impasses"
 
     if kruskal_impasses <= bt_impasses and kruskal_impasses <= a_b_impasses:
 

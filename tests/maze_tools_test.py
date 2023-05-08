@@ -1,7 +1,8 @@
 '''For testing the maze_tools.py file'''
 import unittest
 import random
-from maze_generation import aldous_broder, backtracker, kruskal, maze_paths
+from Documents.Tiralabra.maze_generation import dfs
+from maze_generation import aldous_broder, kruskal, maze_paths
 from PIL import Image
 import os
 
@@ -14,15 +15,15 @@ class Test_maze_tools(unittest.TestCase):
         """Checks that the function return file is file and not empty"""
 
         size = random.randint(4, 20)
-        test_algorithms = ["aldous_broder", "backtracker", "kruskal"]
+        test_algorithms = ["aldous_broder", "dfs", "kruskal"]
 
         for algorithm in test_algorithms:
 
-            if algorithm == "backtracker":
+            if algorithm == "dfs":
 
-                self.backtracker_maze = backtracker.create_bactracker_maze(size)
-                self.maze_image = backtracker.draw_maze_image(size, self.backtracker_maze)
-                self.maze_image = "static/backtracker_maze_image.jpg"
+                self.dfs_maze = dfs.create_dfs_maze(size)
+                self.maze_image = dfs.draw_maze_image(size, self.dfs_maze)
+                self.maze_image = "static/dfs_maze_image.jpg"
 
                 self.assertTrue(os.path.isfile(self.maze_image))
                 self.assertGreater(os.path.getsize(self.maze_image), 0)

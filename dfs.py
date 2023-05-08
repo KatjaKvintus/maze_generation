@@ -4,7 +4,7 @@ import turtle
 from PIL import Image
 
 
-def create_bactracker_maze(size: int):
+def create_dfs_maze(size: int):
     '''Create a maze of required size. In the beginning every cell has walls around it.
     The list of 4 characters in each cell tells its wall situation.  A wall is marked
     by '1', a lack of wall is marked by '0'. At the beginning all walls are up so every
@@ -190,10 +190,9 @@ def draw_maze_image(size, matrix):
             drawer.forward(maze_size)
 
     image = drawer.getscreen()
-    image.getcanvas().postscript(file="static/backtracker_maze.eps")
-    maze_image = Image.open("static/backtracker_maze.eps")
-    maze_image.save("static/backtracker_maze_image.jpg", "jpeg")
+    image.getcanvas().postscript(file="static/dfs_maze.eps")
+    maze_image = Image.open("static/dfs_maze.eps")
+    maze_image.save("static/dfs_maze_image.jpg", "jpeg")
     drawer.clear()
-    #canvas.bye()
 
     return maze_image
