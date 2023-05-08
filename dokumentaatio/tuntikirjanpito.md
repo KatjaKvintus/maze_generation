@@ -14,7 +14,7 @@
 | 2.4.2023 | 4 | Syvyyshaulla tuotetun sokkelon visualisoinnin kirjoittaminen loppuun |
 | 6.2.2023 | 1 | Poetryn asennusongelmia |
 | 7.4.2023 | 4 | Poetryn asennus loppuun, ongelmien selvitystä testien ajamisen kanssa, Kruskal-algoritmin osuuden aloitus |
-| 8.4.2023 | 2 | Syyshaun testien kirjoittamista, Kruskalin algoritmin kirjoitusta |
+| 8.4.2023 | 2 | Syvyyshaun testien kirjoittamista, Kruskalin algoritmin kirjoitusta |
 | 9.4.2023 | 3 | Kruskalin algoritmin viimeistely |
 | 10.4.2023 | 2 | Kruskal-algoritmin korjaamista, koska löytyi uusia ongelmia |
 | 15.4.2023 | 4 | Kruskal-sokkelon piirtofunktion aloitus |
@@ -26,16 +26,17 @@
 | 21.4.2023 | 2 | Rekursiivisen jakoalgoritmin kirjoitusta |
 | 22.4.2023 | 4 | Rekursiivisen jakoalgoritmin kirjoitusta, bugien korjausta, Pylint-korjauksia |
 | 23.4.2023 | 2 | Rekursiivisen jakoalgoritmin ja sen visualisoinnin kirjoitusta |
-| 28.4.2023 | 2 | debuggausta + vaihtoehtoisen visualisoinnin kokeiluja |
-| 29.4.2023 | 5 | debuggausta |
-| 30.4.2023 | 6 | debuggausta |
+| 28.4.2023 | 2 | Debuggausta + vaihtoehtoisen visualisoinnin kokeiluja |
+| 29.4.2023 | 5 | Debuggausta |
+| 30.4.2023 | 6 | Debuggausta |
 | 1.5.2023 | 4 | Kahden toimivan algoritmien tehokkuuden testausta, Kruskalin tehokkuuden parantamista + pieniä korjauksia sinne tänne |
 | 2.5.2023 | 3 | Debuggausta, results-sivun ulkoasun muokkaus luettavammaksi |
-| 3.5.2023 | 1 | debuggausta |
-| 4.5.2023 | 1 | debuggausta |
+| 3.5.2023 | 1 | Debuggausta |
+| 4.5.2023 | 1 | Debuggausta |
 | 5.5.2023 | 3 | Testien kirjoitusta ja debuggausta |
 | 6.5.2023 | 3 | Aldous-Broderin algoritmin kirjoitusta ja testausta |
 | 7.5.2023 | 5 | Testien kirjoitusta, debuggausta, dokumentointia |
+| 8.5.2023 | 2 | Dokumentaation kirjoitus, syvyyshakualgoritmin nimen korjaus tiedostoihin |
 |  |  |  |
 |  |  |  |
 |  |  |  |
@@ -43,7 +44,4 @@
 |  |  |  |
 |  |  |  |
 
-
-
-
-| yht. 102 tuntia |  
+| yht. 104 tuntia |  
