@@ -24,6 +24,8 @@ Turtle on ongelmallinen testauksen kannalta.
 
 Tällä hetkellä ei oikein mikään. Kaikkea pientä hiottavaa riittää, esim. testeissä Aldous-Broderin labyrintin kuvatiedostoa tutkiva testi antaa 1/10 tapauksessa errorin, mutta en ole saanut sen juurisyytä selville.
 
+EDIT 8.5: kun ryhdyin kokoamaan pseudokoodeja dokumentaatiota varten, huomasin että olen kutsunut yhtä algoritmia koko ajan väärällä nimellä. "Recursive backtracker" onkin "Iterative DFS". Molemmat perustuvat syvyyshakuun, mutta toteutustapa on erilainen. Nyt pitää tehdä korjaukset kaikkialle koodiin ja dokumentaatioon. (Tämä todistaa, etten ole vieläkään ymmärtänyt rekursiota ja selittää, miksi sen saanut recursive division -algoritmia toimimaan.)
+
 
 ### Ensi viikon työlista:
 
