@@ -19,6 +19,22 @@ Omiin kansioihinsa on sijoitettu testit, html-templaatit ja sovelluksen dokument
 (lisätään myöhemmin)
 
 
+
+### Tiedossa olevat virheet ja ongelmat
+
+- Testi test_drawing_function_returns_file_that_is_not_empty() antaa satunnaisesti hämärän virheilmoituksen Aldous-Broderin algoritmin tuottamasta labyrinttikuvasta
+- Sovellus pitää buutata jokaisen ajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä
+- Kruskalin algoritmilla varsinkin isommat labyrintit ovat hitaita generoida ja algoritmi kaipaisikin tehostamista.
+
+
+### Jatkokehitysideoita
+
+- Sovellusta voisi laajentaa niin, että siinä olisi tarjolla useampia eri algoritmeja, ja käyttäjä voisi valita, minkä/mitkä hän haluaa testata
+- Tällä hetkellä käyttäjältä pyydetään vain yksi numeerinen arvo la labyrintit luodaan koossa n x n. Tätä voisi muuttaa siten, että käyttäjältä pyydetään erikseen sekä labyrintin toivottu leveys ja korkeus, jotta algoritmeilla voisi testata erimuotoisia labyrinttejä.
+- Visualisoinnille jotain nopeampaa kuin turtle-moduuli
+- Valmiin kuvan tuottamisen sijaan visualisoinnin voisi toteuttaa animaatiolla, joka olisi käyttäjälle informatiivisempi ja mielenkiintoisempi
+
+
 ### Lähteet
 
 ![Wikipedia: Maze generation algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
