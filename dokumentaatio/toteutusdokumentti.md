@@ -14,9 +14,16 @@ Omiin kansioihinsa on sijoitettu testit, html-templaatit ja sovelluksen dokument
 (lisätään myöhemmin)
 
 
-### Suorituskyky- ja O-analyysivertailu (mikäli työ vertailupainotteinen)
+### Suorituskykyvertailu
 
-(lisätään myöhemmin)
+
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/iteratiivinen%20syvyyshaku%20DFS_generointiaika%20ka.jpg" width="50%" height="50%">
+
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/kruskal_generointiaika%20ka.png" width="50%" height="50%">
+
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/aldous-broder_generointiaika%20ka.png" width="50%" height="50%">
+
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/ajoaikojen%20vertailu.jpg" width="50%" height="50%">
 
 
 
