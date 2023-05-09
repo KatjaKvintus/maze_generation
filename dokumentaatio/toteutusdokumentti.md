@@ -19,11 +19,6 @@ Omiin kansioihinsa on sijoitettu testit, html-templaatit ja sovelluksen dokument
 (lisätään myöhemmin)
 
 
-### Työn mahdolliset puutteet ja parannusehdotukset
-
-(lisätään myöhemmin)
-
-
 ### Lähteet
 
 ![Wikipedia: Maze generation algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
