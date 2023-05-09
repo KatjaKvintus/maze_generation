@@ -49,13 +49,13 @@ Iterative DFS on satunnaistettu versio syvyyshausta ja sitä voi käyttää laby
 **Pseudokoodi:**
 
 1.	Valitse aloitusruutu, merkitse se vierailluksi ja lisää pinoon
-2.	Niin kauan kuin pino ei ole tyhjä:<br>
-   a) ota pinon päällimmäinen ruutu ja siirry siihen<br>
-   b)  Jos ruudulla on vierailemattomia naapureita:<br>
-      i) Lisää nykyinen ruutu pinoon<br>
-      ii) valitse arpomalla yksi vierailemattomista naapureita<br>
-      iii) poista seinä nykyisen ruudun ja naapurin väliltä<br>
-      iv) merkitse naapuri vierailluksi ja siirry siihen<br>
+2.	Niin kauan kuin pino ei ole tyhjä:
+   * ota pinon päällimmäinen ruutu ja siirry siihen
+   * Jos ruudulla on vierailemattomia naapureita:
+      + Lisää nykyinen ruutu pinoon
+      +	valitse arpomalla yksi vierailemattomista naapureita
+      + poista seinä nykyisen ruudun ja naapurin väliltä
+   * merkitse naapuri vierailluksi ja siirry siihen
 
 Umpikujaan ajautuessaan algoritmi peruuttaa poimimalla pinosta viimeisimmän askelen yksi kerrallaan ja siirtyy sitten eteenpäin vasta siitä ruudusta, jolta löytyy vähintään yksi vierailematon naapuri. Kun kaikissa ruuduissa on käyty, algoritmi pysähtyy ja palauttaa labyrintin.
 
@@ -73,10 +73,10 @@ Labyrinttien generoinnissa algoritmin käsittelemän verkon kaaret ovat painotto
 
 1.	Kokoa lista verkon kaarista ja sekoita niiden järjestys
 2.	Luo oma komponentti verkon jokaiselle solmulle
-3.	Käy kaaret läpi:
-   a.	Jos kaaren alku- ja loppusolmu ovat eri komponenteissa:
-      i.	Pura seinä niiden väliltä
-      ii. yhdistä setit samaan komponenttiin
+3.	Niin kauan kuin kaaria on käymättä läpi ja kaikki solut eivät ole samassa komponentissa
+   * Jos kaaren alku- ja loppusolmu ovat eri komponenteissa:
+      + Pura seinä niiden väliltä
+      + Yhdistä setit samaan komponenttiin
 
 Tässä sovelluksessa mallinnan labyrintin kaksiulotteisena taulukkona, jonka jokainen ruutu vastaa yhtä solmua verkossa. Taulukon jokainen ruutu sisältää listan, joka pitää kirjaa soluun saapuvista tai sieltä lähtevistä kaarista. Kun seinä poistetaan, muutokset tehdään aina niihin kahteen soluun, joiden välillä seinä on. Koska käsittelen taulukon ruutua tilana, jonka reunat ovat joko seinää tai avointa tilaan, sen sijaan että yksittäinen ruutu olisi seinää tai avointa tilaa, algoritmi on hitaahko.
 
@@ -90,11 +90,11 @@ Labyrinttien generoinnissa tämä on helpohko toteuttaa, mutta varsinkin isoilla
 
 1.	Valitse satunnainen ruutu ja merkitse se vierailluksi
 2.	Niin pitkään kuin ruudukossa on vierailemattomia ruutuja:
-   a.	Valitse satunnainen naapuriruutu
-   b.	Jos tuossa ruudussa ei ole vielä käyty:
-      i.	Poista seinä nykyisen ruudun ja naapurin välistä
-      ii. Merkitse naapuriruutu vierailluksi
-   c.	Siirry naapuriruutuun ja merkitse se nykyiseksi ruuduksi
+   * Valitse satunnainen naapuriruutu
+   * Jos tuossa ruudussa ei ole vielä käyty:
+      + Poista seinä nykyisen ruudun ja naapurin välistä
+      + Merkitse naapuriruutu vierailluksi
+   * Siirry naapuriruutuun ja merkitse se nykyiseksi ruuduksi
 
 Tässä sovelluksessa toteutus on samanlainen kuin iteroivassa DFS:ssä. Mallinnan labyrintin kaksiulotteisena taulukkona. Taulukon jokainen solu sisältää nelipaikkaisen listan, jonka jokainen alkio on joko 1 tai 0. 1 tarkoittaa seinää, 0 ovea. Ensimmäinen alkio viittaan solun vasemmanpuoleiseen seinään, toinen kattoon, kolmas oikeanpuoleiseen seinään ja neljäs lattiaan. Kun seinä poistetaan, muutokset tehdään aina niihin kahteen soluun, joiden välillä seinä on. Erona on, että Aldous-Broder seuraavaa siirtoa valitessa se ei priorisoi vierailemattomia soluja vaan saattaa käydä samoissa paikoissa monta kertaa.
 
