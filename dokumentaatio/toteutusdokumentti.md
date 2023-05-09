@@ -4,7 +4,7 @@
 
 Sovellus on yksinkertainen webbisovellus. Käyttäjä antaa syötteenä haluamansa sokkelon koon (n x n) ja sovellus tuottaa halutun kokoiset sokkelot sovelluksen tarjoamilla algoritmeilla. Sovellus näyttää sokkelon kuvana ja tarjoaa siitä myös dataa: sokkelotyyppi, sen sisältämien umpikujien määrä ja sokkelon tuottamiseen kulunut aika. 
 
-Sovelluksen toiminnallisuudet on kirjoitettu pythonilla ja ulkoasu HTML:llä. Labyrinttien visualisointi on tehty Turtle-moduulilla.
+Sovelluksen toiminnallisuudet on kirjoitettu pythonilla ja ulkoasu HTML:llä. Labyrinttien visualisointi on tehty [Turtlella](https://docs.python.org/3/library/turtle.html).
 
 Omiin kansioihinsa on sijoitettu testit, html-templaatit ja sovelluksen dokumentaatio. Muut tiedostot ovat sovelluksen juuressa.
 
