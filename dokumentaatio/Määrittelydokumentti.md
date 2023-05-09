@@ -30,47 +30,72 @@ Tässä sovelluksessa käyttäjä voi vertailla kolmea sokkeloa luovaa algoritmi
 
 ### Tavoitteena olevat aika- ja tilavaativuudet 
 
-Sokkelon koolle on asetettava jonkinlainen maksimikoko niin, että sokkelon esittäminen näytöllä on järkevää. Se on kuitenkin oltava tarpeeksi iso, jotta aikavertailulla saadaan esille näkyviä eroja. Alustavasti n <= 200.
+Sokkelon koolle on asetettava jonkinlainen maksimikoko niin, että sokkelon esittäminen näytöllä on järkevää. Se on kuitenkin oltava tarpeeksi iso, jotta aikavertailulla saadaan esille näkyviä eroja. Sovelluksessa raja on 4 <= n <= 20, mutta pelkkiä algoritmeja tutkiessa raja on 4 <= n <= 200.
 
 Aikavaativuudet:
-- satunnainen syvyyshaku (recursive backtracker): O(n)
+- Iteratiivinen syvyyshaku (iterative DFS): O(n)
 - Kruskalin algoritmi: O(E log V)
-- Rekursiivinen jakoalgoritmi (recursive division algorithm): O(n)
+- Aldous-Broderin algoritmi: on O(|V| + |E|), missä |V| on verkon solmujen ja |E| on kaarten lukumäärä
 
 
-## Pseudokoodi
+## Algoritmien tarkemmat kuvaukset
 
-### Recursive backtracker -algoritmi:
+#### Iteratiivinen syvyyshaku (DFS)
 
-1. Given a current cell as a parameter
-2. Mark the current cell as visited
-3. While the current cell has any unvisited neighbour cells
-   - Choose one of the unvisited neighbours
-   - Remove the wall between the current cell and the chosen cell
-   - Invoke the routine recursively for the chosen cell
+Syvyyshaku (DFS) on verkkoalgoritmi, jolla voi hakea verkosta kaikki lähtösolmun kautta saavutettavat solmut. Se tutkii kaikki mahdolliset haarautumat yksi kerrallaan. Se käyttää aputietorakenteena pinoa. 
+
+Iterative DFS on satunnaistettu versio syvyyshausta ja sitä voi käyttää labyrinttien generoimiseen. Se on yksi yksinkertaisimmista tavoista generoida satunnainen sokkelo. Se luo aina täydellisiä labyrinttejä eli kaikkiin soluihin pääsee kaikista soluista. Ovettomia huoneita ei muodostu. 
+
+**Pseudokoodi:**
+
+1.	Valitse aloitusruutu, merkitse se vierailluksi ja lisää pinoon
+2.	Niin kauan kuin pino ei ole tyhjä:
+   a) ota pinon päällimmäinen ruutu ja siirry siihen
+   b)  Jos ruudulla on vierailemattomia naapureita:
+      i) Lisää nykyinen ruutu pinoon
+      ii) valitse arpomalla yksi vierailemattomista naapureita
+      iii) poista seinä nykyisen ruudun ja naapurin väliltä
+      iv) merkitse naapuri vierailluksi ja siirry siihen
+
+Umpikujaan ajautuessaan algoritmi peruuttaa poimimalla pinosta viimeisimmän askelen yksi kerrallaan ja siirtyy sitten eteenpäin vasta siitä ruudusta, jolta löytyy vähintään yksi vierailematon naapuri. Kun kaikissa ruuduissa on käyty, algoritmi pysähtyy ja palauttaa labyrintin.
+
+Tässä sovelluksessa mallinnan labyrintin kaksiulotteisena taulukkona. Taulukon jokainen solu sisältää nelipaikkaisen listan, jonka jokainen alkio on joko 1 tai 0. 1 tarkoittaa seinää, 0 ovea. Ensimmäinen alkio viittaan solun vasemmanpuoleiseen seinään, toinen kattoon, kolmas oikeanpuoleiseen seinään ja neljäs lattiaan. Kun seinä poistetaan, muutokset tehdään aina niihin kahteen soluun, joiden välillä seinä on. Algoritmi ei käy samoissa soluissa uudestaan, ellei se joudu peruuttamaan.
+
+
+
+
 
 
 ### Kruskalin algoritmi
 
-1. Create a list of all walls, and create a set for each cell, each containing just that one cell.
-2. For each wall, in some random order:
-    - If the cells divided by this wall belong to distinct sets:
-        - Remove the current wall.
-        - Join the sets of the formerly divided cells.
+1.	Kokoa lista verkon kaarista ja sekoita niiden järjestys
+2.	Luo oma komponentti verkon jokaiselle solmulle
+3.	Käy kaaret läpi:
+   a.	Jos kaaren alku- ja loppusolmu ovat eri komponenteissa:
+      i.	Pura seinä niiden väliltä
+      ii. yhdistä setit samaan komponenttiin
 
 
-### Recursive division -algoritmi:
 
-1. Begin with the maze's space with no walls. Call this a chamber. 
-2. Divide the chamber with a randomly positioned wall where each wall contains a randomly positioned passage opening within it. 
-3. Recursively repeat the process on the subchambers until all chambers are minimum sized.
+### Aldous-Broderin algoritmi
 
-Pseudokoodien lähde: [Wikipedia](https://en.wikipedia.org/wiki/Maze-solving_algorithm)
+1.	Valitse satunnainen ruutu ja merkitse se vierailluksi
+2.	Niin pitkään kuin ruudukossa on vierailemattomia ruutuja:
+   a.	Valitse satunnainen naapuriruutu
+   b.	Jos tuossa ruudussa ei ole vielä käyty:
+      i.	Poista seinä nykyisen ruudun ja naapurin välistä
+      ii. Merkitse naapuriruutu vierailluksi
+   c.	Siirry naapuriruutuun ja merkitse se nykyiseksi ruuduksi
+
 
 
 ### Lähteet
 
 ![Wikipedia: Maze generation algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
+
+![Wikipedia: DFS](https://en.wikipedia.org/wiki/Depth-first_search)
+
+![Wikipedia: Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
 
 ![John Stilley: Maze-generating algorithms](https://github.com/john-science/mazelib/blob/main/docs/MAZE_GEN_ALGOS.md)
 
