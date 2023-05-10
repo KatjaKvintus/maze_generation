@@ -36,12 +36,12 @@
 | 5.5.2023 | 3 | Testien kirjoitusta ja debuggausta |
 | 6.5.2023 | 3 | Aldous-Broderin algoritmin kirjoitusta ja testausta |
 | 7.5.2023 | 5 | Testien kirjoitusta, debuggausta, dokumentointia |
-| 8.5.2023 | 2 | Dokumentaation kirjoitus, syvyyshakualgoritmin nimen korjaus tiedostoihin |
-|  |  |  |
-|  |  |  |
+| 8.5.2023 | 2 | Dokumentaation kirjoitusta, syvyyshakualgoritmin nimen korjaus tiedostoihin |
+| 9.5.2023 | 3 | Dokumentaation kirjoitusta + kaikenlaista pientä säätöä |
+| 10.5.2023 | 4 | Lisää testejä maze_tools.py -tiedostolle, ulkoasun säätöä, labyrintin täydellisyyttä tutkivan funktion korjaus |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 
-| yht. 104 tuntia |  
+| yht. 111 tuntia |  
