@@ -5,26 +5,38 @@
 def are_all_cells_reachable(matrix):
     '''Returns True if BFS can visits every cell in the maze
     that is modeled as a 2D array (like DFS and Aldous-Broder)'''
+    
+    visited_cells = breadth_first_search(matrix)
+    
+    for row in visited_cells:
+        
+        print("Checkpoint 1")
+        
+        for cell in row:
+            
+            print(f"DEBUG: cellin arvo on ", cell)
+            
+            if cell == False:
+                return False
 
+    # If not found any unvisited cells, return True
+    return True
+
+
+
+
+def breadth_first_search(matrix):
+    '''BFS algorithm, a helper method for are_all_cells_reachable().
+    Returns True is all cells are visited during search.'''
+    
     size = len(matrix)
 
     # List to keep track of visited nodes.
-    visited_cells = [[[False] for i in range(size)] for j in range(size)]
+    visited_cells = [[False for i in range(size)] for j in range(size)]
+    visited_cells[0][0] = True
 
     queue = []
-
-    start_x = 0
-    start_y = 0
-
-    return breadth_first_search(visited_cells, matrix, start_x, start_y, queue)
-
-
-def breadth_first_search(visited_cells, matrix, x, y, queue):
-    '''BFS algorithm, a helper mothed for are_all_cells_reachable().
-    Returns True is all cells are visited during search.'''
-
-    visited_cells[x][y] = [True]
-    queue.append([x, y])
+    queue.append([0, 0])
 
     # Continue as long as queue has cells to visit
     while len(queue) > 0:
@@ -37,17 +49,11 @@ def breadth_first_search(visited_cells, matrix, x, y, queue):
             x1 = cell[0]
             y1 = cell[1]
 
-            if visited_cells[x1][y1] == [False]:
-                visited_cells[x1][y1] = [True]
+            if visited_cells[x1][y1] == False:
+                visited_cells[x1][y1] = True
                 queue.append([x1, y1])
 
-    for row in visited_cells:
-        for cell in row:
-            if cell == [False]:
-                return False
-
-    # If not found any unvisited cells, return True
-    return True
+    return visited_cells
 
 
 def find_available_neighbour(x, y, matrix):
@@ -79,3 +85,15 @@ def find_available_neighbour(x, y, matrix):
             neighbors.append([x+1, y])
 
     return neighbors
+
+
+
+#def find_shortest_route_in_2d_array(matrix):
+    '''An algorithm for finding the shortest route in a maze that is modeled as
+    a 2D array, such as iterative DFS and Aldous-Broder algorithm in this app).
+    We assume that the start point is top left corner and end point is
+    bottom right corner.'''
+
+ #   cell_queue = 
+
+

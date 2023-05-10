@@ -1,8 +1,7 @@
 '''For testing the dfs.py file'''
 import unittest
 import random
-from Documents.Tiralabra.maze_generation import dfs
-from maze_generation import maze_tools, maze_paths
+from maze_generation import maze_tools, maze_paths, dfs
 from PIL import Image
 import os.path
 
