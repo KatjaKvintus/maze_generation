@@ -14,10 +14,12 @@ Kirjoitan dokumentaation suomeksi ja koodin (sis. docstringit) englanniksi.
 
 ### Algoritmit ja tietorakenteet projektissa
 
-Olen selaillut erilaisia sokkelojen luomiseen soveltuvia algoritmeja ja suunnitelmissani on käyttää seuraavia algoritmeja:
-- satunnainen syvyyshaku (recursive backtracker)
+Sokkeloiden generointiin on olemassa useita erilaisia algoritmeja. Tähän työhön valitsin lopulta seuraavat:
+- Iteratiivinen syvyyshaku
 - Kruskalin algoritmi
-- Rekursiivinen jakoalgoritmi (recursive division algorithm)
+- Aldous-Broderin algoritmi
+
+Yritin kolme viikkoa saada rekursiivista jakoalgoritmia (recursive division algorithm) toimimaan, mutta lopulta jouduin luovuttamaan ja valitsin sen tilalle simppelimmän Aldous-Broderin.
 
 
 ### Mitä ongelmaa sovellus ratkaisee
@@ -30,7 +32,7 @@ Tässä sovelluksessa käyttäjä voi vertailla kolmea sokkeloa luovaa algoritmi
 
 ### Tavoitteena olevat aika- ja tilavaativuudet 
 
-Sokkelon koolle on asetettava jonkinlainen maksimikoko niin, että sokkelon esittäminen näytöllä on järkevää. Se on kuitenkin oltava tarpeeksi iso, jotta aikavertailulla saadaan esille näkyviä eroja. Sovelluksessa raja on 4 <= n <= 20, mutta pelkkiä algoritmeja tutkiessa raja on 4 <= n <= 200.
+Sokkelon koolle on asetettava jonkinlainen maksimikoko niin, että sokkelon esittäminen näytöllä on järkevää. Se on kuitenkin oltava tarpeeksi iso, jotta aikavertailulla saadaan esille näkyviä eroja. Sovelluksessa asetin rajaksi on 4 <= n <= 20, mutta pelkkiä algoritmeja tutkiessa raja on 4 <= n <= 200.
 
 Aikavaativuudet:
 - Iteratiivinen syvyyshaku (iterative DFS): O(n)
