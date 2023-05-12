@@ -29,6 +29,7 @@ def generate_mazes():
     dfs.draw_maze_image(size, dfs_maze)
     dfs_impasses = maze_tools.count_maze_impasses(dfs_maze)
     dfs_type = maze_paths.maze_type(dfs_maze)
+    dfs_shortest_path = maze_paths.shortest_path(dfs_maze)
 
     # Kruskal's algorithm
     start_time = time.time()
@@ -39,6 +40,7 @@ def generate_mazes():
     kruskal_impasses = maze_tools.kruskal_maze_impasse_amount(kruskal_maze)
     kruskal_maze_as_2D_list = maze_paths.show_kruskal_maze_as_2D_list(kruskal_maze)
     kruskal_type = maze_paths.maze_type(kruskal_maze_as_2D_list)
+    kruskal_shortest_path = maze_paths.shortest_path(kruskal_maze_as_2D_list)
 
     # Aldous-Broder algorithm
     start_time = time.time()
@@ -48,6 +50,7 @@ def generate_mazes():
     aldous_broder.draw_aldous_broder_maze_image(size, aldous_broder_maze)
     aldous_broder_impasses = maze_tools.count_maze_impasses(aldous_broder_maze)
     aldous_broder_type = maze_paths.maze_type(aldous_broder_maze)
+    aldous_broder_shortest_path = maze_paths.shortest_path(aldous_broder_maze)
 
 
     # For resuls summary
@@ -56,17 +59,22 @@ def generate_mazes():
                                                       aldous_broder_execution_time)
     least_impasses = maze_tools.least_impasses(dfs_impasses,
                                                   kruskal_impasses, aldous_broder_impasses)
+    shortest_path = maze_paths.find_shortest_path(dfs_shortest_path, kruskal_shortest_path, aldous_broder_shortest_path)
 
 
     return render_template("/results.html",
                            dfs_execution_time=dfs_execution_time,
                            dfs_impasses=dfs_impasses,
                            dfs_type=dfs_type,
+                           dfs_shortest_path=dfs_shortest_path,
                            kruskal_execution_time = kruskal_execution_time,
                            kruskal_impasses=kruskal_impasses,
                            kruskal_type=kruskal_type,
+                           kruskal_shortest_path=kruskal_shortest_path,
                            aldous_broder_execution_time=aldous_broder_execution_time,
                            aldous_broder_impasses=aldous_broder_impasses,
                            aldous_broder_type=aldous_broder_type, 
+                           aldous_broder_shortest_path=aldous_broder_shortest_path,
                            fastest=fastest,
-                           least_impasses=least_impasses)
+                           least_impasses=least_impasses,
+                           shortest_path=shortest_path)

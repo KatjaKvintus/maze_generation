@@ -1,4 +1,5 @@
 '''A Module for analyzing maze paths'''
+from collections import deque
 from . import kruskal
 
 
@@ -128,8 +129,8 @@ def dfs(matrix, visited_cells, position):
 
 
 def maze_type(maze):
-    '''Returns "perfect maze" of all maze cells are
-    reachable, and "non-perfect" if not'''
+    '''Returns "perfect maze" if all maze cells are reachable,
+    and "non-perfect" if not.'''
 
     if are_all_cells_reachable(maze):
         return "perfect maze"
@@ -137,22 +138,85 @@ def maze_type(maze):
         return "non-perfect maze"
 
 
-''' 
-# TESTIKOODIA
+def shortest_path(matrix):
+    '''For finding the shortest path in a 2D matrix. If path is available,
+    returns path length. If not, returns -1.'''
 
-maze = kruskal.create_kruskal_maze(4)
+    size = len(matrix)
+    distances = [[1000 for i in range(size)] for j in range(size)]
+    distances[0][0] = 0
+    start = [0, 0]
 
-for rivi in maze:
-    for cell in rivi:
-        for edge in cell.open_edges:
-            print(f"Kaari ({edge.start_cell.pos_x},{edge.start_cell.pos_y}) - ({edge.end_cell.pos_x},{edge.end_cell.pos_y})")
+    # A queue for keeping track of the cell neighbors go-through.
+    queue = []
+    queue = deque([start])
 
-maze_2d = show_kruskal_maze_as_2D_list(maze)
+    # Another 2D list to keep tracke which cells have been visited.
+    # False = not visited, True = visited
+    visited_squares = [[False for i in range(size)] for j in range(size)]
+    visited_squares[0][0] = True
 
-for rivi in maze_2d:
-    print(rivi)
-'''
+    while len(queue) > 0:
+
+        next_cell = queue.popleft()
+        x = next_cell[0]
+        y = next_cell[1]
+        visited_squares[x][y] = True
+         
+        # Update the distances of neighbors
+        neighbors = find_available_neighbour(x, y, matrix)
+
+        for cell in neighbors:
+            x1 = cell[0]
+            y1 = cell[1]
+
+            if visited_squares[cell[0]][cell[1]] == False:
+
+                visited_squares[x1][y1] = True
+                distances[x1][y1] = distances[x][y] + 1
+                queue.append(cell)
+
+    if distances[size-1][size-1] != 1000:
+        return distances[size-1][size-1]
+    else:
+        return -1
+    
 
 
+def find_shortest_path(dfs, kruskal, aldous_broder):
+    '''Returns the description of the algorithm that generated a maze with shortest path'''
 
+    if dfs <= kruskal and dfs <= aldous_broder:
 
+        if dfs == kruskal and dfs == aldous_broder:
+            result = "All mazes have equally short shortest path: "
+            return result + str(kruskal) + " steps"
+
+        if dfs == kruskal:
+            phrase_1 = "Iterative DFS maze and Kruskal's maze"
+            phrase_2 = " had equally short shortest path: "
+            result = phrase_1 + phrase_2
+            return result + str(kruskal) + " steps"
+
+        if dfs == aldous_broder:
+            phrase_1 = "Iterative DFS maze and Aldous-Broder maze"
+            phrase_2 = " had equally short shortest path: "
+            result = phrase_1 + phrase_2
+            return result + str(dfs) + " steps"
+
+        else:
+            return "Iterative DFS maze with " + str(dfs) + " steps"
+
+    if kruskal <= dfs and kruskal <= aldous_broder:
+
+        if kruskal == aldous_broder:
+            phrase_1 = "Kruskal's maze and Aldous-Broder maze "
+            phrase_2 = "equally short shortest path: "
+            result = phrase_1 + phrase_2
+            return result + str(kruskal) + " steps"
+
+        else:
+            return "Kruskal's maze with " + str(kruskal) + " steps"
+
+    else:
+        return "Aldous-Broder maze with " + str(aldous_broder) + " steps"

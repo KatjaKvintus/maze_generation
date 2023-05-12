@@ -51,31 +51,31 @@ def fastest_maze_generation_algorithm(dfs_time, kruskal_time, a_b_execution_time
     return result
 
 
-def least_impasses(bt_impasses, kruskal_impasses, a_b_impasses):
+def least_impasses(dfs_impasses, kruskal_impasses, a_b_impasses):
     '''Returns the description of the algorithm that generated a maze with most impasses'''
 
-    if bt_impasses <= kruskal_impasses and bt_impasses <= a_b_impasses:
+    if dfs_impasses <= kruskal_impasses and dfs_impasses <= a_b_impasses:
 
-        if bt_impasses == kruskal_impasses and bt_impasses == a_b_impasses:
+        if dfs_impasses == kruskal_impasses and dfs_impasses == a_b_impasses:
             result = "All algorithms has the same amount of impasses: "
             return result + str(kruskal_impasses) + " pcs"
 
-        if bt_impasses == kruskal_impasses:
+        if dfs_impasses == kruskal_impasses:
             phrase_1 = "Iterative DFS algorithm and Kruskal's algorithm"
             phrase_2 = " had the same amount of impasses: "
             result = phrase_1 + phrase_2
             return result + str(kruskal_impasses) + " pcs"
 
-        if bt_impasses == a_b_impasses:
+        if dfs_impasses == a_b_impasses:
             phrase_1 = "Iterative DFS algorithm and Aldous-Broder algorithm"
             phrase_2 = " had the same amount of impasses: "
             result = phrase_1 + phrase_2
-            return result + str(bt_impasses) + " pcs"
+            return result + str(dfs_impasses) + " pcs"
 
         else:
-            return "Iterative DFS algorithm with " + str(bt_impasses) + " impasses"
+            return "Iterative DFS algorithm with " + str(dfs_impasses) + " impasses"
 
-    if kruskal_impasses <= bt_impasses and kruskal_impasses <= a_b_impasses:
+    if kruskal_impasses <= dfs_impasses and kruskal_impasses <= a_b_impasses:
 
         if kruskal_impasses == a_b_impasses:
             phrase_1 = "Kruskal's algorithm and Aldous-Broder algorithm "

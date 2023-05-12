@@ -4,7 +4,7 @@
 <style>
     .top-section {
         background-color:lightskyblue;
-        height: 200px;
+        height: 230px;
         text-align: left;
         padding: 20px;
     }
@@ -27,11 +27,10 @@
 
     <div class="top-section">
         <button onclick="window.location.href='/'"> Return to the main page </button><BR><BR>
-
-        <h1>Results:</h1>
+        <h1>Maze comparison:</h1>
         <li><B>Fastest: </B> {{ fastest }} <BR></li><BR>
-        <li><B>Least impasses: </B> {{ least_impasses }} <BR></li>
-
+        <li><B>Least impasses: </B> {{ least_impasses }} <BR></li><BR>
+        <li><B>Shortest path: </B> {{ shortest_path }} <BR></li>
 	</div>
 
     <div class="bottom-section">
@@ -45,6 +44,7 @@
                 <li><B>Method: </B> passage carving <BR></li>
                 <li><B>Maze execution time: </B> {{ dfs_execution_time }} ms<BR></li>
                 <li><B>Impasses: </B> {{dfs_impasses}} pcs<BR></li>
+                <li><B>Shortest path: </B> {{dfs_shortest_path}} steps<BR></li>
             </ul>
         </div>
 
@@ -57,6 +57,7 @@
                 <li><B>Method: </B> passage carving, a minimal spanning tree<BR></li>
                 <li><B>Maze execution time: </B> {{ kruskal_execution_time }} ms<BR></li>
                 <li><B>Impasses: </B> {{kruskal_impasses}} pcs<BR></li>
+                <li><B>Shortest path: </B> {{kruskal_shortest_path}} steps<BR></li>
             </ul>
         </div>
 
@@ -69,6 +70,7 @@
                 <li><B>Method: </B> uniform spanning tree, passage carving<BR></li>    
                 <li><B>Maze execution time: </B> {{ aldous_broder_execution_time }} ms<BR></li>
                 <li><B>Impasses: </B> {{aldous_broder_impasses}} pcs<BR></li>
+                <li><B>Shortest path: </B> {{aldous_broder_shortest_path}} steps<BR></li>
             </ul>
 
         </div>
