@@ -21,18 +21,18 @@ Käynnistä sovellus terminaalissa seuraavalla käskyllä:
 flask run
 ```
 
-### 1. vertaisarviossa huomatut ongelmat
+### Vertaisarviossa huomatut ongelmat
 
-Ensimmäinen vertaisarvio löytyy [täältä](https://github.com/KatjaKvintus/maze_generation/issues/1). Jos kone herjaa kuvatiedostojen sijainnista, niiden ohjaaminen juureen static-kansion sijaan voi auttaa. Minun koneellani (fuksiläppäri 2021, Ubuntu) ohjelma toimii molemmilla tavoilla.
+Jos kone herjaa kuvatiedostojen sijainnista, niiden ohjaaminen juureen static-kansion sijaan voi auttaa. Minun koneellani (fuksiläppäri 2021, Ubuntu 22.04.2 LTS) ohjelma toimii molemmilla tavoilla. (Ensimmäinen vertaisarvio löytyy [täältä](https://github.com/KatjaKvintus/maze_generation/issues/1).)
+
+Toinen vertaisarvio osoitti, että joillakin koneilla testiluokkien importtien muotoa täytyy muuttaa jotta testit menevät läpi. Yritin korjata tätä vaikka kuinka monella tavalla, mutta ohjelma hyväksyi vain oman tapani. Epäilen Flaskin olevan osallinen tähän sotkuun. ([Toinen vertaisarvio](https://github.com/KatjaKvintus/maze_generation/issues/2))
 
 
 ### Sovelluksen käyttö
 
-Sovellus on vasta alustava runko. Pääset sisään ilman kirjautumista tai käyttäjätilin luontia. Anna lomakkeelle haluamasi sokkelon koko (n x n) ja sovellus luo kaksi sokkeloa: satunnaisen syvyyshakualgoritmin ja Kruskalin algoritmin mukaan. Sovellus piirtää sokkelot [Turtlella](https://docs.python.org/3/library/turtle.html), joten heti koon annettuasi aukeaa ikkuna, jossa sovellus piirtää kaksi sokkeloa ja tallentaa ne sitten kuvina. Kolmas sokkeloalgoritmi, rekursiivinen jakoalgoritmi, ei tällä hetkellä toimi oikein eikä tuota vielä kuvaa. 
+Sovellus avautuu ilman kirjautumista tai käyttäjätilin luontia. Anna lomakkeelle haluamasi sokkelon koko (n x n) ja sovellus generoi kolme sokkeloa: iteratiivisen syvyyshakualgoritmin, Kruskalin algoritmin ja Aldous-Broderin algoritmin mukaan. Sovellus piirtää sokkelot [Turtlella](https://docs.python.org/3/library/turtle.html), joten heti koon annettuasi aukeaa ikkuna, jossa sovellus piirtää kaksi sokkeloa ja tallentaa ne sitten kuvina. Kolmas sokkeloalgoritmi, rekursiivinen jakoalgoritmi, ei tällä hetkellä toimi oikein eikä tuota vielä kuvaa. 
 
 Varoitus: isot sokkelot ovat _todella_ hitaita piirtää Turtlella, joten kannattaa kokeilla aluksi maltillisen kokoisella (esim. 5 - 12).
-
-En ole ehtinyt testata sovellusta ollenkaan toisella koneella, joten on ihan mahdollista, että mikään ei toimi. 
 
 [requirements.txt](https://github.com/KatjaKvintus/maze_generation/blob/main/requirements.txt) -tiedostosta näkyy vaaditut riippuvuudet (mm. Flask ja Pillow).
 
@@ -61,4 +61,3 @@ coverage report -m
 
 - Kruskalin algoritmilla generoidun sokkelon kuvaan reunojen sisälle jää yli 20x20 sokkeloissa valkoiset palkit oikeaan ja alareunaan (skaalausongelma?)
 - Kun sovelluksella on luotu yksi setti sokkeloita, ja käyttäjä palaa etusivulle luomaan toista settiä, useimmiten (mutta ei ihan aina) sovellus kaatuu 'Generate mazes' nappia painettaessa. Syy tuntematon.
-- Rekursiivinen jakoalgoritmi on vielä kesken eikä tuota vielä kuvaa.
