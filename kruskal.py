@@ -1,11 +1,11 @@
 '''Module for randomized Kruskal's algorithm maze generation'''
 import random
 import turtle
-#from PIL import Image
+from PIL import Image
 
 
+# A global list of all edges in Kruskal maze
 edges = []
-'''A list of all edges in the system'''
 
 
 class Cell:
@@ -147,14 +147,13 @@ def create_kruskal_maze(size):
 
                 for item in cell_2.set:
                     matrix[item[0]][item[1]].set = cell_1.set
-
         i += 1
 
     return matrix
 
 
 def print_kruskal_maze(side_lenght, maze):
-    '''Provides image of the maze'''
+    '''Provides image of the Kruskal's algorithm generated maze'''
 
     canvas = turtle.Screen()
     canvas.setup(width=900, height=900)

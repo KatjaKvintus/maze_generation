@@ -1,11 +1,46 @@
 '''A Module for analyzing maze paths'''
-import kruskal
+from . import kruskal
 
+
+def show_kruskal_maze_as_2D_list(maze):
+    '''A helper function to show Kruskal's maze same way as
+    DFS and Aldous-Broder'''
+
+    size = len(maze)
+    matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]
+
+    edges = kruskal.edges
+
+    for edge in edges:
+        if edge.is_open:
+            start_x = edge.start_cell.pos_x
+            start_y = edge.start_cell.pos_y
+            end_x = edge.end_cell.pos_x
+            end_y = edge.end_cell.pos_y
+
+        if start_x == end_x - 1:
+            matrix[start_x][start_y][3] = 0
+            matrix[end_x][end_y][1] = 0
+
+        elif start_y == end_y - 1:
+            matrix[start_x][start_y][2] = 0
+            matrix[end_x][end_y][0] = 0
+        
+        elif start_y == end_y + 1:
+            matrix[start_x][start_y][0] = 0
+            matrix[end_x][end_y][2] = 0
+        
+        elif start_x == end_x + 1:
+            matrix[start_x][start_y][1] = 0
+            matrix[end_x][end_y][3] = 0
+
+    return matrix
 
 
 def are_all_cells_reachable(matrix):
     '''Returns True if BFS can visits every cell in the maze
-    that is modeled as a 2D array (like DFS and Aldous-Broder)'''
+    that is modeled as a 2D array (like DFS and Aldous-Broder,
+    or Kruskal after using show_kruskal_maze_as_2D_list() function)'''
 
     visited_cells = breadth_first_search(matrix)
 
@@ -18,7 +53,6 @@ def are_all_cells_reachable(matrix):
 
     # If not found any unvisited cells, return True
     return True
-
 
 
 def breadth_first_search(matrix):
@@ -83,24 +117,6 @@ def find_available_neighbour(x, y, matrix):
     return neighbors
 
 
-
-def are_all_cells_reachable_in_kruskal_maze(matrix):
-    '''Check that all kruskal matrix cells are reachable. Returns
-    True if it is.'''
-
-    visited_cells = set()
-    
-    # Starting point
-    position = (0, 0)
-
-    dfs(matrix, visited_cells, position)
-
-    if len(visited_cells) == len(matrix * matrix):
-        return True
-    else:
-        return False
-
-
 def dfs(matrix, visited_cells, position):
     '''Depth-first search - helper function for are_all_cells_reachable_in_kruskal_maze'''
 
@@ -111,43 +127,17 @@ def dfs(matrix, visited_cells, position):
             dfs(matrix, visited_cells, neighbor)
 
 
+def maze_type(maze):
+    '''Returns "perfect maze" of all maze cells are
+    reachable, and "non-perfect" if not'''
 
-def show_kruskal_maze_as_2D_list(maze):
-    '''A helper function to show Kruskal's maze same way as
-    DFS and Aldous-Broder'''
-
-    size = len(maze)
-    matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]
-
-    edges = kruskal.edges
-
-    for edge in edges:
-        if edge.is_open:
-            start_x = edge.start_cell.pos_x
-            start_y = edge.start_cell.pos_y
-            end_x = edge.end_cell.pos_x
-            end_y = edge.end_cell.pos_y
-
-        if start_x == end_x - 1:
-            matrix[start_x][start_y][3] = 0
-            matrix[end_x][end_y][1] = 0
-
-        elif start_y == end_y - 1:
-            matrix[start_x][start_y][2] = 0
-            matrix[end_x][end_y][0] = 0
-        
-        elif start_y == end_y + 1:
-            matrix[start_x][start_y][0] = 0
-            matrix[end_x][end_y][2] = 0
-        
-        elif start_x == end_x + 1:
-            matrix[start_x][start_y][1] = 0
-            matrix[end_x][end_y][3] = 0
-    
-    return matrix
+    if are_all_cells_reachable(maze):
+        return "perfect maze"
+    else:
+        return "non-perfect maze"
 
 
-
+''' 
 # TESTIKOODIA
 
 maze = kruskal.create_kruskal_maze(4)
@@ -161,7 +151,7 @@ maze_2d = show_kruskal_maze_as_2D_list(maze)
 
 for rivi in maze_2d:
     print(rivi)
-
+'''
 
 
 

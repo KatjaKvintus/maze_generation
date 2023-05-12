@@ -40,7 +40,7 @@
             <img src="../static/dfs_maze_image.jpg">
 
             <ul>
-                <li><B>Maze type: </B> perfect maze<BR></li>
+                <li><B>Maze type: </B> {{ dfs_type}} <BR></li>
 		        <li><B>Charasteristics: </B> lots of long corridors, easy to solve<BR></li>
                 <li><B>Method: </B> passage carving <BR></li>
                 <li><B>Maze execution time: </B> {{ dfs_execution_time }} ms<BR></li>
@@ -52,7 +52,7 @@
             <h2>Kruskal's algorithm</h2>
             <img src="../static/kruskal_maze_image.jpg">
             <ul>
-                <li><B>Maze type: </B> perfect maze<BR></li>
+                <li><B>Maze type: </B> {{ kruskal_type }}<BR></li>
 		        <li><B>Charasteristics: </B> regular patterns, lots of impasses, easy to solve<BR></li>
                 <li><B>Method: </B> passage carving, a minimal spanning tree<BR></li>
                 <li><B>Maze execution time: </B> {{ kruskal_execution_time }} ms<BR></li>
@@ -64,7 +64,7 @@
             <h2>Aldous-Broder algorithm</h3>
             <img src="../static/aldous_broder_maze_image.jpg">
             <ul>
-                <li><B>Maze type: </B> perfect maze<BR></li>
+                <li><B>Maze type: </B> {{ aldous_broder_type }} <BR></li>
 		        <li><B>Charasteristics: </B>long, winding paths<BR></li>
                 <li><B>Method: </B> uniform spanning tree, passage carving<BR></li>    
                 <li><B>Maze execution time: </B> {{ aldous_broder_execution_time }} ms<BR></li>
