@@ -18,7 +18,6 @@ Aikavaativuudet:
 - Aldous-Broderin algoritmi: on O(|V| + |E|), missä |V| on verkon solmujen ja |E| on kaarten lukumäärä
 
 
-
 ### Suorituskykyvertailu
 
 Labyrinttien generoinnin näkökulmasta generointiaika ei ole merkittävin tekijä, mutta niitä on silti mielenkiintoista tarkastella. Loin kutakin labyrinttiä 10 kpl/koko jan laskin niille keskiarvot. Alle 25x25 -kokoisissa labyrinteissä erot eivät ole ihmisaisten erotettavissa, mutta suurimmassa testatussa koossa (200x200 eli 40 000 ruutua) erot olivat merkittäviä. Alla generointiaikakaaviot ensin per algoritmi, sitten kaikki samassa ja lopuksi ajat taulukossa.
