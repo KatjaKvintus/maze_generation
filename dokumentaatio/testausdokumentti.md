@@ -2,6 +2,26 @@
 
 Sovelluksen toimintaa testataan unittesteillä. Labyrinttien luomista koskevissa testeissä arvotaan viisi kokonaislukua, ja silmukassa ensin luodaan kunkin luvun kokoinen albyrintti ja suoritetaan niille testit. Testit keskittyvät labyrintteja generoiviin ja analysoiviin funktioihin, eivätkä ne käsittele labyrintin visualisoivia funktioita.
 
+### Testien ajaminen
+
+1. siirry terminaalissa virtuaaliympäristöön komennolla 
+```bash
+poetry shell
+```
+2. anna komento 
+```bash
+poetry run invoke test
+```
+
+### Testikattavuuden tarkistus
+
+Aja terminaalissa seuraavat käskyt:
+```bash
+poetry shell
+coverage run --branch -m pytest
+coverage report -m
+```
+
 
 
 ### Testikattavuus 16.4.2023
