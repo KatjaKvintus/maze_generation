@@ -1,21 +1,18 @@
 '''A Module for analyzing maze paths'''
+import kruskal
 
 
 
 def are_all_cells_reachable(matrix):
     '''Returns True if BFS can visits every cell in the maze
     that is modeled as a 2D array (like DFS and Aldous-Broder)'''
-    
+
     visited_cells = breadth_first_search(matrix)
-    
+
     for row in visited_cells:
-        
-        print("Checkpoint 1")
-        
+
         for cell in row:
-            
-            print(f"DEBUG: cellin arvo on ", cell)
-            
+
             if cell == False:
                 return False
 
@@ -24,11 +21,10 @@ def are_all_cells_reachable(matrix):
 
 
 
-
 def breadth_first_search(matrix):
     '''BFS algorithm, a helper method for are_all_cells_reachable().
-    Returns True is all cells are visited during search.'''
-    
+    Returns a list of visited cells (True = visited, False = not visited).'''
+
     size = len(matrix)
 
     # List to keep track of visited nodes.
@@ -88,12 +84,85 @@ def find_available_neighbour(x, y, matrix):
 
 
 
-#def find_shortest_route_in_2d_array(matrix):
-    '''An algorithm for finding the shortest route in a maze that is modeled as
-    a 2D array, such as iterative DFS and Aldous-Broder algorithm in this app).
-    We assume that the start point is top left corner and end point is
-    bottom right corner.'''
+def are_all_cells_reachable_in_kruskal_maze(matrix):
+    '''Check that all kruskal matrix cells are reachable. Returns
+    True if it is.'''
 
- #   cell_queue = 
+    visited_cells = set()
+    
+    # Starting point
+    position = (0, 0)
+
+    dfs(matrix, visited_cells, position)
+
+    if len(visited_cells) == len(matrix * matrix):
+        return True
+    else:
+        return False
+
+
+def dfs(matrix, visited_cells, position):
+    '''Depth-first search - helper function for are_all_cells_reachable_in_kruskal_maze'''
+
+    visited_cells.add(position)
+
+    for neighbor in matrix[position[0]][position[1]]:
+        if neighbor not in visited_cells:
+            dfs(matrix, visited_cells, neighbor)
+
+
+
+def show_kruskal_maze_as_2D_list(maze):
+    '''A helper function to show Kruskal's maze same way as
+    DFS and Aldous-Broder'''
+
+    size = len(maze)
+    matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]
+
+    edges = kruskal.edges
+
+    for edge in edges:
+        if edge.is_open:
+            start_x = edge.start_cell.pos_x
+            start_y = edge.start_cell.pos_y
+            end_x = edge.end_cell.pos_x
+            end_y = edge.end_cell.pos_y
+
+        if start_x == end_x - 1:
+            matrix[start_x][start_y][3] = 0
+            matrix[end_x][end_y][1] = 0
+
+        elif start_y == end_y - 1:
+            matrix[start_x][start_y][2] = 0
+            matrix[end_x][end_y][0] = 0
+        
+        elif start_y == end_y + 1:
+            matrix[start_x][start_y][0] = 0
+            matrix[end_x][end_y][2] = 0
+        
+        elif start_x == end_x + 1:
+            matrix[start_x][start_y][1] = 0
+            matrix[end_x][end_y][3] = 0
+    
+    return matrix
+
+
+
+# TESTIKOODIA
+
+maze = kruskal.create_kruskal_maze(4)
+
+for rivi in maze:
+    for cell in rivi:
+        for edge in cell.open_edges:
+            print(f"Kaari ({edge.start_cell.pos_x},{edge.start_cell.pos_y}) - ({edge.end_cell.pos_x},{edge.end_cell.pos_y})")
+
+maze_2d = show_kruskal_maze_as_2D_list(maze)
+
+for rivi in maze_2d:
+    print(rivi)
+
+
+
 
 

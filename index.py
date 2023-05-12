@@ -3,7 +3,7 @@
 import time
 from flask import Flask
 from flask import render_template, request
-from . import dfs, kruskal, aldous_broder, maze_tools
+from . import dfs, kruskal, aldous_broder, maze_tools, maze_paths
 
 app = Flask(__name__)
 
@@ -28,6 +28,7 @@ def generate_mazes():
     dfs_execution_time = round((end_time - start_time) * 1000, 4)
     dfs.draw_maze_image(size, dfs_maze)
     dfs_impasses = maze_tools.count_maze_impasses(dfs_maze)
+    dfs_reachable = maze_paths.are_all_cells_reachable(dfs_maze)
 
     # Kruskal's algorithm
     start_time = time.time()
@@ -44,6 +45,7 @@ def generate_mazes():
     aldous_broder_execution_time = round((end_time - start_time) * 1000, 4)
     aldous_broder.draw_aldous_broder_maze_image(size, aldous_broder_maze)
     aldous_broder_impasses = maze_tools.count_maze_impasses(aldous_broder_maze)
+    aldous_broder_reachable = maze_paths.are_all_cells_reachable(aldous_broder_maze)
 
 
     # For resuls summary
@@ -57,9 +59,11 @@ def generate_mazes():
     return render_template("/results.html",
                            dfs_execution_time=dfs_execution_time,
                            dfs_impasses=dfs_impasses,
+                           dfs_reachable=dfs_reachable,
                            kruskal_execution_time = kruskal_execution_time,
                            kruskal_impasses=kruskal_impasses,
                            aldous_broder_execution_time=aldous_broder_execution_time,
                            aldous_broder_impasses=aldous_broder_impasses,
+                           aldous_broder_reachable=aldous_broder_reachable, 
                            fastest=fastest,
                            least_impasses=least_impasses)

@@ -29,9 +29,11 @@ Omiin kansioihinsa on sijoitettu testit, html-templaatit ja sovelluksen dokument
 
 ### Tiedossa olevat virheet ja ongelmat
 
+- modulien importit eivät välttämätät toimi kaikilla koneilla. Tyyli "from maze_generation import kruskal" ei ole tyyliopillisesti oikein, mutta jostakin syystä se on ainoa joka toimii. Testiluokkien importit saattaa siis joutua korjaamaan ennen kuin sovellusta voi testata.
 - Testi test_drawing_function_returns_file_that_is_not_empty() antaa satunnaisesti hämärän virheilmoituksen Aldous-Broderin algoritmin tuottamasta labyrinttikuvasta
 - Sovellus pitää buutata jokaisen ajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä
 - Kruskalin algoritmilla varsinkin isommat labyrintit ovat hitaita generoida ja algoritmi kaipaisikin tehostamista.
+- Turle-ikkuna jää auki labyrinttien luomisen jälkeen ja se jää näkyviin selainikkunan päälle. Koodirivi, jolla sain sen sulkeutumaan automaattisesti, aiheutti virheen unittestejä ajaessa, joten päätin, että tämä on ominaisuus, ei vika.
 
 
 ### Jatkokehitysideoita

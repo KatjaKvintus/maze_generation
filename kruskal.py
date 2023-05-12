@@ -1,7 +1,7 @@
 '''Module for randomized Kruskal's algorithm maze generation'''
 import random
 import turtle
-from PIL import Image
+#from PIL import Image
 
 
 edges = []
@@ -246,3 +246,9 @@ def print_kruskal_maze(side_lenght, maze):
     drawer.clear()
 
     return maze_image
+
+
+
+# TESTIKOODIA - POISTA ENNEN PALAUTUSTA
+
+maze = create_kruskal_maze(4)
