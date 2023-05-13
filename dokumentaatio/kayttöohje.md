@@ -29,7 +29,7 @@ Käynnistä sovellus terminaalissa seuraavalla käskyllä:
 flask run
 ```
 
-Kopioi terminaalin antama url ja liitä se selaimen osoiteriville. Paina Enter.
+Kopioi terminaalin antama url ("Running on..." -riviltä) ja liitä se selaimen osoiteriville. Paina Enter.
 
 
 ### Sovelluksen käyttö
