@@ -1,6 +1,9 @@
 # Testausdokumentti
 
-Sovelluksen toimintaa testataan unittesteillä. Labyrinttien luomista koskevissa testeissä arvotaan testistä riippuen 5-20 kokonaislukua väliltä 4-200 labyrintin kooksi (n x n), ja silmukassa ensin luodaan kunkin luvun kokoinen labyrintti ja suoritetaan niille testit. Testit keskittyvät labyrintteja generoiviin ja analysoiviin funktioihin, eivätkä ne juuri käsittele labyrintin visualisoivia funktioita. Testien ajamiseen kuluu 3-8 minuuttia.
+Sovelluksen toimintaa testataan unittesteillä (59 kpl). Labyrinttien luomista koskevissa testeissä arvotaan testistä riippuen 5-20 kokonaislukua väliltä 4-200 labyrintin kooksi (n x n), ja silmukassa ensin luodaan kunkin luvun kokoinen labyrintti ja suoritetaan niille testit. Testit keskittyvät enemmän labyrintteja generoiviin ja analysoiviin funktioihin, ja jonkin verran analysointiin funktioihin, eivätkä ne juuri käsittele labyrintin visualisoivia funktioita. Testien ajamiseen kuluu 3-8 minuuttia.
+
+Sovelluksen käyttöliittymässä on lisäksi CSS-scriptejä, jotka pitävät huolta, että käyttäjän antama syöte on oikeaa tyyppiä ja väliltä 4-20. Päädyin rajaamaan käyttöliittymässä labyrintin maksimikooksi 20x20, sillä sitä suurempien labyrinttien visualisointi kävi hyvin hitaaksi (ja Kruskalin algoritmin kohdalla myös itse generointi oli hitaahkoa).
+
 
 ### Testien ajaminen
 
