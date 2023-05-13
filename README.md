@@ -3,6 +3,8 @@ _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 
 Sovellus generoi, visualisoi ja vertailee kolmen eri satunnaisia labyrinttejä generoivien algoritmin (iteratiivinen syvyyshaku, Kruskalin algoritmi ja Aldous-Broderin algoritmi) tuloksia. 
 
+![Release 1](https://github.com/KatjaKvintus/maze_generation/releases/tag/tiralabra)
+
 
 ### Ohje vertaisarvioihille
 
