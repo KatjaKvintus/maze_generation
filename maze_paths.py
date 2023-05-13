@@ -3,9 +3,10 @@ from collections import deque
 from . import kruskal
 
 
-def show_kruskal_maze_as_2D_list(maze):
+def show_kruskal_maze_as_2_D_list(maze):
     '''A helper function to show Kruskal's maze same way as
-    DFS and Aldous-Broder'''
+    DFS and Aldous-Broder (a 2D list, each cell containing a 4 character
+    binary list: 1 = wall, 0 = door).'''
 
     size = len(maze)
     matrix = [[[1, 1, 1, 1] for i in range(size)] for j in range(size)]
@@ -26,11 +27,11 @@ def show_kruskal_maze_as_2D_list(maze):
         elif start_y == end_y - 1:
             matrix[start_x][start_y][2] = 0
             matrix[end_x][end_y][0] = 0
-        
+
         elif start_y == end_y + 1:
             matrix[start_x][start_y][0] = 0
             matrix[end_x][end_y][2] = 0
-        
+
         elif start_x == end_x + 1:
             matrix[start_x][start_y][1] = 0
             matrix[end_x][end_y][3] = 0
@@ -39,9 +40,9 @@ def show_kruskal_maze_as_2D_list(maze):
 
 
 def are_all_cells_reachable(matrix):
-    '''Returns True if BFS can visits every cell in the maze
-    that is modeled as a 2D array (like DFS and Aldous-Broder,
-    or Kruskal after using show_kruskal_maze_as_2D_list() function)'''
+    '''Returns True if BFS can visits every cell in the maze that is modeled as
+    a 2D array (like DFS and Aldous-Broder, or Kruskal after using
+    show_kruskal_maze_as_2D_list() function)'''
 
     visited_cells = breadth_first_search(matrix)
 
@@ -49,7 +50,7 @@ def are_all_cells_reachable(matrix):
 
         for cell in row:
 
-            if cell == False:
+            if cell is False:
                 return False
 
     # If not found any unvisited cells, return True
@@ -74,58 +75,58 @@ def breadth_first_search(matrix):
 
         next_cell = queue.pop(0)
 
+        # Neigbors = availeble slots right next to the current cell that
+        # are available to move to.
         neighbors = find_available_neighbour(next_cell[0], next_cell[1], matrix)
 
         for cell in neighbors:
-            x1 = cell[0]
-            y1 = cell[1]
+            x_1 = cell[0]
+            y_1 = cell[1]
 
-            if visited_cells[x1][y1] == False:
-                visited_cells[x1][y1] = True
-                queue.append([x1, y1])
+            if visited_cells[x_1][y_1] is False:
+                visited_cells[x_1][y_1] = True
+                queue.append([x_1, y_1])
 
     return visited_cells
 
 
-def find_available_neighbour(x, y, matrix):
-    '''Helper method for breadth_first_search(). Returns a list
-    of available neighbor cells where can be move from the current
-    cell.'''
+def find_available_neighbour(pos_x, y, matrix):
+    '''Helper method for breadth_first_search(). Returns a list of available
+    neighbor cells where can be move from the current cell.'''
 
     neighbors = []
     size = len(matrix)
 
     if y != 0:
         # Left neighbor
-        if matrix[x][y][0] == 0:
-            neighbors.append([x, y-1])
+        if matrix[pos_x][y][0] == 0:
+            neighbors.append([pos_x, y-1])
 
-    if x != 0:
+    if pos_x != 0:
         # Top neighbor
-        if matrix[x][y][1] == 0:
-            neighbors.append([x-1, y])
+        if matrix[pos_x][y][1] == 0:
+            neighbors.append([pos_x-1, y])
 
     if y != (size - 1):
         # Right neighbor
-        if matrix[x][y][2] == 0:
-            neighbors.append([x, y+1])
+        if matrix[pos_x][y][2] == 0:
+            neighbors.append([pos_x, y+1])
 
-    if x != size - 1:
+    if pos_x != size - 1:
         # Below neighbor
-        if matrix[x][y][3] == 0:
-            neighbors.append([x+1, y])
+        if matrix[pos_x][y][3] == 0:
+            neighbors.append([pos_x+1, y])
 
     return neighbors
 
 
 def maze_type(maze):
-    '''Returns "perfect maze" if all maze cells are reachable,
-    and "non-perfect" if not.'''
+    '''Returns "perfect maze" if all maze cells are reachable, and
+    "non-perfect" if not. Needed for UI.'''
 
     if are_all_cells_reachable(maze):
         return "perfect maze"
-    else:
-        return "non-perfect maze"
+    return "non-perfect maze"
 
 
 def shortest_path(matrix):
@@ -152,29 +153,28 @@ def shortest_path(matrix):
         x = next_cell[0]
         y = next_cell[1]
         visited_squares[x][y] = True
-         
+
         # Update the distances of neighbors
         neighbors = find_available_neighbour(x, y, matrix)
 
         for cell in neighbors:
-            x1 = cell[0]
-            y1 = cell[1]
+            x_1 = cell[0]
+            y_1 = cell[1]
 
-            if visited_squares[cell[0]][cell[1]] == False:
+            if visited_squares[cell[0]][cell[1]] is False:
 
-                visited_squares[x1][y1] = True
-                distances[x1][y1] = distances[x][y] + 1
+                visited_squares[x_1][y_1] = True
+                distances[x_1][y_1] = distances[x][y] + 1
                 queue.append(cell)
 
     if distances[size-1][size-1] != 1000:
         return distances[size-1][size-1]
-    else:
-        return -1
-    
+    return -1
 
 
 def find_shortest_path_of_three(dfs, kruskal, aldous_broder):
-    '''Returns the description of the algorithm that generated a maze with shortest path'''
+    '''Returns the description of the algorithm that generated a maze
+    with the shortest path'''
 
     if dfs <= kruskal and dfs <= aldous_broder:
 
@@ -194,8 +194,7 @@ def find_shortest_path_of_three(dfs, kruskal, aldous_broder):
             result = phrase_1 + phrase_2
             return result + str(dfs) + " steps"
 
-        else:
-            return "Iterative DFS maze with " + str(dfs) + " steps"
+        return "Iterative DFS maze with " + str(dfs) + " steps"
 
     if kruskal <= dfs and kruskal <= aldous_broder:
 
@@ -205,8 +204,6 @@ def find_shortest_path_of_three(dfs, kruskal, aldous_broder):
             result = phrase_1 + phrase_2
             return result + str(kruskal) + " steps"
 
-        else:
-            return "Kruskal's maze with " + str(kruskal) + " steps"
+        return "Kruskal's maze with " + str(kruskal) + " steps"
 
-    else:
-        return "Aldous-Broder maze with " + str(aldous_broder) + " steps"
+    return "Aldous-Broder maze with " + str(aldous_broder) + " steps"

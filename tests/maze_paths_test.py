@@ -2,8 +2,7 @@
 import unittest
 import random
 from maze_generation import maze_paths, kruskal
-from maze_generation.tests import dfs_test
-#from PIL import Image
+from PIL import Image
 
 
 class Test_maze_paths(unittest.TestCase):
@@ -214,7 +213,7 @@ class Test_maze_paths(unittest.TestCase):
         for size in test_sizes:
 
             kruskal_maze = kruskal.create_kruskal_maze(size)
-            transformed_maze = maze_paths.show_kruskal_maze_as_2D_list(kruskal_maze)
+            transformed_maze = maze_paths.show_kruskal_maze_as_2_D_list(kruskal_maze)
 
             # Maze size should be size * size
             is_correct_size = size * size

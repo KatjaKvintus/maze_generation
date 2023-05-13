@@ -3,7 +3,6 @@ import unittest
 import random
 from maze_generation import maze_tools, maze_paths, dfs
 from PIL import Image
-import os.path
 
 
 class Test_dfs(unittest.TestCase):
@@ -11,7 +10,7 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_maze_is_correct_size(self):
-        '''Tests if the function creates a correct size 2D list.
+        '''Tests if the function creates a correct size dfs maze  (=2D list).
         Test in 5 random integers between 5 and 50.'''
 
         test_sizes = []
@@ -32,7 +31,7 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_too_small_parameter_gives_error(self):
-        '''Test that when trying to generate a maze any integer smaller
+        '''Test that when trying to generate a dfs maze any integer smaller
         than 4 returns error'''
 
         test_sizes = []
@@ -47,7 +46,7 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_too_big_parameter_gives_error(self):
-        '''Test that when trying to generate a maze any integer bigger
+        '''Test that when trying to generate a dfs maze any integer bigger
         than 200 returns error'''
 
         test_sizes = []
@@ -62,8 +61,8 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_incorrect_parameter_type_gives_error(self):
-        '''If create_bactracker_maze() has a wrong type of parameter,
-        there will be error'''
+        '''If create_fds_maze() has a wrong type of parameter, it
+        returns an error'''
 
         test_types = ["kissa", "#", 4.44]
 
@@ -74,8 +73,8 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_maze_is_not_entirely_made_of_walls(self):
-        '''Tests that that maze does contain open entryways too.
-        Test in 5 random integers between 5 and 50.'''
+        '''Tests that that dfs maze does contain open entryways (doors) too. Wall = 1,
+        door = 0. Test in 5 random integers between 5 and 50.'''
 
         test_sizes = []
 
@@ -99,8 +98,8 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_maze_is_not_entirely_open_space(self):
-        '''Tests that that maze does contain walls too.
-        Test in 5 random integers between 5 and 50.'''
+        '''Tests that that dfs maze does contain walls too. Wall = 1,
+        door = 0. Tests in 5 random integers between 5 and 50.'''
 
         test_sizes = []
 
@@ -123,8 +122,8 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_maze_has_outer_frame(self):
-        '''Tests that the maze has frame with no holes.
-        Test in 20 random integers between 5 and 50.'''
+        '''Tests that the dfs maze has frame with no holes (doors). Wall = 1,
+        door = 0. Test in 20 random integers between 5 and 50.'''
 
         test_sizes = []
 
@@ -165,8 +164,8 @@ class Test_dfs(unittest.TestCase):
 
 
     def test_impasse_method_returns_integer_in_correct_size(self):
-        '''For testing the maze_impasse_amount() method.
-        It should always return an integer between 0 and 50^2.'''
+        '''For testing the dfs maze impasses. It should always return
+        an integer between 0 and 50^2.'''
 
         test_sizes = []
 
@@ -181,7 +180,7 @@ class Test_dfs(unittest.TestCase):
     
 
     def test_impasses_are_counted_correctly_in_size_4_maze(self):
-        '''For checking that impasses are count correctly'''
+        '''For checking that impasses in 4x4 dfs maze are count correctly'''
 
         maze_4 = [[[1, 1, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1], [0, 1, 1, 0]],
                   [[1, 0, 1, 0], [1, 0, 1, 1], [1, 1, 0, 0], [0, 0, 1, 0]],
@@ -193,7 +192,7 @@ class Test_dfs(unittest.TestCase):
     
 
     def test_impasses_are_counted_correctly_in_size_5_maze(self):
-        '''For checking that impasses are count correctly'''
+        '''For checking that impasses in 5x5 dfs maze are count correctly'''
 
         maze_5 = [[[1, 1, 0, 1], [0, 1, 1, 0], [1, 1, 0, 1], [0, 1, 0, 1], [0, 1, 1, 0]],
                   [[1, 1, 1, 0], [1, 0, 0, 1], [0, 1, 1, 0], [1, 1, 0, 0], [0, 0, 1, 0]],
@@ -205,9 +204,8 @@ class Test_dfs(unittest.TestCase):
         self.assertEqual(result, 6)
 
 
-
     def test_is_this_perfect_maze(self):
-        '''Checks if all maze cells can be reached from every other cell'''
+        '''Checks if all dfs maze cells can be reached from every other cell'''
 
         test_sizes = []
 
@@ -224,7 +222,7 @@ class Test_dfs(unittest.TestCase):
     
 
     def test_shortest_path_is_under_max_length(self):
-        '''Test to check that the shortest path can be found
+        '''Test to check that the shortest path can be found in dfs maze
         and its length is not bigger than matrix cells amount.'''
 
         test_sizes = []
@@ -242,9 +240,9 @@ class Test_dfs(unittest.TestCase):
     
 
     def test_shortest_path_is_at_least_minimum_length(self):
-        '''Test to check that the shortest path can be found
+        '''Test to check that the shortest path can be found in dfs maze
         and its length is not shorter than the mimimum path length
-        in matrix = size + size - 2.'''
+        in matrix (= size + size - 2).'''
 
         test_sizes = []
 
@@ -260,18 +258,6 @@ class Test_dfs(unittest.TestCase):
             self.assertGreaterEqual(path_length, min_size)
 
 
-    def test_shortest_path_lenght_correct(self):
-        '''Test to check that the shortest path will be found and
-        the lenght is correct in size 4 maze.'''
-
-        maze_4 = [[[1, 1, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1], [0, 1, 1, 0]],
-                  [[1, 0, 1, 0], [1, 0, 1, 1], [1, 1, 0, 0], [0, 0, 1, 0]],
-                  [[1, 0, 0, 1], [0, 1, 1, 0], [1, 0, 1, 0], [1, 0, 1, 0]],
-                  [[1, 1, 0, 1], [0, 0, 0, 1], [0, 0, 1, 1], [1, 0, 1, 1]]]
-        
-        path_lenght = maze_paths.shortest_path(maze_4)
-
-        self.assertEqual(path_lenght, 10)
         
 
 

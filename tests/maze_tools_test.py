@@ -1,7 +1,7 @@
 '''For testing the maze_tools.py file'''
 import unittest
 import random
-from maze_generation import dfs, aldous_broder, kruskal, maze_paths, maze_tools
+from maze_generation import dfs, aldous_broder, kruskal, maze_tools
 from PIL import Image
 import os
 import time
@@ -27,7 +27,7 @@ class Test_maze_tools(unittest.TestCase):
 
                 self.assertTrue(os.path.isfile(self.maze_image))
                 self.assertGreater(os.path.getsize(self.maze_image), 0)
-            
+
             elif algorithm == "kruskal":
 
                 self.kruskal_maze = kruskal.create_kruskal_maze(size)
@@ -45,11 +45,11 @@ class Test_maze_tools(unittest.TestCase):
 
                 self.assertTrue(os.path.isfile(self.maze_image))
                 self.assertGreater(os.path.getsize(self.maze_image), 0)
-    
 
 
     def test_fastest_maze_generation_algorithm_function(self):
-        '''test for fastest_maze_generation_algorithm() function'''
+        '''Test for fastest_maze_generation_algorithm() function in actual
+        mazes generated with algotrithms returns correct phrases.'''
 
         test_sizes = []
 
@@ -64,45 +64,87 @@ class Test_maze_tools(unittest.TestCase):
             dfs_maze = dfs.create_dfs_maze(size)
             end_time = time.time()
             dfs_execution_time = round((end_time - start_time) * 1000, 4)
-            
+
             # Kruskal's algorithm
             start_time = time.time()
             kruskal_maze = kruskal.create_kruskal_maze(size)
             end_time = time.time()
             kruskal_execution_time = round((end_time - start_time) * 1000, 4)
-            
+
             # Aldous-Broder algorithm
             start_time = time.time()
             aldous_broder_maze = aldous_broder.create_aldous_broder_maze(size)
             end_time = time.time()
             aldous_broder_execution_time = round((end_time - start_time) * 1000, 4)
-            
+
             if dfs_execution_time < kruskal_execution_time and dfs_execution_time < aldous_broder_execution_time:
                 function_return = "Iterative DFS algorithm in " + str(dfs_execution_time) + " ms"
-                
+
             elif kruskal_execution_time < dfs_execution_time and kruskal_execution_time < aldous_broder_execution_time:
                 function_return = "Kruskal's algorithm in " + str(kruskal_execution_time) + " ms"
             else:
                 function_return = "Aldous-Broder algorithm in " + str(aldous_broder_execution_time) + " ms"
-            
+
             result = maze_tools.fastest_maze_generation_algorithm(dfs_execution_time, 
                                                     kruskal_execution_time,
                                                     aldous_broder_execution_time)
-            
+
             self.assertEqual(result, function_return)
-        
+
+
+    def test_fastest_maze_generation_algorithm_function_when_a_is_fastest(self):
+        '''Test for fastest_maze_generation_algorithm(a, b, c) function with parameters
+        set as a being the fastest returns correct phrase.'''
+
+        for i in range (0, 10):
+            a = random.randint(1, 10)
+            b = random.randint(11, 100)
+            c = random.randint(101, 200)
+
+            result = maze_tools.fastest_maze_generation_algorithm(a, b, c)
+            expected_phrase = "Iterative DFS algorithm in " + str(a) + " ms"
+            self.assertEqual(result, expected_phrase)
+
+
+    def test_fastest_maze_generation_algorithm_function_when_b_is_fastest(self):
+        '''Test for fastest_maze_generation_algorithm(a, b, c) function with parameters
+        set as a being the fastest returns correct phrase.'''
+
+        for i in range (0, 10):
+            a = random.randint(11, 100)
+            b = random.randint(1, 10)
+            c = random.randint(101, 200)
+
+            result = maze_tools.fastest_maze_generation_algorithm(a, b, c)
+            expected_phrase = "Kruskal's algorithm in " + str(b) + " ms"
+            self.assertEqual(result, expected_phrase)
+
+
+    def test_fastest_maze_generation_algorithm_function_when_c_is_fastest(self):
+        '''Test for fastest_maze_generation_algorithm(a, b, c) function with parameters
+        set as c being the fastest returns correct phrase.'''
+
+        for i in range (0, 10):
+            a = random.randint(21, 100)
+            b = random.randint(101, 200)
+            c = random.randint(1, 20)
+
+            result = maze_tools.fastest_maze_generation_algorithm(a, b, c)
+            expected_phrase = "Aldous-Broder algorithm in " + str(c) + " ms"
+            self.assertEqual(result, expected_phrase)
+
 
     def test_least_impasses_found_when_a_is_smallest(self):
         '''Test for least_impasses(a, b, c) function. This test checks that if
-        all parameters are different integers and the 1st one is the smallest,
-        the functions gives correct return phrase.'''
+        all parameters are different integers and a is the smallest,
+        the functions returns correct return phrase.'''
 
         test_sizes = []
-        
+
         for i in range (0, 5):
             i = random.randint(5, 200)
             test_sizes.append(i)
-        
+
         for size in test_sizes: 
 
             result = maze_tools.least_impasses(size, size + 1, size + 2)
@@ -111,18 +153,17 @@ class Test_maze_tools(unittest.TestCase):
             self.assertEqual(result, expected_phrase)
 
 
-     
     def test_least_impasses_found_when_b_is_smallest(self):
         '''Test for least_impasses(a, b, c) function. This test checks that if
-        all parameters are different integers and the 2nd one is the smallest,
+        all parameters are different integers and b is the smallest,
         the functions gives correct return phrase.'''
 
         test_sizes = []
-        
+
         for i in range (0, 5):
             i = random.randint(5, 200)
             test_sizes.append(i)
-        
+
         for size in test_sizes: 
 
             result = maze_tools.least_impasses(size+1, size, size + 2)
@@ -133,8 +174,8 @@ class Test_maze_tools(unittest.TestCase):
 
     def test_least_impasses_found_when_c_is_smallest(self):
         '''Test for least_impasses(a, b, c) function. This test checks that if
-        all parameters are different integers and the 3rd one is the smallest,
-        the functions gives correct return phrase.'''
+        all parameters are different integers and c is the smallest,
+        the functions returns the correct phrase.'''
 
         test_sizes = []
         
@@ -153,14 +194,14 @@ class Test_maze_tools(unittest.TestCase):
     def test_least_impasses_found_when_there_is_two_smallest_a_and_b(self):
         '''Test for least_impasses(a, b, c) function. This test checks that if
         from all parameters a and b are equals and smaller than c, the functions
-        gives correct return phrase.'''
+        returns the correct phrase.'''
 
         test_sizes = []
-        
+
         for i in range (0, 5):
             i = random.randint(5, 200)
             test_sizes.append(i)
-        
+
         for size in test_sizes: 
 
             result = maze_tools.least_impasses(size, size, size +1)
@@ -170,18 +211,18 @@ class Test_maze_tools(unittest.TestCase):
 
             self.assertEqual(result, expected_phrase)
 
- 
+
     def test_least_impasses_found_when_there_is_two_smallest_a_and_c(self):
         '''Test for least_impasses(a, b, c) function. This test checks that if
         from all parameters a and c are equals and smaller than b, the functions
-        gives correct return phrase.'''
+        returns the correct phrase.'''
 
         test_sizes = []
-        
+
         for i in range (0, 5):
             i = random.randint(5, 200)
             test_sizes.append(i)
-        
+
         for size in test_sizes: 
 
             result = maze_tools.least_impasses(size, size+1, size)
@@ -195,14 +236,14 @@ class Test_maze_tools(unittest.TestCase):
     def test_least_impasses_found_when_there_is_two_smallest_b_and_c(self):
         '''Test for least_impasses(a, b, c) function. This test checks that if
         from all parameters b and c are equals and smaller than a, the functions
-        gives correct return phrase.'''
+        returns the correct phrase.'''
 
         test_sizes = []
-        
+
         for i in range (0, 5):
             i = random.randint(5, 200)
             test_sizes.append(i)
-        
+
         for size in test_sizes: 
 
             result = maze_tools.least_impasses(size+1, size, size)
@@ -212,4 +253,22 @@ class Test_maze_tools(unittest.TestCase):
 
             self.assertEqual(result, expected_phrase)
 
-            
+
+    def test_least_impasses_found_when_all_have_same_amount(self):
+        '''Test for least_impasses(a, b, c) function. This test checks that if
+        all parametersare the same, the functions returns the correct phrase.'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(5, 200)
+            test_sizes.append(i)
+
+        for size in test_sizes: 
+
+            result = maze_tools.least_impasses(size, size, size)
+            phrase_part_1 = "All algorithms has the same amount of impasses: "
+            phrase_part_2 = str(size) + " pcs"
+            expected_phrase =  phrase_part_1 + phrase_part_2
+
+            self.assertEqual(result, expected_phrase)

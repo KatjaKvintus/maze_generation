@@ -1,7 +1,7 @@
 '''For testing the kruskal.py file'''
 import unittest
 import random
-from maze_generation import kruskal, maze_paths, maze_tools
+from maze_generation import kruskal, maze_paths
 from PIL import Image
 
 
@@ -10,8 +10,9 @@ class Test_kruskal(unittest.TestCase):
 
 
     def test_maze_is_correct_size(self):
-        '''Tests if the function creates a correct size 2D list.
-        Test in 5 random integers between 5 and 50.'''
+        '''Tests if the create_kruskal_maze() function creates
+        a correct size 2D list. Test in 5 random integers between
+        5 and 50.'''
 
         test_sizes = []
 
@@ -31,7 +32,7 @@ class Test_kruskal(unittest.TestCase):
 
 
     def test_too_small_parameter_gives_error(self):
-        '''Test that when trying to generate a maze any integer smaller
+        '''Test that when trying to generate a Kurskal maze any integer smaller
         than 4 returns error'''
 
         test_sizes = []
@@ -43,10 +44,10 @@ class Test_kruskal(unittest.TestCase):
         for size in test_sizes:
             result = kruskal.create_kruskal_maze(size)
             self.assertEqual(result, "Too small parameter")
-    
- 
+
+
     def test_too_big_parameter_gives_error(self):
-        '''Test that when trying to generate a maze any integer bigger
+        '''Test that when trying to generate a Kurskal maze any integer bigger
         than 200 returns error'''
 
         test_sizes = []
@@ -61,7 +62,7 @@ class Test_kruskal(unittest.TestCase):
 
 
     def test_incorrect_parameter_type_gives_error(self):
-        ''' If create_bactracker_maze() has a wrong type of parameter,
+        ''' If create_kruskal_maze() has a wrong type of parameter,
         there will be error'''
 
         test_types = ["Harry Potter", "?", 12.3]
@@ -74,10 +75,9 @@ class Test_kruskal(unittest.TestCase):
 
 
     def test_maze_has_open_edges(self):
-        '''Tests that that maze does contain open entryways too.
+        '''Tests that that Kurskal maze does contain open entryways too.
         Each cell should have more than 0 open edges listed in
-        the open_edges list.
-        Test in 5 random integers between 5 and 50.'''
+        the open_edges list. Tests in 5 random integers between 5 and 50.'''
 
         test_sizes = []
 
@@ -126,7 +126,7 @@ class Test_kruskal(unittest.TestCase):
 
 
     def test_shortest_path_is_under_max_length(self):
-        '''Test to check that the shortest path can be found
+        '''Test to check that the shortest path in Kurskal maze can be found
         and its length is not bigger than matrix cells amount.'''
 
         test_sizes = []
@@ -139,15 +139,15 @@ class Test_kruskal(unittest.TestCase):
 
             max_size = size * size
             maze = kruskal.create_kruskal_maze(size)
-            maze_modified = maze_paths.show_kruskal_maze_as_2D_list(maze)
+            maze_modified = maze_paths.show_kruskal_maze_as_2_D_list(maze)
             path_length = maze_paths.shortest_path(maze_modified)
             self.assertLessEqual(path_length, max_size)
 
 
     def test_shortest_path_is_at_least_minimum_length(self):
-        #'''Test to check that the shortest path can be found
-        #and its length is not shorter than the mimimum path length
-        #in matrix = size + size - 2.'''
+        '''Test to check that the shortest path can be found
+        and its length is not shorter than the mimimum path length
+        in matrix = size + size - 2.'''
 
         test_sizes = []
 
@@ -159,7 +159,6 @@ class Test_kruskal(unittest.TestCase):
 
             min_size = size + size - 2
             maze = kruskal.create_kruskal_maze(size)
-            maze_modified = maze_paths.show_kruskal_maze_as_2D_list(maze)
+            maze_modified = maze_paths.show_kruskal_maze_as_2_D_list(maze)
             path_length = maze_paths.shortest_path(maze_modified)
             self.assertGreaterEqual(path_length, min_size)
-

@@ -159,16 +159,16 @@ def draw_maze_image(size, matrix):
     drawer.setheading(0)
 
     # Drawing horizontal lines
-    for y in range(size):
+    for pos_y in range(size):
 
         drawer.penup()
-        drawer.goto(start_x, start_y + -maze_size * (y) - maze_size)
+        drawer.goto(start_x, start_y + -maze_size * pos_y - maze_size)
 
-        for x in range(size):
+        for pos_x in range(size):
 
-            if matrix[y][x][3] == 1:
+            if matrix[pos_y][pos_x][3] == 1:
                 drawer.pendown()
-            elif matrix[y][x][3] == 0:
+            elif matrix[pos_y][pos_x][3] == 0:
                 drawer.penup()
 
             drawer.forward(maze_size)
@@ -176,13 +176,13 @@ def draw_maze_image(size, matrix):
     #Drawing vertical lines
     drawer.left(90)
 
-    for x in range(size):
+    for pos_x in range(size):
 
         drawer.penup()
-        drawer.goto(start_x + maze_size * (x), -start_y)
+        drawer.goto(start_x + maze_size * pos_x, -start_y)
 
-        for y in range(size):
-            if matrix[size - y - 1][x][0] == 1:
+        for pos_y in range(size):
+            if matrix[size - pos_y - 1][pos_x][0] == 1:
                 drawer.pendown()
             else:
                 drawer.penup()

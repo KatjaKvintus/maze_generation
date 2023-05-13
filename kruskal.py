@@ -77,33 +77,33 @@ def create_kruskal_maze(size):
     # A 2D list to keep track of matrix cells and walls.
     matrix = []
 
-    for x in range(size):
+    for pos_x in range(size):
         row = []
-        for y in range(size):
-            row.append(Cell(x, y))
+        for pos_y in range(size):
+            row.append(Cell(pos_x, pos_y))
         matrix.append(row)
 
 
     #Adding edges to list
-    for x in range(size):
-        for y in range (size):
+    for pos_x in range(size):
+        for pos_y in range (size):
 
-            start_cell = matrix[x][y]
+            start_cell = matrix[pos_x][pos_y]
 
-            if x != 0:
-                end_cell = matrix[x - 1][y]
+            if pos_x != 0:
+                end_cell = matrix[pos_x - 1][pos_y]
                 add_edge(start_cell, end_cell)
 
-            if x != size -1:
-                end_cell = matrix[x + 1][y]
+            if pos_x != size -1:
+                end_cell = matrix[pos_x + 1][pos_y]
                 add_edge(start_cell, end_cell)
 
-            if y != 0:
-                end_cell = matrix[x][y - 1]
+            if pos_y != 0:
+                end_cell = matrix[pos_x][pos_y - 1]
                 add_edge(start_cell, end_cell)
 
-            if y != size - 1:
-                end_cell = matrix[x][y + 1]
+            if pos_y != size - 1:
+                end_cell = matrix[pos_x][pos_y + 1]
                 add_edge(start_cell, end_cell)
 
     # Shuffle edges in random order (because that's whats Kruskal's algorithm requires)
@@ -111,9 +111,9 @@ def create_kruskal_maze(size):
 
     # Creating sets - at the begingnning every cell is in their own set.
     # So there is size^2 sets.
-    for x in range(size):
-        for y in range(size):
-            matrix[x][y].set = set([(x, y)])
+    for pos_x in range(size):
+        for pos_y in range(size):
+            matrix[pos_x][pos_y].set = set([(pos_x, pos_y)])
 
     # Merging sets by removing walls one by one until there is only one set
     # containing all cells = labyrinth
@@ -153,7 +153,7 @@ def create_kruskal_maze(size):
 
 
 def print_kruskal_maze(side_lenght, maze):
-    '''Provides image of the Kruskal's algorithm generated maze'''
+    '''Provides an image of the maze generated in Kruskal's algorithm.'''
 
     canvas = turtle.Screen()
     canvas.setup(width=900, height=900)
@@ -245,9 +245,3 @@ def print_kruskal_maze(side_lenght, maze):
     drawer.clear()
 
     return maze_image
-
-
-
-# TESTIKOODIA - POISTA ENNEN PALAUTUSTA
-
-maze = create_kruskal_maze(4)

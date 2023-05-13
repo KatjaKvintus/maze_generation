@@ -1,4 +1,5 @@
 from invoke import task
+'''Module for @task tasks.'''
 
 
 @task
@@ -17,4 +18,3 @@ def coverage_report(ctx):
 def test(ctx):
     '''To run unittests'''
     ctx.run("pytest", pty=True)
-

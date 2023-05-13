@@ -33,11 +33,11 @@ function check(form) {
         return false;
     }
     if (form.maze_size.value < 4) {
-        alert("Please choose size bigger than 4.");
+        alert("Please choose size that is equal or bigger than 4.");
         return false;
     }
-    if (form.maze_size.value > 200) {
-        alert("Please choose size smaller than 200.");
+    if (form.maze_size.value > 20) {
+        alert("Please choose size equal or smaller than 20.");
         return false;
     }
     return true;
