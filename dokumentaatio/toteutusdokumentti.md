@@ -38,9 +38,9 @@ Labyrinttien generoinnin näkökulmasta generointiaika ei ole merkittävin tekij
 
 ### Tiedossa olevat virheet ja ongelmat
 
-- Modulien importit eivät välttämättä toimi oikein muilla koneilla. Tyyli "from maze_generation import kruskal" ei ole oikea tapa importata, mutta jostakin syystä se on ainoa joka toimii. Testiluokkien importit saattaa siis joutua korjaamaan ennen kuin sovellusta voi testata. Epäilen, että ongelma on Flask-peräinen.
+- Importit on tehty väärin. Modulien importit eivät välttämättä (todennäköisesti) toimi oikein muilla koneilla. Tyyli "from maze_generation import kruskal" ei ole oikea tapa importata, mutta jostakin syystä se on ainoa joka toimii sekä testiajoissa että selaimessa Flask-appina. Kaikki konstit on kokeiltu. Testiluokkien importit saattaa siis joutua korjaamaan ennen kuin sovellusta voi testata. Epäilen, että ongelma on Flask-peräinen.
 - Testi test_drawing_function_returns_file_that_is_not_empty() antaa satunnaisesti hämärän virheilmoituksen Aldous-Broderin algoritmin tuottamasta labyrinttikuvasta
-- Sovellus pitää buutata (terminaalissa 'Ctrl+C') jokaisen generointiajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä 
+- Sovellus pitää buutata (terminaalissa 'Ctrl+C', sen jälkeen'flask run') jokaisen generointiajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä 
 - Kruskalin algoritmilla varsinkin isommat labyrintit ovat hitaita generoida ja algoritmi kaipaisikin tehostamista.
 - Turtle-ikkuna jää auki labyrinttien luomisen jälkeen ja se jää näkyviin selainikkunan päälle. Koodirivi, jolla sain sen sulkeutumaan automaattisesti, aiheutti virheen unittestejä ajaessa, joten päätin, että tämä on ominaisuus, ei vika.
 
