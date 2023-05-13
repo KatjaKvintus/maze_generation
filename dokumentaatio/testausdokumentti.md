@@ -27,11 +27,11 @@ coverage report -m
 
 ### Automaattisten testien ajoajat
 
-Testien ajaminen kestää keskimäärin 398,79 s (n. 6 min 39 s). Ajoin testit kymmenen kertaa ja ajoajat vaihtelivat 237,02 - 518,38 s välillä. 
+Testien ajaminen kestää keskimäärin 398,79 s (n. 6 min 39 s). Ajoin testit kymmenen kertaa ja ajoajat vaihtelivat 237,02 - 518,38 s välillä. Alla tarkemmat tilastot testiajoista.
 
-<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/unittestien_ajoajat.png">
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/unittestien_ajoajat.png" width="60%" height="60%">
 
-<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/tilasto_unittest.png">
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/tilasto_unittest.png" width="20%" height="20%">
 
 
 ### Testikattavuus
@@ -43,5 +43,5 @@ Koska labyrintteja generoivat ja analysoinvat .py-tiedostot ovat juuressa (en sa
 
 ### Pylint
 
-Pylint-tarkastus antaa sovellukselle arvosanan 9.30/10. Kympistä sen tiputtaa mm. liian monimutkainen haarautuvuus genrointialgoritmeissa (too-many-branches) ja koodin toisteisuus (too-many-branches) kuvatiedostoja luovissa funktioissa. Tässä versiossa jokaiselle generointialgorimille on oma kuvanluontifunktio, vaikka ne voisi kohtuullisella säädöllä yhdistää.
+Pylint-tarkastus antaa sovellukselle arvosanan 9.30/10. Kympistä sen tiputtaa mm. liian monimutkainen haarautuvuus genrointialgoritmeissa (too-many-branches) ja koodin toisteisuus (duplicate-code) kuvatiedostoja luovissa funktioissa. Tässä versiossa jokaiselle generointialgorimille on oma kuvanluontifunktio, vaikka ne voisi kohtuullisella säädöllä yhdistää.
 
