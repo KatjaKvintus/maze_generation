@@ -25,13 +25,15 @@ coverage run --branch -m pytest
 coverage report -m
 ```
 
+### Automaattisten testien ajoajat
+
+Testien ajaminen kestää keskimäärin 398,79 s (n. 6 min 39 s). Ajoin testit kymmenen kertaa ja ajoajat vaihtelivat 237,02 - 518,38 s välillä. 
+
 ### Testikattavuus
 
 ![](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/testikattavuus%202023-05-13.png)
 
 Koska labyrintteja generoivat ja analysoinvat .py-tiedostot ovat juuressa (en saanut importteja toimimaan kansioiden välillä ja nytkin ne ovat vähän sinne päin), testikattavuus 97 % kattaa myös testitiedostot. Ns. päätiedostoilla eli genrointialgoritmiluokilla (aldous_broder.py, dfs.py ja kruskal.py) testien haaraumakattavuus on 99 - 100 %.
-
-Testien ajaminen kestää keskimäärin 398,79 s (n. 6 min 39 s). Ajoin testit kymmenen kertaa ja ajoajat vaihtelivat 237,02 - 518,38 s välillä. 
 
 
 ### Pylint
