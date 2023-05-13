@@ -207,7 +207,7 @@ class Test_maze_paths(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:

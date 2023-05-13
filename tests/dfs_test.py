@@ -11,12 +11,12 @@ class Test_dfs(unittest.TestCase):
 
     def test_maze_is_correct_size(self):
         '''Tests if the function creates a correct size dfs maze  (=2D list).
-        Test in 5 random integers between 5 and 50.'''
+        Test in 5 random integers between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -74,12 +74,12 @@ class Test_dfs(unittest.TestCase):
 
     def test_maze_is_not_entirely_made_of_walls(self):
         '''Tests that that dfs maze does contain open entryways (doors) too. Wall = 1,
-        door = 0. Test in 5 random integers between 5 and 50.'''
+        door = 0. Test in 5 random integers between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -99,12 +99,12 @@ class Test_dfs(unittest.TestCase):
 
     def test_maze_is_not_entirely_open_space(self):
         '''Tests that that dfs maze does contain walls too. Wall = 1,
-        door = 0. Tests in 5 random integers between 5 and 50.'''
+        door = 0. Tests in 5 random integers between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -123,12 +123,12 @@ class Test_dfs(unittest.TestCase):
 
     def test_maze_has_outer_frame(self):
         '''Tests that the dfs maze has frame with no holes (doors). Wall = 1,
-        door = 0. Test in 20 random integers between 5 and 50.'''
+        door = 0. Test in 20 random integers between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 20):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -165,12 +165,12 @@ class Test_dfs(unittest.TestCase):
 
     def test_impasse_method_returns_integer_in_correct_size(self):
         '''For testing the dfs maze impasses. It should always return
-        an integer between 0 and 50^2.'''
+        an integer between 0 and 200^2.'''
 
         test_sizes = []
 
         for i in range (0, 20):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -210,7 +210,7 @@ class Test_dfs(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -228,7 +228,7 @@ class Test_dfs(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -247,7 +247,7 @@ class Test_dfs(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -256,15 +256,3 @@ class Test_dfs(unittest.TestCase):
             maze = dfs.create_dfs_maze(size)
             path_length = maze_paths.shortest_path(maze)
             self.assertGreaterEqual(path_length, min_size)
-
-
-        
-
-
-
-
-
-
-
-
-

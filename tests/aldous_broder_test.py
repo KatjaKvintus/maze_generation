@@ -12,12 +12,12 @@ class Test_aldous_broder(unittest.TestCase):
     def test_maze_is_correct_size(self):
         '''Tests if the create_aldous_broder_maze() function
         creates a correct size 2D list. Tests in 5 random integers
-        between 5 and 50.'''
+        between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -76,12 +76,12 @@ class Test_aldous_broder(unittest.TestCase):
     def test_maze_is_not_entirely_made_of_walls(self):
         '''Tests that that an Aldous-Broder maze does contain open
         entryways too. Door = 0, wall = 1. Test in 5 random integers
-        between 5 and 50.'''
+        between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -101,12 +101,12 @@ class Test_aldous_broder(unittest.TestCase):
 
     def test_maze_is_not_entirely_open_space(self):
         '''Tests that that an Aldous-Broder maze does contain walls too.
-        Door = 0, wall = 1. Tests in 5 random integers between 5 and 50.'''
+        Door = 0, wall = 1. Tests in 5 random integers between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -125,12 +125,12 @@ class Test_aldous_broder(unittest.TestCase):
 
     def test_maze_has_outer_frame(self):
         '''Tests that an Aldous-Broder maze has frame with no holes.
-        1 = wall, 0 = hole. Tests in 20 random integers between 5 and 50.'''
+        1 = wall, 0 = hole. Tests in 20 random integers between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 20):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -167,12 +167,12 @@ class Test_aldous_broder(unittest.TestCase):
 
     def test_impasse_method_works(self):
         '''For testing impasses locating in an Aldous-Broder maze.
-        It should always return an integer between 0 and 50^2.'''
+        It should always return an integer between 0 and 200^2.'''
 
         test_sizes = []
 
         for i in range (0, 20):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -213,7 +213,7 @@ class Test_aldous_broder(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -232,7 +232,7 @@ class Test_aldous_broder(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -251,7 +251,7 @@ class Test_aldous_broder(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:

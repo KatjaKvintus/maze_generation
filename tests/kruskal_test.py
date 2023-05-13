@@ -12,12 +12,12 @@ class Test_kruskal(unittest.TestCase):
     def test_maze_is_correct_size(self):
         '''Tests if the create_kruskal_maze() function creates
         a correct size 2D list. Test in 5 random integers between
-        5 and 50.'''
+        5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -77,12 +77,12 @@ class Test_kruskal(unittest.TestCase):
     def test_maze_has_open_edges(self):
         '''Tests that that Kurskal maze does contain open entryways too.
         Each cell should have more than 0 open edges listed in
-        the open_edges list. Tests in 5 random integers between 5 and 50.'''
+        the open_edges list. Tests in 5 random integers between 5 and 200.'''
 
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -108,7 +108,7 @@ class Test_kruskal(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -132,7 +132,7 @@ class Test_kruskal(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
@@ -152,7 +152,7 @@ class Test_kruskal(unittest.TestCase):
         test_sizes = []
 
         for i in range (0, 5):
-            i = random.randint(5, 50)
+            i = random.randint(5, 200)
             test_sizes.append(i)
 
         for size in test_sizes:
