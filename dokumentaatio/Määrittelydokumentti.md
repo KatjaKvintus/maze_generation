@@ -28,16 +28,19 @@ Tässä sovelluksessa käyttäjä voi vertailla kolmea sokkeloa luovaa algoritmi
 - Sokkelon tyyppi (täydellinen, epätäydellinen jne)
 - Kuinka kauan sokkelon luominen kesti
 - Sokkelon umpikujien määrä
+- Lyhyimmän polun pituus (vas. yläkulmasta oikeaan alakulmaan: (0, 0) -> (size-1, size-1))
 
 
 ### Tavoitteena olevat aika- ja tilavaativuudet 
 
-Sokkelon koolle on asetettava jonkinlainen maksimikoko niin, että sokkelon esittäminen näytöllä on järkevää. Se on kuitenkin oltava tarpeeksi iso, jotta aikavertailulla saadaan esille näkyviä eroja. Sovelluksessa asetin rajaksi on 4 <= n <= 20, mutta pelkkiä algoritmeja tutkiessa raja on 4 <= n <= 200.
+Sokkelon koolle on asetettava jonkinlainen maksimikoko niin, että sokkelon esittäminen näytöllä on järkevää. Se on kuitenkin oltava tarpeeksi iso, jotta aikavertailulla saadaan esille näkyviä eroja. Käyttöliittymässä asetin rajaksi on 4 <= n <= 20, mutta pelkkiä algoritmeja tutkiessa raja on 4 <= n <= 200. Niissä testeissä, joissa testi luo arvotun kokoisen sokkelon, sokkelojen koot ovat välillä 4-200.
 
 Aikavaativuudet:
 - Iteratiivinen syvyyshaku (iterative DFS): O(n)
 - Kruskalin algoritmi: O(E log V)
 - Aldous-Broderin algoritmi: on O(|V| + |E|), missä |V| on verkon solmujen ja |E| on kaarten lukumäärä
+
+Kruskalin algoritmin osalta sovellus ei saavuta tavoitteena ollutta aikavaatimusta.
 
 
 ## Algoritmien tarkemmat kuvaukset
@@ -113,7 +116,4 @@ Tässä sovelluksessa toteutus on samanlainen kuin iteroivassa DFS:ssä. Mallinn
 ![Survey Paper on Maze Generation Algorithms for Puzzle Solving Games](https://anoopmusale.github.io/resume/paper.pdf)
 
 ![Analysis of Maze Generating Algorithms](http://ipsitransactions.org/journals/papers/tir/2019jan/p5.pdf)
-
-
-
 
