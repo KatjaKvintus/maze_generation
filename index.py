@@ -37,8 +37,8 @@ def generate_mazes():
     end_time = time.time()
     kruskal_execution_time = round((end_time - start_time) * 1000, 4)
     kruskal.print_kruskal_maze(size, kruskal_maze)
-    kruskal_impasses = maze_tools.kruskal_maze_impasse_amount(kruskal_maze)
     kruskal_maze_as_2D_list = maze_paths.show_kruskal_maze_as_2D_list(kruskal_maze)
+    kruskal_impasses = maze_tools.count_maze_impasses(kruskal_maze_as_2D_list)
     kruskal_type = maze_paths.maze_type(kruskal_maze_as_2D_list)
     kruskal_shortest_path = maze_paths.shortest_path(kruskal_maze_as_2D_list)
 
@@ -59,7 +59,7 @@ def generate_mazes():
                                                       aldous_broder_execution_time)
     least_impasses = maze_tools.least_impasses(dfs_impasses,
                                                   kruskal_impasses, aldous_broder_impasses)
-    shortest_path = maze_paths.find_shortest_path(dfs_shortest_path, kruskal_shortest_path, aldous_broder_shortest_path)
+    shortest_path = maze_paths.find_shortest_path_of_three(dfs_shortest_path, kruskal_shortest_path, aldous_broder_shortest_path)
 
 
     return render_template("/results.html",

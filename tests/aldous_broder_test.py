@@ -220,3 +220,40 @@ class Test_aldous_broder(unittest.TestCase):
             result = maze_paths.are_all_cells_reachable(self.new_maze)
 
             self.assertTrue(result)
+
+
+    def test_shortest_path_is_under_max_length(self):
+        '''Test to check that the shortest path can be found
+        and its length is not bigger than matrix cells amount.'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(5, 50)
+            test_sizes.append(i)
+
+        for size in test_sizes:
+
+            max_size = size * size
+            maze = aldous_broder.create_aldous_broder_maze(size)
+            path_length = maze_paths.shortest_path(maze)
+            self.assertLessEqual(path_length, max_size)
+
+
+    def test_shortest_path_is_at_least_minimum_length(self):
+        '''Test to check that the shortest path can be found
+        and its length is not shorter than the mimimum path length
+        in matrix = size + size - 2.'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(5, 50)
+            test_sizes.append(i)
+
+        for size in test_sizes:
+
+            min_size = size + size - 2
+            maze = aldous_broder.create_aldous_broder_maze(size)
+            path_length = maze_paths.shortest_path(maze)
+            self.assertGreaterEqual(path_length, min_size)

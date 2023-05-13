@@ -1,7 +1,7 @@
 '''For testing the kruskal.py file'''
 import unittest
 import random
-from maze_generation import kruskal
+from maze_generation import kruskal, maze_paths, maze_tools
 from PIL import Image
 
 
@@ -124,17 +124,11 @@ class Test_kruskal(unittest.TestCase):
 
             self.assertEqual(number_of_odd_amount_of_edges, 0)
 
-''' 
 
-    def test_return_type_for_get_open_edges(self):
-        '''
+    def test_shortest_path_is_under_max_length(self):
+        '''Test to check that the shortest path can be found
+        and its length is not bigger than matrix cells amount.'''
 
-'''
-        Checks that function get_open_edges() returns
-        a list.
-        Note: this method fails because it is in class Cell
-        inside kruskal.py and I don't know how to refer to it.'''
-'''
         test_sizes = []
 
         for i in range (0, 5):
@@ -142,9 +136,30 @@ class Test_kruskal(unittest.TestCase):
             test_sizes.append(i)
 
         for size in test_sizes:
-            self.new_maze = kruskal.create_kruskal_maze(size)
 
-            for cell in self.new_maze:
-                result = kruskal.get_open_edges(cell)
-                self.assertTrue(isinstance(result, list))
-'''
+            max_size = size * size
+            maze = kruskal.create_kruskal_maze(size)
+            maze_modified = maze_paths.show_kruskal_maze_as_2D_list(maze)
+            path_length = maze_paths.shortest_path(maze_modified)
+            self.assertLessEqual(path_length, max_size)
+
+
+    def test_shortest_path_is_at_least_minimum_length(self):
+        #'''Test to check that the shortest path can be found
+        #and its length is not shorter than the mimimum path length
+        #in matrix = size + size - 2.'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(5, 50)
+            test_sizes.append(i)
+
+        for size in test_sizes:
+
+            min_size = size + size - 2
+            maze = kruskal.create_kruskal_maze(size)
+            maze_modified = maze_paths.show_kruskal_maze_as_2D_list(maze)
+            path_length = maze_paths.shortest_path(maze_modified)
+            self.assertGreaterEqual(path_length, min_size)
+

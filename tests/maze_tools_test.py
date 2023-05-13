@@ -76,9 +76,6 @@ class Test_maze_tools(unittest.TestCase):
             aldous_broder_maze = aldous_broder.create_aldous_broder_maze(size)
             end_time = time.time()
             aldous_broder_execution_time = round((end_time - start_time) * 1000, 4)
-
-            fastest_time = min(dfs_execution_time, kruskal_execution_time,
-                               aldous_broder_execution_time)
             
             if dfs_execution_time < kruskal_execution_time and dfs_execution_time < aldous_broder_execution_time:
                 function_return = "Iterative DFS algorithm in " + str(dfs_execution_time) + " ms"
@@ -93,5 +90,126 @@ class Test_maze_tools(unittest.TestCase):
                                                     aldous_broder_execution_time)
             
             self.assertEqual(result, function_return)
-            
+        
 
+    def test_least_impasses_found_when_a_is_smallest(self):
+        '''Test for least_impasses(a, b, c) function. This test checks that if
+        all parameters are different integers and the 1st one is the smallest,
+        the functions gives correct return phrase.'''
+
+        test_sizes = []
+        
+        for i in range (0, 5):
+            i = random.randint(5, 200)
+            test_sizes.append(i)
+        
+        for size in test_sizes: 
+
+            result = maze_tools.least_impasses(size, size + 1, size + 2)
+            expected_phrase = "Iterative DFS algorithm with " + str(size) + " impasses"
+
+            self.assertEqual(result, expected_phrase)
+
+
+     
+    def test_least_impasses_found_when_b_is_smallest(self):
+        '''Test for least_impasses(a, b, c) function. This test checks that if
+        all parameters are different integers and the 2nd one is the smallest,
+        the functions gives correct return phrase.'''
+
+        test_sizes = []
+        
+        for i in range (0, 5):
+            i = random.randint(5, 200)
+            test_sizes.append(i)
+        
+        for size in test_sizes: 
+
+            result = maze_tools.least_impasses(size+1, size, size + 2)
+            expected_phrase = "Kruskal's algorithm with " + str(size) + " impasses"
+
+            self.assertEqual(result, expected_phrase)
+
+
+    def test_least_impasses_found_when_c_is_smallest(self):
+        '''Test for least_impasses(a, b, c) function. This test checks that if
+        all parameters are different integers and the 3rd one is the smallest,
+        the functions gives correct return phrase.'''
+
+        test_sizes = []
+        
+        for i in range (0, 5):
+            i = random.randint(5, 200)
+            test_sizes.append(i)
+        
+        for size in test_sizes: 
+
+            result = maze_tools.least_impasses(size+1, size, size - 2)
+            expected_phrase = "Aldous-Broder algorithm with " + str(size - 2) + " impasses"
+
+            self.assertEqual(result, expected_phrase)
+
+
+    def test_least_impasses_found_when_there_is_two_smallest_a_and_b(self):
+        '''Test for least_impasses(a, b, c) function. This test checks that if
+        from all parameters a and b are equals and smaller than c, the functions
+        gives correct return phrase.'''
+
+        test_sizes = []
+        
+        for i in range (0, 5):
+            i = random.randint(5, 200)
+            test_sizes.append(i)
+        
+        for size in test_sizes: 
+
+            result = maze_tools.least_impasses(size, size, size +1)
+            phrase_part_1 = "Iterative DFS algorithm and Kruskal's algorithm "
+            phrase_part_2 = "had the same amount of impasses: " + str(size) + " pcs"
+            expected_phrase =  phrase_part_1 + phrase_part_2
+
+            self.assertEqual(result, expected_phrase)
+
+ 
+    def test_least_impasses_found_when_there_is_two_smallest_a_and_c(self):
+        '''Test for least_impasses(a, b, c) function. This test checks that if
+        from all parameters a and c are equals and smaller than b, the functions
+        gives correct return phrase.'''
+
+        test_sizes = []
+        
+        for i in range (0, 5):
+            i = random.randint(5, 200)
+            test_sizes.append(i)
+        
+        for size in test_sizes: 
+
+            result = maze_tools.least_impasses(size, size+1, size)
+            phrase_part_1 = "Iterative DFS algorithm and Aldous-Broder algorithm "
+            phrase_part_2 = "had the same amount of impasses: " + str(size) + " pcs"
+            expected_phrase =  phrase_part_1 + phrase_part_2
+
+            self.assertEqual(result, expected_phrase)
+
+
+    def test_least_impasses_found_when_there_is_two_smallest_b_and_c(self):
+        '''Test for least_impasses(a, b, c) function. This test checks that if
+        from all parameters b and c are equals and smaller than a, the functions
+        gives correct return phrase.'''
+
+        test_sizes = []
+        
+        for i in range (0, 5):
+            i = random.randint(5, 200)
+            test_sizes.append(i)
+        
+        for size in test_sizes: 
+
+            result = maze_tools.least_impasses(size+1, size, size)
+            phrase_part_1 = "Kruskal's algorithm and Aldous-Broder algorithm "
+            phrase_part_2 = "had the same amount of impasses: " + str(size) + " pcs"
+            expected_phrase =  phrase_part_1 + phrase_part_2
+
+            self.assertEqual(result, expected_phrase)
+
+            

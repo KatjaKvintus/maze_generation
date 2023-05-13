@@ -3,8 +3,7 @@
 
 def count_maze_impasses(maze):
     '''Returns the amount of maze impasses e.g. how many cells include
-    only one "1". Helps to analyze maze complexity.
-    Can be used for Iterative DFS and aldous-broder algorithms.'''
+    only one "1". Helps to analyze maze complexity.'''
 
     impasses = 0
 
@@ -12,20 +11,6 @@ def count_maze_impasses(maze):
         for cell in row:
             text = str(cell)
             if text.count("1") == 3:
-                impasses += 1
-
-    return impasses
-
-
-def kruskal_maze_impasse_amount(maze):
-    '''Returns the amount of maze impasses e.g. how many cells include only one "1".
-    Helps to analyze maze complexity.'''
-
-    impasses = 0
-
-    for row in maze:
-        for cell in row:
-            if len(cell.open_edges) == 2:
                 impasses += 1
 
     return impasses

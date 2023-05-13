@@ -118,16 +118,6 @@ def find_available_neighbour(x, y, matrix):
     return neighbors
 
 
-def dfs(matrix, visited_cells, position):
-    '''Depth-first search - helper function for are_all_cells_reachable_in_kruskal_maze'''
-
-    visited_cells.add(position)
-
-    for neighbor in matrix[position[0]][position[1]]:
-        if neighbor not in visited_cells:
-            dfs(matrix, visited_cells, neighbor)
-
-
 def maze_type(maze):
     '''Returns "perfect maze" if all maze cells are reachable,
     and "non-perfect" if not.'''
@@ -183,7 +173,7 @@ def shortest_path(matrix):
     
 
 
-def find_shortest_path(dfs, kruskal, aldous_broder):
+def find_shortest_path_of_three(dfs, kruskal, aldous_broder):
     '''Returns the description of the algorithm that generated a maze with shortest path'''
 
     if dfs <= kruskal and dfs <= aldous_broder:
@@ -210,7 +200,7 @@ def find_shortest_path(dfs, kruskal, aldous_broder):
     if kruskal <= dfs and kruskal <= aldous_broder:
 
         if kruskal == aldous_broder:
-            phrase_1 = "Kruskal's maze and Aldous-Broder maze "
+            phrase_1 = "Kruskal's maze and Aldous-Broder maze had "
             phrase_2 = "equally short shortest path: "
             result = phrase_1 + phrase_2
             return result + str(kruskal) + " steps"

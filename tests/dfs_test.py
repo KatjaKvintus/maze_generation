@@ -164,7 +164,7 @@ class Test_dfs(unittest.TestCase):
             self.assertTrue(frame_is_unbroken)
 
 
-    def test_impasse_method_works(self):
+    def test_impasse_method_returns_integer_in_correct_size(self):
         '''For testing the maze_impasse_amount() method.
         It should always return an integer between 0 and 50^2.'''
 
@@ -179,6 +179,7 @@ class Test_dfs(unittest.TestCase):
             result = maze_tools.count_maze_impasses(self.maze)
             self.assertTrue(0 <= result <= size*size)
     
+
     def test_impasses_are_counted_correctly_in_size_4_maze(self):
         '''For checking that impasses are count correctly'''
 
@@ -205,7 +206,7 @@ class Test_dfs(unittest.TestCase):
 
 
 
-    def test_is_this_perfect_maxe(self):
+    def test_is_this_perfect_maze(self):
         '''Checks if all maze cells can be reached from every other cell'''
 
         test_sizes = []
@@ -220,3 +221,64 @@ class Test_dfs(unittest.TestCase):
             result = maze_paths.are_all_cells_reachable(self.new_maze)
 
             self.assertTrue(result)
+    
+
+    def test_shortest_path_is_under_max_length(self):
+        '''Test to check that the shortest path can be found
+        and its length is not bigger than matrix cells amount.'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(5, 50)
+            test_sizes.append(i)
+
+        for size in test_sizes:
+
+            max_size = size * size
+            maze = dfs.create_dfs_maze(size)
+            path_length = maze_paths.shortest_path(maze)
+            self.assertLessEqual(path_length, max_size)
+    
+
+    def test_shortest_path_is_at_least_minimum_length(self):
+        '''Test to check that the shortest path can be found
+        and its length is not shorter than the mimimum path length
+        in matrix = size + size - 2.'''
+
+        test_sizes = []
+
+        for i in range (0, 5):
+            i = random.randint(5, 50)
+            test_sizes.append(i)
+
+        for size in test_sizes:
+
+            min_size = size + size - 2
+            maze = dfs.create_dfs_maze(size)
+            path_length = maze_paths.shortest_path(maze)
+            self.assertGreaterEqual(path_length, min_size)
+
+
+    def test_shortest_path_lenght_correct(self):
+        '''Test to check that the shortest path will be found and
+        the lenght is correct in size 4 maze.'''
+
+        maze_4 = [[[1, 1, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1], [0, 1, 1, 0]],
+                  [[1, 0, 1, 0], [1, 0, 1, 1], [1, 1, 0, 0], [0, 0, 1, 0]],
+                  [[1, 0, 0, 1], [0, 1, 1, 0], [1, 0, 1, 0], [1, 0, 1, 0]],
+                  [[1, 1, 0, 1], [0, 0, 0, 1], [0, 0, 1, 1], [1, 0, 1, 1]]]
+        
+        path_lenght = maze_paths.shortest_path(maze_4)
+
+        self.assertEqual(path_lenght, 10)
+        
+
+
+
+
+
+
+
+
+
