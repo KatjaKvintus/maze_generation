@@ -29,6 +29,11 @@ coverage report -m
 
 Testien ajaminen kestää keskimäärin 398,79 s (n. 6 min 39 s). Ajoin testit kymmenen kertaa ja ajoajat vaihtelivat 237,02 - 518,38 s välillä. 
 
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/unittestien_ajoajat.png">
+
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/tilasto_unittest.png">
+
+
 ### Testikattavuus
 
 ![](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/testikattavuus%202023-05-13.png)
