@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Sovelluksen toimintaa testataan unittesteillä. Labyrinttien luomista koskevissa testeissä arvotaan viisi kokonaislukua, ja silmukassa ensin luodaan kunkin luvun kokoinen albyrintti ja suoritetaan niille testit. Testit keskittyvät labyrintteja generoiviin ja analysoiviin funktioihin, eivätkä ne käsittele labyrintin visualisoivia funktioita.
+Sovelluksen toimintaa testataan unittesteillä. Labyrinttien luomista koskevissa testeissä arvotaan viisi kokonaislukua (4-200), ja silmukassa ensin luodaan kunkin luvun kokoinen labyrintti ja suoritetaan niille testit. Testit keskittyvät labyrintteja generoiviin ja analysoiviin funktioihin, eivätkä ne käsittele labyrintin visualisoivia funktioita. Testien ajamiseen kuluu 3-8 minuuttia.
 
 ### Testien ajaminen
 
@@ -45,14 +45,5 @@ coverage report -m
 
 ### Pylint
 
-Tilanne 16.4.2023:
-Pylint-tarkistus antaa arvosanan 8.77/10
+Pylint-tarkastus antaa sovellukselle arvosanan 9.30/10. Kympistä sen tiputtaa mm. liian monimutkainen haarautuvuus genrointialgoritmeissa (too-many-branches) ja koodin toisteisuus (too-many-branches) kuvatiedostoja luovissa funktioissa. Tässä versiossa jokaiselle generointialgorimille on oma kuvanluontifunktio, vaikka ne voisi kohtuullisella säädöllä yhdistää.
 
-Tilanne 23.4.2023:
-Pylint-tarkistus antaa arvosanan 8.32/10 
-
-Tilanne 30.4.2023
-Pylint-tarkastus antaa arvosanan 8.06/10.
-
-Tilanne 7.5.2023:
-Pylint-tarkistus antaa arvosanan 8.91/10.
