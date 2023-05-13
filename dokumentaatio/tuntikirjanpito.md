@@ -39,9 +39,9 @@
 | 8.5.2023 | 2 | Dokumentaation kirjoitusta, syvyyshakualgoritmin nimen korjaus tiedostoihin |
 | 9.5.2023 | 3 | Dokumentaation kirjoitusta + kaikenlaista pientä säätöä |
 | 10.5.2023 | 4 | Lisää testejä maze_tools.py -tiedostolle, ulkoasun säätöä, labyrintin täydellisyyttä tutkivan funktion korjaus |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| 11.5.2023 | 1 | Debuggausta |
+| 12.5.2023 | 3 | Dokumentaation kirjoitusta |
+| 13.5.2023 | 6 | Täydentävien testien kirjoittaminen, viimeinen pylint-tarkistusajo ja korjaukset, unittestien generointitestien max-parametri 50 -> 200 |
 |  |  |  |
 
-| yht. 111 tuntia |  
+| yht. 121 tuntia |  
