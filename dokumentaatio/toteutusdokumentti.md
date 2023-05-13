@@ -8,7 +8,7 @@ Sovelluksen toiminnallisuudet on kirjoitettu pythonilla ja ulkoasu HTML:llä. La
 
 Omiin kansioihinsa on sijoitettu testit, html-templaatit ja sovelluksen dokumentaatio. Muut tiedostot ovat sovelluksen juuressa. Yritykseni sijoittaa labyrinttejä generoivat tiedostot erikseen ja labyrinttien analysointiin keskittyvät erikseen johtivat epäselvään viittaushässäkkään. Ilmeisesti Flask on tässä vähän villi kortti, joka sotkee asioita ja normaalit tavat importata luokkia eivät toimi oikein. Pitkän debuggaamisen jälkeen luovitin ja jätin testejä lukuunottamatta kaikki.py-tiedostot juureen.
 
-![](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/pakkaukset.png)
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/pakkaukset.png" width="60%" height="60%">
 
 
 ### Aikavaativuudet
