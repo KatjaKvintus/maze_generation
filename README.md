@@ -4,9 +4,7 @@ _Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit, Helsingin yliopisto_
 Sovellus generoi, visualisoi ja vertailee kolmen eri satunnaisia labyrinttejä generoivien algoritmin (iteratiivinen syvyyshaku, Kruskalin algoritmi ja Aldous-Broderin algoritmi) tuloksia. 
 
 
-### Sovelluksen tilanne 7.5.2023
-
-Vaikka kaikenlaista pientä hiottavaa riittää, pylint ei ole täysin tyytyväinen ja dokumentaatiossakin on vielä kirjoitettavaa, sovellus alkaa olla melko valmis.
+### Ohje vertaisarvioihille
 
 Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausohjeita.md).
 
@@ -34,8 +32,8 @@ Vertaisarviointia varten lyhyt ohje [täällä](https://github.com/KatjaKvintus/
 
 ![Tuntikirjanpito](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/tuntikirjanpito.md)
 
-![Testausdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausdokumentti.md) - kesken
+![Testausdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/testausdokumentti.md) 
 
-![Toteutusdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/toteutusdokumentti.md) - kesken
+![Toteutusdokumentti](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/toteutusdokumentti.md)
 
-![Käyttöohje](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/kaytt%C3%B6ohje.md) - kesken
+![Käyttöohje](https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/kaytt%C3%B6ohje.md)
