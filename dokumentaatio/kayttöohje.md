@@ -1,12 +1,5 @@
 # Käyttöohje
 
-KESKEN - puuttuu vielä:
-- Miten ohjelma suoritetaan
-- miten eri toiminnallisuuksia käytetään
-- Minkä muotoisia syötteitä ohjelma hyväksyy
-- Missä hakemistossa on jar ja ajamiseen tarvittavat testitiedostot.
-- kaaviot
-
 
 ### Sovelluksen käyttöönotto
 
@@ -66,8 +59,7 @@ Aja terminaalissa seuraava käsky:
 pylint *.py
 ```
 
+### Tiedossa olevat, käyttöön vaikuttavat virheet
 
-### Tiedossa olevat virheet
-
-- Kruskalin algoritmilla generoidun sokkelon kuvaan reunojen sisälle jää yli 20x20 sokkeloissa valkoiset palkit oikeaan ja alareunaan (skaalausongelma?)
-- Kun sovelluksella on luotu yksi setti sokkeloita, ja käyttäjä palaa etusivulle luomaan toista settiä, useimmiten (mutta ei ihan aina) sovellus kaatuu 'Generate mazes' nappia painettaessa. Syy tuntematon. Sovellus siis kannattaa buutata jokaisen ajon välissä (terminaalissa 'Ctrl+C').
+- Isompia labyrinttejä generoidessa turtlen piirtämään kuvaan jää ala- ja oikeaan reunaan ohut valkea palkki. Virhe on kosmeettinen ja liittyy piirtämiseen, ei itse labyrintin generointiin.
+- Kun sovelluksella on luotu yksi setti labyrinttejä, ja käyttäjä palaa etusivulle luomaan toista settiä, useimmiten (mutta ei ihan aina) sovellus kaatuu 'Generate mazes' nappia painettaessa. Syy tuntematon. Sovellus siis kannattaa buutata jokaisen ajon välissä (terminaalissa 'Ctrl+C').
