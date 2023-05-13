@@ -2,7 +2,7 @@
 
 ### Ohjelman yleisrakenne
 
-Sovellus on yksinkertainen webbisovellus. Käyttäjä antaa syötteenä haluamansa sokkelon koon (n) ja sovellus tuottaa  sokkelot (n x n) sovelluksen tarjoamilla algoritmeilla. Sovellus näyttää kunkin sokkelon kuvana ja tarjoaa siitä myös dataa: sokkelotyyppi, sen sisältämien umpikujien määrä ja sokkelon tuottamiseen kulunut aika. 
+Sovellus on yksinkertainen webbisovellus. Käyttäjä antaa syötteenä haluamansa sokkelon koon (n) ja sovellus tuottaa  sokkelot (n x n) sovelluksen tarjoamilla algoritmeilla. Sovellus näyttää kunkin sokkelon kuvana ja tarjoaa siitä myös dataa: sokkelotyyppi (perfect/non-perfect), sen sisältämien umpikujien määrä, sokkelon generointiin kulunut aika ja lyhyimmän polun pituus (vasemmasta yläkulmasta oikeaan alakulmaan). 
 
 Sovelluksen toiminnallisuudet on kirjoitettu pythonilla ja ulkoasu HTML:llä. Labyrinttien visualisointi on tehty [Turtlella](https://docs.python.org/3/library/turtle.html).
 
@@ -38,7 +38,7 @@ Labyrinttien generoinnin näkökulmasta generointiaika ei ole merkittävin tekij
 
 - Modulien importit eivät välttämättä toimi oikein muilla koneilla. Tyyli "from maze_generation import kruskal" ei ole oikea tapa importata, mutta jostakin syystä se on ainoa joka toimii. Testiluokkien importit saattaa siis joutua korjaamaan ennen kuin sovellusta voi testata. Epäilen, että ongelma on Flask-peräinen.
 - Testi test_drawing_function_returns_file_that_is_not_empty() antaa satunnaisesti hämärän virheilmoituksen Aldous-Broderin algoritmin tuottamasta labyrinttikuvasta
-- Sovellus pitää buutata jokaisen generointiajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä
+- Sovellus pitää buutata (terminaalissa 'Ctrl+C') jokaisen generointiajon välissä, muuten se kaatuu turtle-moduulin käynnistyessä 
 - Kruskalin algoritmilla varsinkin isommat labyrintit ovat hitaita generoida ja algoritmi kaipaisikin tehostamista.
 - Turtle-ikkuna jää auki labyrinttien luomisen jälkeen ja se jää näkyviin selainikkunan päälle. Koodirivi, jolla sain sen sulkeutumaan automaattisesti, aiheutti virheen unittestejä ajaessa, joten päätin, että tämä on ominaisuus, ei vika.
 
@@ -48,7 +48,9 @@ Labyrinttien generoinnin näkökulmasta generointiaika ei ole merkittävin tekij
 - Sovellusta voisi laajentaa niin, että siinä olisi tarjolla useampia eri algoritmeja, ja käyttäjä voisi valita, minkä/mitkä hän haluaa testata
 - Tällä hetkellä käyttäjältä pyydetään vain yksi numeerinen arvo ja labyrintit luodaan koossa n x n. Tätä voisi muuttaa siten, että käyttäjältä pyydetään erikseen sekä labyrintin toivottu leveys ja korkeus, jotta algoritmeilla voisi testata erimuotoisia labyrinttejä.
 - Visualisoinnille jotain nopeampaa kuin turtle-moduuli
+- Pylint huomauttelee pitkistä ja monihaaraisista generointifunktioista. Ne olisi testauksenkin kannalta järkevää jakaa muutamaan pienempään funktioon kukin. Tässä vaiheessa koodarilta vain loppui aika kesken.
 - Valmiin kuvan tuottamisen sijaan visualisoinnin voisi toteuttaa animaatiolla, joka olisi käyttäjälle informatiivisempi ja mielenkiintoisempi
+- Valmiin kuvan ja/tai labyrintin generointivideon ja niihin liittyvän datan (generointiaika, umpikujien määrä, lyhyimmän reitin pituus) ottaminen talteen ja tilastointi
 
 
 ### Lähteet
