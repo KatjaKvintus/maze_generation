@@ -30,14 +30,16 @@ Kopioi terminaalin antama url ("Running on..." -riviltä) ja liitä se selaimen 
 Pääset sisään sovellukseen ilman kirjautumista tai käyttäjätilin luontia. Aloitussivu näyttää tältä:
 
 <kbd>
-<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/sovellus_aloitussivu.png" width="40%" height="40%">
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/sovellus_alkusivu.png">
 </kbd>
+
 
 Anna lomakkeelle haluamasi sokkelon koko (n x n) ja sovellus luo kaksi sokkeloa: satunnaisen syvyyshakualgoritmin ja Kruskalin algoritmin mukaan. Sovellus piirtää sokkelot [Turtlella](https://docs.python.org/3/library/turtle.html), joten heti koon annettuasi aukeaa ikkuna, jossa sovellus piirtää kolme sokkeloa ja tnäyttää sitten kuvat ja tietoja kustakin labyrintistä. Tulossivu näyttää tältä:
 
 <kbd>
-<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/sovellus_tulossivu.png" width="60%" height="60%">
+<img src="https://github.com/KatjaKvintus/maze_generation/blob/main/dokumentaatio/Kuvat/sovellus_tulossivu.png">
 </kbd>
+
 
 Varoitus: isot sokkelot ovat _todella_ hitaita piirtää Turtlella, joten kannattaa kokeilla aluksi maltillisen kokoisella (esim. 5 - 10). Käyttöliittymä hyväksyy parametriksi luvut välillä 4-20. (Testiä ajaessa sovellus generoi arvoituista luvuista max 200 x 200 kokosia labyrinttejä.)
 
