@@ -5,6 +5,8 @@ Sovellus generoi, visualisoi ja vertailee kolmen eri satunnaisia labyrinttejä g
 
 ![Release 1](https://github.com/KatjaKvintus/maze_generation/releases/tag/tiralabra)
 
+![Release 2](https://github.com/KatjaKvintus/maze_generation/releases/tag/tiralabra2)
+
 
 ### Ohje vertaisarvioihille
 
