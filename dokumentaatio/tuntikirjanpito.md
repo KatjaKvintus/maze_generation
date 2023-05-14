@@ -42,6 +42,6 @@
 | 11.5.2023 | 1 | Debuggausta |
 | 12.5.2023 | 3 | Dokumentaation kirjoitusta |
 | 13.5.2023 | 6 | Täydentävien testien kirjoittaminen, viimeinen pylint-tarkistusajo ja korjaukset, unittestien generointitestien max-parametri 50 -> 200 |
-|  |  |  |
+| 14.5.2023 | 4 | Import-ongelman selvittelyä |
 
-| yht. 121 tuntia |  
+| yht. 125 tuntia |  
