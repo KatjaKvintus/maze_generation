@@ -41,12 +41,22 @@ Anna lomakkeelle haluamasi sokkelon koko (n x n) ja sovellus luo kaksi sokkeloa:
 </kbd>
 
 
-Varoitus: isot sokkelot ovat _todella_ hitaita piirtää Turtlella, joten kannattaa kokeilla aluksi maltillisen kokoisella (esim. 5 - 10). Käyttöliittymä hyväksyy parametriksi luvut välillä 4-20. (Testiä ajaessa sovellus generoi arvoituista luvuista max 200 x 200 kokosia labyrinttejä.)
+Varoitus: isot sokkelot ovat melko hitaita piirtää Turtlella, joten kannattaa kokeilla aluksi maltillisen kokoisella (esim. 5). Käyttöliittymä hyväksyy parametriksi luvut välillä 4-20. (Testiä ajaessa sovellus generoi arvoituista luvuista max 200 x 200 kokosia labyrinttejä.)
 
 
 ### Testien ajaminen
 
-1. siirry terminaalissa virtuaaliympäristöön komennolla 
+HUOM: testien labyrinttiluokkiin viittavaat importit on tehty väärin. Testit eivät välttämättä (todennäköisesti) toimi oikein muilla koneilla. Tyyli "from maze_generation import kruskal" ei ole oikea tapa importata, mutta jostakin syystä se on ainoa joka toimii sekä testiajoissa että selaimessa Flask-appina. Kaikki mahdolliset variaatiot on kokeiltu. Testiluokkien importit saattaa siis joutua korjaamaan ennen kuin unittestit voi ajaa.
+
+Ongelma johtuu ilmeisesti virtuaaliympäristöstä ja se pitää korjata muokkaamalla ne testitiedostojen importit, jotka koskevat labyrinttien generointiluokkia,  seuraavanlaiseksi: 
+
+```bash
+from [sovelluksen ylätason kansio, tod.näk. 'maze_generation-tiralabra'] import [luokan nimi]
+```
+
+Importtien fiksauksen jälkeen testien ajo pitäisi onnistua seuraavasti:
+
+1. siirry terminaalissa virtuaaliympäristöön (huom: Poetry, ei venv!) komennolla 
 ```bash
 poetry shell
 ```
