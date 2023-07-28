@@ -20,7 +20,7 @@ Raportista puuttuu kokonaan kolmannen algoritmin testit, joita ei ole vielä kir
 
 ### Mitä opin tällä viikolla?
 
-Tutustuin recursive backtracker -algoritmiin syvällisemmin (ja moneen muuhun labyrinttejä luovaab algoritmiin, joista en ollut koskaan kuullutkaan).
+Tutustuin recursive backtracker -algoritmiin syvällisemmin (ja moneen muuhun labyrinttejä luovaan algoritmiin, joista en ollut koskaan kuullutkaan).
 
 
 ### Mikä jäi epäselväksi tai tuottanut vaikeuksia? 
