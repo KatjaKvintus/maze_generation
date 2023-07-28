@@ -30,7 +30,7 @@ Toinen vertaisarvio osoitti, että joillakin koneilla testiluokkien importtien m
 
 ### Sovelluksen käyttö
 
-Sovellus avautuu ilman kirjautumista tai käyttäjätilin luontia. Anna lomakkeelle haluamasi sokkelon koko (n x n) ja sovellus generoi kolme sokkeloa: iteratiivisen syvyyshakualgoritmin, Kruskalin algoritmin ja Aldous-Broderin algoritmin mukaan. Sovellus piirtää sokkelot [Turtlella](https://docs.python.org/3/library/turtle.html), joten heti koon annettuasi aukeaa ikkuna, jossa sovellus piirtää kaksi sokkeloa ja tallentaa ne sitten kuvina. Kolmas sokkeloalgoritmi, rekursiivinen jakoalgoritmi, ei tällä hetkellä toimi oikein eikä tuota vielä kuvaa. 
+Sovellus avautuu ilman kirjautumista tai käyttäjätilin luontia. Anna lomakkeelle haluamasi sokkelon koko (n x n) ja sovellus generoi kolme sokkeloa: iteratiivisen syvyyshakualgoritmin, Kruskalin algoritmin ja Aldous-Broderin algoritmin mukaan. Sovellus piirtää sokkelot [Turtlella](https://docs.python.org/3/library/turtle.html), joten heti koon annettuasi aukeaa ikkuna, jossa sovellus piirtää kaksi sokkeloa ja tallentaa ne sitten kuvina. 
 
 Varoitus: isot sokkelot ovat _todella_ hitaita piirtää Turtlella, joten kannattaa kokeilla aluksi maltillisen kokoisella (esim. 5 - 12).
 
